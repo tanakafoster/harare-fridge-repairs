@@ -62,7 +62,7 @@ export function Logo({ tone = "dark", className, size = "md", asLink = true, onC
   if (!asLink) return lockup
 
   return (
-    <Link href="/" aria-label={`${site.name} home`} onClick={onClick} className="inline-flex rounded-md">
+    <Link href="/" aria-label={`${site.name} home`} onClick={onClick} className="inline-flex min-h-11 items-center rounded-md">
       {lockup}
     </Link>
   )

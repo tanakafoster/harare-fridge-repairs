@@ -25,17 +25,17 @@ export function SiteHeader() {
     <>
       <div className="bg-brand text-white">
         <div className="container-site flex h-9 items-center justify-between gap-4 text-xs font-medium sm:text-sm">
-          <p className="flex min-w-0 items-center gap-4 truncate">
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
-              {site.coverageLabel}
+          <p className="flex min-w-0 items-center gap-3 sm:gap-4">
+            <span className="inline-flex min-w-0 items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              <span className="truncate">{site.coverageLabel}</span>
             </span>
             <span className="hidden items-center gap-1.5 sm:inline-flex">
               <Clock className="h-3.5 w-3.5" aria-hidden="true" />
               Open 24/7
             </span>
           </p>
-          <a href={`tel:${site.phonePrimaryTel}`} className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap font-semibold hover:underline">
+          <a href={`tel:${site.phonePrimaryTel}`} className="inline-flex h-9 shrink-0 items-center gap-1.5 whitespace-nowrap font-semibold hover:underline">
             <Phone className="h-3.5 w-3.5" aria-hidden="true" />
             Call {site.phonePrimaryDisplay}
           </a>
@@ -52,7 +52,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="whitespace-nowrap rounded-full px-2 py-2 text-[0.8125rem] font-semibold text-navy transition-colors hover:bg-ice hover:text-brand"
+                    className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-2 text-[0.8125rem] font-semibold text-navy transition-colors hover:bg-ice hover:text-brand"
                   >
                     {item.label}
                   </Link>
@@ -64,7 +64,7 @@ export function SiteHeader() {
           {/* Desktop: full number from xl up, a round icon button between lg and xl. */}
           <a
             href={`tel:${site.phonePrimaryTel}`}
-            className="btn-primary hidden shrink-0 whitespace-nowrap px-4 py-2 text-sm xl:inline-flex"
+            className="btn-primary hidden min-h-11 shrink-0 whitespace-nowrap px-4 py-2 text-sm xl:inline-flex"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
             {site.phonePrimaryDisplay}

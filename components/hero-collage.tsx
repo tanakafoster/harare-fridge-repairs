@@ -16,7 +16,7 @@ import {
 import { SitePicture, type PictureKey } from "@/components/pictures"
 import { cn } from "@/lib/utils"
 
-type Tile = { picture: PictureKey; alt: string; label: string; href: string }
+type Tile = { picture: PictureKey; alt: string; label: string; shortLabel?: string; href: string }
 
 const tiles: Tile[] = [
   {
@@ -29,12 +29,14 @@ const tiles: Tile[] = [
     picture: "collageFrenchDoor",
     alt: "Technician repairing an open French door refrigerator in a kitchen",
     label: "French door & side by side",
+    shortLabel: "French door",
     href: "/french-door-fridge-repairs",
   },
   {
     picture: "collageUprightFreezer",
     alt: "Technician with a toolbox beside an open upright freezer",
     label: "Upright & chest freezers",
+    shortLabel: "Freezers",
     href: "/upright-freezer-repairs",
   },
   {
@@ -52,7 +54,7 @@ export function HeroCollage({ className }: { className?: string }) {
       <ul className="grid grid-cols-2 gap-2 sm:gap-3">
         {tiles.map((tile) => (
           <li key={tile.href} className="relative overflow-hidden rounded-2xl shadow-card sm:rounded-3xl">
-            <Link href={tile.href} className="group block">
+            <Link href={tile.href} className="group block focus-visible:-outline-offset-4">
               <SitePicture
                 name={tile.picture}
                 alt={tile.alt}
@@ -60,8 +62,15 @@ export function HeroCollage({ className }: { className?: string }) {
                 sizes="(min-width: 1024px) 22vw, 45vw"
                 className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
               />
-              <span className="absolute inset-x-2 bottom-2 rounded-full bg-white/95 px-3 py-1.5 text-center text-[0.7rem] font-semibold leading-tight text-navy shadow-sm sm:inset-x-3 sm:bottom-3 sm:text-xs">
-                {tile.label}
+              <span className="absolute inset-x-1 bottom-2 truncate rounded-full bg-white/95 px-2 py-1.5 text-center text-[0.65rem] font-semibold leading-tight text-navy shadow-sm min-[360px]:text-[0.7rem] sm:inset-x-3 sm:bottom-3 sm:px-3 sm:text-xs">
+                {tile.shortLabel ? (
+                  <>
+                    <span className="sm:hidden">{tile.shortLabel}</span>
+                    <span className="hidden sm:inline">{tile.label}</span>
+                  </>
+                ) : (
+                  tile.label
+                )}
               </span>
             </Link>
           </li>

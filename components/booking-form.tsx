@@ -105,7 +105,8 @@ export function BookingForm({ areaNames, typeNames, brandNames, problemNames }: 
       <div className="flex flex-wrap items-center gap-3">
         <button type="submit" className="btn-whatsapp w-full sm:w-auto">
           <WhatsAppIcon className="h-5 w-5" />
-          Send booking on WhatsApp
+          <span className="min-[360px]:hidden">Send on WhatsApp</span>
+          <span className="hidden min-[360px]:inline">Send booking on WhatsApp</span>
         </button>
         <a href={`tel:${site.phonePrimaryTel}`} className="btn-outline w-full sm:w-auto">
           <Phone className="h-4 w-4" aria-hidden="true" />

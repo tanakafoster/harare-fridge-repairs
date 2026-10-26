@@ -123,14 +123,15 @@ export function MobileNav({ items }: { items: NavItem[] }) {
           <ul className="mt-1 grid grid-cols-2 gap-x-4 border-t border-line pt-1">
             {secondaryLinks.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} onClick={close} className="block py-2.5 text-sm font-medium text-muted">
+                <Link href={item.href} onClick={close} className="block py-2.5 text-sm font-medium text-muted sm:py-3">
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
           <p className="py-2 text-center text-xs text-muted">
-            {site.hoursLabel} · {site.phonePrimaryDisplay} · {site.phoneSecondaryDisplay}
+            {site.hoursLabel} · <span className="whitespace-nowrap">{site.phonePrimaryDisplay}</span> ·{" "}
+            <span className="whitespace-nowrap">{site.phoneSecondaryDisplay}</span>
           </p>
         </nav>
 
