@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --color-brand: #0632af;
+  --color-brand-dark: #04237d;
+  --color-brand-bright: #264cb9;
+  --color-brand-soft: #dbe4ff;
+  --color-navy: #0b1a4a;
+  --color-ice: #e9effc;
+  --color-frost: #f4f7fd;
+  --color-ink: #16213e;
+  --color-muted: #4b5675;
+  --color-line: #d7deef;
+  --color-whatsapp: #075e54;
+  --color-whatsapp-bright: #25d366;
+
+  --shadow-card: 0 1px 2px rgb(11 26 74 / 0.06), 0 8px 24px -12px rgb(6 50 175 / 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+    font-feature-settings: "kern";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold tracking-tight text-navy;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: #dbe4ff;
+    color: #04237d;
+  }
+
+  :focus-visible {
+    outline: 3px solid #264cb9;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-150 sm:text-base bg-brand text-white hover:bg-brand-dark;
+  }
+
+  .btn-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-150 sm:text-base bg-white text-brand hover:bg-ice;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-150 sm:text-base border-2 border-brand text-brand hover:bg-ice;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-150 sm:text-base border-2 border-white/80 text-white hover:bg-white/10;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-colors duration-150 sm:text-base bg-whatsapp text-white hover:bg-[#064c44];
+  }
+
+  .prose-site {
+    @apply text-[1.02rem] leading-relaxed text-ink;
+  }
+
+  .prose-site p + p,
+  .prose-site p + ul,
+  .prose-site ul + p {
+    @apply mt-4;
+  }
+
+  .prose-site h2 {
+    @apply mt-10 text-xl font-bold text-navy first:mt-0;
+  }
+
+  .prose-site h2 + p {
+    @apply mt-3;
+  }
+
+  .prose-site ul {
+    @apply list-disc space-y-1 pl-6;
+  }
+
+  .prose-site a {
+    @apply font-semibold text-brand underline decoration-brand/30 underline-offset-4 hover:decoration-brand;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white p-6 shadow-card;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.18em] text-brand;
+  }
+
+  .link-chip {
+    @apply inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 text-sm font-medium text-navy transition-colors hover:border-brand hover:bg-ice hover:text-brand;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
