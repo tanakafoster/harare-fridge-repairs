@@ -103,11 +103,11 @@ export function BookingForm({ areaNames, typeNames, brandNames, problemNames }: 
         <textarea name="notes" rows={3} className={inputClass} placeholder="Gate details, model number, when the problem started..." />
       </label>
       <div className="flex flex-wrap items-center gap-3">
-        <button type="submit" className="btn-whatsapp text-base">
+        <button type="submit" className="btn-whatsapp w-full sm:w-auto">
           <WhatsAppIcon className="h-5 w-5" />
           Send booking on WhatsApp
         </button>
-        <a href={`tel:${site.phonePrimaryTel}`} className="btn-outline text-base">
+        <a href={`tel:${site.phonePrimaryTel}`} className="btn-outline w-full sm:w-auto">
           <Phone className="h-4 w-4" aria-hidden="true" />
           Or call {site.phonePrimaryDisplay}
         </a>

@@ -22,8 +22,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4.5rem;
     -webkit-text-size-adjust: 100%;
+  }
+
+  /* Keep anchor and focus targets clear of the sticky header. */
+  main,
+  [id] {
+    scroll-margin-top: 4.5rem;
   }
 
   body {

@@ -20,27 +20,27 @@ type Tile = { picture: PictureKey; alt: string; label: string; href: string }
 
 const tiles: Tile[] = [
   {
-    picture: "fan",
-    alt: "Technician repairing a double door fridge-freezer in a Harare kitchen",
-    label: "Double door & combi",
-    href: "/double-door-fridge-repairs",
+    picture: "collageCombi",
+    alt: "Technician repairing the freezer drawer of a combi fridge-freezer",
+    label: "Combi & double door",
+    href: "/combi-fridge-repairs",
   },
   {
-    picture: "frenchDoor",
-    alt: "Technician repairing a French door refrigerator",
-    label: "Side by side & French door",
+    picture: "collageFrenchDoor",
+    alt: "Technician repairing an open French door refrigerator in a kitchen",
+    label: "French door & side by side",
     href: "/french-door-fridge-repairs",
   },
   {
-    picture: "freezerIce",
-    alt: "Technician clearing ice from a freezer evaporator",
-    label: "Chest & upright freezers",
-    href: "/chest-freezer-repairs",
+    picture: "collageUprightFreezer",
+    alt: "Technician with a toolbox beside an open upright freezer",
+    label: "Upright & chest freezers",
+    href: "/upright-freezer-repairs",
   },
   {
-    picture: "compressorTest",
+    picture: "collageCommercial",
     alt: "Technician testing the compressor of a stainless steel commercial fridge",
-    label: "Commercial & display fridges",
+    label: "Commercial fridges",
     href: "/commercial-fridge-repairs",
   },
 ]
@@ -50,13 +50,13 @@ export function HeroCollage({ className }: { className?: string }) {
   return (
     <div className={cn("relative", className)}>
       <ul className="grid grid-cols-2 gap-2 sm:gap-3">
-        {tiles.map((tile, index) => (
+        {tiles.map((tile) => (
           <li key={tile.href} className="relative overflow-hidden rounded-2xl shadow-card sm:rounded-3xl">
             <Link href={tile.href} className="group block">
               <SitePicture
                 name={tile.picture}
                 alt={tile.alt}
-                priority={index < 2}
+                loading="eager"
                 sizes="(min-width: 1024px) 22vw, 45vw"
                 className="aspect-[4/3] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
               />
@@ -67,9 +67,12 @@ export function HeroCollage({ className }: { className?: string }) {
           </li>
         ))}
       </ul>
-      <div className="mt-3 flex items-center justify-between gap-3 rounded-2xl bg-brand px-4 py-3 text-white sm:mt-4">
+      <div className="mt-3 flex items-center justify-between gap-3 rounded-2xl bg-brand py-3 pr-2 pl-4 text-white sm:mt-4">
         <p className="text-sm font-semibold">All fridge and freezer types, repaired at your address</p>
-        <Link href="/refrigerator-repairs" className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold underline-offset-4 hover:underline">
+        <Link
+          href="/refrigerator-repairs"
+          className="-my-2 inline-flex shrink-0 items-center gap-1 rounded-full px-3 py-2.5 text-sm font-semibold underline-offset-4 hover:bg-white/10 hover:underline"
+        >
           19 types <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>

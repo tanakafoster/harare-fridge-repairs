@@ -101,20 +101,23 @@ export default function HomePage() {
         ]}
       />
 
-      {/* Hero */}
+      {/* Hero: on phones the fridge type photos come straight after the heading. */}
       <section className="bg-gradient-to-b from-ice via-frost to-white">
-        <div className="container-site grid items-center gap-10 pt-10 pb-14 lg:grid-cols-[1.1fr_1fr] lg:pt-16 lg:pb-20">
-          <div>
+        <div className="container-site grid gap-x-10 gap-y-6 pt-8 pb-14 lg:grid-cols-[1.1fr_1fr] lg:grid-rows-[auto_auto] lg:items-center lg:pt-16 lg:pb-20">
+          <div className="lg:col-start-1 lg:row-start-1 lg:self-end">
             <p className="eyebrow">Harare&apos;s fridge and freezer specialists</p>
             <h1 className="mt-3 text-4xl font-extrabold leading-[1.1] text-navy sm:text-5xl lg:text-[3.25rem]">
               Fridge Repairs in Harare, <span className="text-brand">at Your Door, 24/7</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          </div>
+          <HeroCollage className="lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:self-center" />
+          <div className="lg:col-start-1 lg:row-start-2 lg:self-start">
+            <p className="max-w-2xl text-lg leading-relaxed text-muted">
               Fridge not cooling? Freezer not freezing? Our mobile technicians repair and regas every make of fridge
               and freezer at your home or business, anywhere in Harare, usually the same day. One call and we are on
               our way.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 lg:mt-8">
               <a href={`tel:${site.phonePrimaryTel}`} className="btn-primary text-base">
                 <Phone className="h-5 w-5" aria-hidden="true" />
                 Call {site.phonePrimaryDisplay}
@@ -127,7 +130,7 @@ export default function HomePage() {
                 Book online
               </Link>
             </div>
-            <ul className="mt-8 grid gap-2 text-sm font-medium text-navy sm:grid-cols-2">
+            <ul className="mt-6 grid gap-2 text-sm font-medium text-navy sm:grid-cols-2 lg:mt-8">
               {[
                 "Same-day callouts across Harare",
                 "Regassing, compressors, thermostats, seals",
@@ -141,7 +144,6 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
-          <HeroCollage />
         </div>
       </section>
 

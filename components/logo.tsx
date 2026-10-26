@@ -1,4 +1,5 @@
 import Link from "next/link"
+import type { MouseEventHandler } from "react"
 import { site } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
@@ -20,6 +21,8 @@ type LogoProps = {
   /** Font size of the business name; everything else scales from it. */
   size?: "sm" | "md" | "lg"
   asLink?: boolean
+  /** Runs when the logo link is activated (used to close the mobile menu). */
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
 const sizes = {
@@ -31,9 +34,10 @@ const sizes = {
 /**
  * The lockup matches the approved artwork: a plain snowflake, the name in
  * Poppins 800 and the tracked tagline underneath. Sizes are in em so the
- * proportions hold at any scale.
+ * proportions hold at any scale. In the compact header size the tagline is
+ * dropped on phones, where it would be too small to read.
  */
-export function Logo({ tone = "dark", className, size = "md", asLink = true }: LogoProps) {
+export function Logo({ tone = "dark", className, size = "md", asLink = true, onClick }: LogoProps) {
   const nameColor = tone === "dark" ? "text-brand" : "text-white"
   const tagColor = tone === "dark" ? "text-navy" : "text-white"
 
@@ -45,7 +49,8 @@ export function Logo({ tone = "dark", className, size = "md", asLink = true }: L
           HARARE FRIDGE REPAIRS
         </span>
         <span
-          className={cn("whitespace-nowrap text-[0.431em] font-semibold leading-none", tagColor)}
+          aria-hidden="true"
+          className={cn("whitespace-nowrap text-[0.431em] font-semibold leading-none", tagColor, size === "sm" && "hidden sm:block")}
           style={{ letterSpacing: "0.1724em", marginRight: "-0.1724em" }}
         >
           REPAIRS &amp; REGAS ACROSS HARARE
@@ -57,7 +62,7 @@ export function Logo({ tone = "dark", className, size = "md", asLink = true }: L
   if (!asLink) return lockup
 
   return (
-    <Link href="/" aria-label={`${site.name} home`} className="inline-flex rounded-md">
+    <Link href="/" aria-label={`${site.name} home`} onClick={onClick} className="inline-flex rounded-md">
       {lockup}
     </Link>
   )

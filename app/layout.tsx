@@ -67,7 +67,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-ZW" className={poppins.variable}>
+    <html lang="en-ZW" className={poppins.variable} data-scroll-behavior="smooth">
       <body className="font-sans">
         <a
           href="#main"
@@ -77,7 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <JsonLd data={[localBusinessSchema(), websiteSchema()]} />
         <SiteHeader />
-        <main id="main" className="pb-20 lg:pb-0">
+        <main id="main">
           {children}
         </main>
         <SiteFooter />

@@ -23,6 +23,11 @@ export const files = {
   homeVisit: { src: "/images/fridge-repair-home-visit-harare.jpg", width: 1400, height: 934 },
   condenser: { src: "/images/fridge-condenser-coil-service-harare.jpg", width: 1400, height: 933 },
   combi: { src: "/images/combi-fridge-freezer-repair-harare.jpg", width: 1400, height: 933 },
+  // 800x600 crops for the home page collage, where each tile is at most 260px wide.
+  collageCombi: { src: "/images/collage/combi-fridge-freezer-harare.jpg", width: 800, height: 600 },
+  collageFrenchDoor: { src: "/images/collage/french-door-fridge-harare.jpg", width: 800, height: 600 },
+  collageUprightFreezer: { src: "/images/collage/upright-freezer-harare.jpg", width: 800, height: 600 },
+  collageCommercial: { src: "/images/collage/commercial-fridge-harare.jpg", width: 800, height: 600 },
 } satisfies Record<string, PictureFile>
 
 /**
@@ -63,6 +68,10 @@ const slots: Record<PictureKey, keyof typeof files> = {
   homeVisit: "homeVisit",
   condenser: "condenser",
   combi: "combi",
+  collageCombi: "collageCombi",
+  collageFrenchDoor: "collageFrenchDoor",
+  collageUprightFreezer: "collageUprightFreezer",
+  collageCommercial: "collageCommercial",
   heroTechnician: "compressorTest",
   callout: "uprightFreezer",
   notCooling: "temperature",
@@ -86,12 +95,16 @@ export function SitePicture({
   alt,
   className,
   priority = false,
+  loading,
   sizes = "(min-width: 1024px) 50vw, 100vw",
 }: {
   name: PictureKey
   alt: string
   className?: string
+  /** Preload and fetch at high priority: only for the one image that is the page's largest first-screen element. */
   priority?: boolean
+  /** Override the default of lazy loading (eager for images that are usually in the first screen). */
+  loading?: "eager" | "lazy"
   sizes?: string
 }) {
   const picture = getPicture(name)
@@ -101,8 +114,9 @@ export function SitePicture({
       alt={alt}
       width={picture.width}
       height={picture.height}
-      priority={priority}
-      loading={priority ? "eager" : "lazy"}
+      preload={priority}
+      fetchPriority={priority ? "high" : undefined}
+      loading={loading ?? (priority ? "eager" : "lazy")}
       sizes={sizes}
       className={cn("h-auto", className)}
     />

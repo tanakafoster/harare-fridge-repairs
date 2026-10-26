@@ -68,7 +68,7 @@ export function SiteFooter() {
       <div className="container-site py-14">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
-            <Logo tone="light" size="sm" />
+            <Logo tone="light" size="md" />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/75">
               Mobile fridge and freezer technicians serving every part of Harare, day and night. We repair and regas
               home refrigerators, chest freezers and commercial refrigeration at your address.
