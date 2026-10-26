@@ -13,9 +13,9 @@ import {
   Steps,
   TrustStrip,
 } from "@/components/blocks"
+import { FridgeTypeStrip, HeroCollage } from "@/components/hero-collage"
 import { WhatsAppIcon } from "@/components/icons"
 import { JsonLd } from "@/components/json-ld"
-import { SitePicture } from "@/components/pictures"
 import { advicePages } from "@/lib/content/advice"
 import { areaLink, areas, regionLink, regions } from "@/lib/content/areas"
 import { brandLink, brands } from "@/lib/content/brands"
@@ -141,23 +141,21 @@ export default function HomePage() {
               ))}
             </ul>
           </div>
-          <div className="relative">
-            <SitePicture
-              name="hero"
-              alt="Harare Fridge Repairs technician repairing a fridge in a Harare kitchen"
-              priority
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              className="aspect-[16/10] w-full rounded-3xl object-cover shadow-card"
-            />
-            <div className="absolute -bottom-5 left-5 hidden rounded-2xl bg-brand px-5 py-3 text-white shadow-card sm:block">
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Open now</p>
-              <p className="text-lg font-bold">24 hours, 7 days a week</p>
-            </div>
-          </div>
+          <HeroCollage />
         </div>
       </section>
 
       <TrustStrip />
+
+      <Section tone="frost">
+        <SectionHeading
+          eyebrow="Every type repaired"
+          title="Whatever kind of fridge or freezer you have"
+          lead="From a bar fridge in a flat to a cold room in a butchery, choose your type for the faults we see most and how we fix them."
+          align="center"
+        />
+        <FridgeTypeStrip className="mt-10" />
+      </Section>
 
       {/* Services */}
       <Section>
