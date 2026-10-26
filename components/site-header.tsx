@@ -15,9 +15,14 @@ export const primaryNav = [
   { href: "/contact", label: "Contact" },
 ]
 
+/**
+ * The blue strip scrolls away; the white bar with the logo, menu and phone
+ * button stays stuck to the top of the screen on every device. On phones the
+ * bar is compact so it covers as little of the page as possible.
+ */
 export function SiteHeader() {
   return (
-    <header className="relative z-40 bg-white shadow-[0_1px_0_0_#d7deef] lg:sticky lg:top-0">
+    <>
       <div className="bg-brand text-white">
         <div className="container-site flex h-9 items-center justify-between gap-4 text-xs font-medium sm:text-sm">
           <p className="flex items-center gap-4 truncate">
@@ -37,49 +42,60 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div className="container-site flex h-[4.5rem] items-center justify-between gap-4">
-        <Logo size="sm" />
+      <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_0_#d7deef,0_6px_16px_-12px_rgb(11_26_74_/_0.25)]">
+        <div className="container-site flex h-14 items-center justify-between gap-3 lg:h-[4.5rem] lg:gap-4">
+          <Logo size="sm" />
 
-        <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex items-center gap-1">
-            {primaryNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="whitespace-nowrap rounded-full px-2 py-2 text-[0.8125rem] font-semibold text-navy transition-colors hover:bg-ice hover:text-brand xl:px-3 xl:text-sm"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav aria-label="Main" className="hidden lg:block">
+            <ul className="flex items-center gap-1">
+              {primaryNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="whitespace-nowrap rounded-full px-2 py-2 text-[0.8125rem] font-semibold text-navy transition-colors hover:bg-ice hover:text-brand xl:px-3 xl:text-sm"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 xl:flex">
+          <div className="hidden shrink-0 items-center gap-2 xl:flex">
+            <a
+              href={whatsappLink(defaultWhatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp hidden whitespace-nowrap px-4 py-2 text-sm 2xl:inline-flex"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              WhatsApp
+            </a>
+            <a href={`tel:${site.phonePrimaryTel}`} className="btn-primary whitespace-nowrap px-4 py-2 text-sm">
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              {site.phonePrimaryDisplay}
+            </a>
+          </div>
           <a
-            href={whatsappLink(defaultWhatsappMessage)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-whatsapp hidden whitespace-nowrap px-4 py-2 text-sm 2xl:inline-flex"
+            href={`tel:${site.phonePrimaryTel}`}
+            className="btn-primary hidden shrink-0 whitespace-nowrap px-4 py-2 text-sm lg:inline-flex xl:hidden"
           >
-            <WhatsAppIcon className="h-4 w-4" />
-            WhatsApp
-          </a>
-          <a href={`tel:${site.phonePrimaryTel}`} className="btn-primary whitespace-nowrap px-4 py-2 text-sm">
             <Phone className="h-4 w-4" aria-hidden="true" />
-            {site.phonePrimaryDisplay}
+            Call now
           </a>
-        </div>
-        <a
-          href={`tel:${site.phonePrimaryTel}`}
-          className="btn-primary hidden shrink-0 whitespace-nowrap px-4 py-2 text-sm lg:inline-flex xl:hidden"
-        >
-          <Phone className="h-4 w-4" aria-hidden="true" />
-          Call now
-        </a>
 
-        <MobileNav items={primaryNav} />
-      </div>
-    </header>
+          <div className="flex items-center gap-1 lg:hidden">
+            <a
+              href={`tel:${site.phonePrimaryTel}`}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-brand text-white"
+            >
+              <span className="sr-only">Call {site.phonePrimaryDisplay}</span>
+              <Phone className="h-5 w-5" aria-hidden="true" />
+            </a>
+            <MobileNav items={primaryNav} />
+          </div>
+        </div>
+      </header>
+    </>
   )
 }
