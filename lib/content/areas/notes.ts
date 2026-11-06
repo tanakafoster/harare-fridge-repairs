@@ -12,9 +12,9 @@ export const areaNotes: Record<string, string> = {
   "ballantyne-park":
     "Ballantyne Park homes tend to have large kitchens with side by side or French door fridges and a second freezer in the scullery. Those bigger units rely on fans and electronics as much as gas, so our technician brings test gear for both on every visit.",
   belgravia:
-    "Belgravia is a short drive from the city centre, with homes, clinics and offices that depend on refrigeration working quietly all day. We regularly service staff kitchen fridges and household units here between other northern calls, often within the hour.",
+    "Belgravia is a short drive from the city centre, with homes, clinics and offices that depend on refrigeration working quietly all day. We regularly service staff kitchen fridges and household units here between other northern calls.",
   borrowdale:
-    "Borrowdale has some of the largest domestic fridges in Harare, many of them imported Samsung, LG and Bosch units with ice makers and water dispensers. We carry spares that suit those models and we are at Sam Levy's Village or along Borrowdale Road most days of the week.",
+    "Borrowdale has some of the largest domestic fridges in Harare, many of them imported Samsung, LG and Bosch units with ice makers and water dispensers. We carry spares that suit those models.",
   "borrowdale-brooke":
     "Borrowdale Brooke homes are generous, with built-in fridges, wine coolers and chest freezers often running on the same circuit as an inverter. We check the supply as well as the fridge, because low voltage after a power cut is a common reason a Brooke compressor stops.",
   "borrowdale-west":
@@ -82,7 +82,7 @@ export const areaNotes: Record<string, string> = {
   vainona:
     "Vainona is a busy family suburb between Mount Pleasant and Borrowdale, and fridge-freezers here get heavy use. Door seals, drain blockages and failing fans are the faults we fix most often.",
   "the-avenues":
-    "The Avenues is dense with flats, surgeries and offices, so we repair plenty of small fridges in apartments as well as medical and office units. We can usually reach the Avenues within the hour from wherever we are in the north.",
+    "The Avenues is dense with flats, surgeries and offices, so we repair plenty of small fridges in apartments as well as medical and office units.",
   "harare-cbd":
     "In the city centre we repair fridges for shops, restaurants, pharmacies, offices and the many flats above them. We work around trading hours where we can and carry parts for the chillers and display fridges that keep businesses open.",
   mazowe:
@@ -126,7 +126,7 @@ export const areaNotes: Record<string, string> = {
   dzivarasekwa:
     "Dzivarasekwa is one of the larger western suburbs, with homes, tuck shops and hair salons that all need refrigeration. We offer fair, clear pricing and reliable same-day visits across all of its phases.",
   "emerald-hill":
-    "Emerald Hill is a leafy suburb near the convent and school, with family homes that run large fridges and freezers. We repair all brands here and can usually arrive within the hour from the Avondale area.",
+    "Emerald Hill is a leafy suburb near the convent and school, with family homes that run large fridges and freezers. We repair all brands here.",
   fairview:
     "Fairview is a smaller suburb near Mufakose where a working fridge is essential to many home businesses. We repair chest freezers and fridges quickly so stock is not lost.",
   glaudina:
@@ -138,7 +138,7 @@ export const areaNotes: Record<string, string> = {
   greencroft:
     "Greencroft families often have the same fridge they have owned for many years, and keeping it running is cheaper than replacing it. Regassing and thermostat replacement are our most common Greencroft jobs.",
   "haig-park":
-    "Haig Park is a settled suburb near Mabelreign shopping centre, where we service both household fridges and the chillers used by local shops. We are in the area most days.",
+    "Haig Park is a settled suburb near Mabelreign shopping centre, where we service both household fridges and the chillers used by local shops.",
   kambuzuma:
     "Kambuzuma is a busy high-density suburb where fridges work hard in warm kitchens and small shops. We repair compressors, seals and thermostats on site at prices that make sense for the area.",
   kuwadzana:
@@ -220,7 +220,7 @@ export const areaNotes: Record<string, string> = {
   beverley:
     "Beverley is a quiet residential suburb near Greendale where most calls are large fridge-freezers that have stopped cooling evenly. We diagnose carefully and repair on site.",
   "beverley-west":
-    "Beverley West has family homes with a main fridge and often a chest freezer, and we service both in one visit. We are in the Greendale area most days.",
+    "Beverley West has family homes with a main fridge and often a chest freezer, and we service both in one visit.",
   chadcombe:
     "Chadcombe households rely on fridges that have given years of service, and most faults here are repairable at a fraction of the cost of a new unit. We fit quality parts and explain what was done.",
   chikurubi:

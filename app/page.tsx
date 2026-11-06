@@ -264,7 +264,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Fridge repairs near you"
           title="Anywhere in Harare, north, south, east or west"
-          lead={`We run daily routes through all four regions and cover ${areas.length} suburbs and towns, so a same-day visit is realistic wherever you are.`}
+          lead={`We cover all four regions and ${areas.length} suburbs and towns, so a same-day visit is usually realistic wherever you are.`}
         />
         <div className="mt-8">
           <CardGrid items={regions.map(regionLink)} columns={4} />

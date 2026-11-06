@@ -66,7 +66,7 @@ export const regions: RegionRecord[] = [
       {
         question: "How quickly can you reach the northern suburbs?",
         answer:
-          "Usually within an hour or two, because at least one of our technicians is working somewhere between the Avenues and Borrowdale on most days. Call 0782 886 252 and we will give you a realistic arrival window for your suburb.",
+          "Usually the same day. Call 0782 886 252 and we will give you a realistic arrival window for your suburb.",
       },
       {
         question: "Do you repair the larger imported fridges common in Borrowdale and Highlands?",
@@ -486,7 +486,7 @@ const regasVariants = [
 const faqPool: ((name: string, region: RegionRecord) => Faq)[] = [
   (name) => ({
     question: `How soon can you get to ${name}?`,
-    answer: `In most cases the same day, and often within a couple of hours. We work ${name} as part of a daily route, so call 0782 886 252 and we will give you a realistic arrival time rather than a vague promise.`,
+    answer: `In most cases the same day. Call 0782 886 252 and we will give you a realistic arrival time rather than a vague promise.`,
   }),
   (name) => ({
     question: `Do you charge a callout fee in ${name}?`,
@@ -586,7 +586,7 @@ export function buildAreaPage(area: AreaRecord): ContentPage {
 
   const neighbourSentence =
     nearbyNames.length > 0
-      ? `Because we are also working in ${joinNames(nearbyNames.slice(0, 3))} most weeks, a visit to ${area.name} rarely has to wait.`
+      ? `We also cover nearby ${joinNames(nearbyNames.slice(0, 3))}, so a same-day visit to ${area.name} is usually realistic.`
       : `We plan ${area.name} visits around the rest of our ${region.shortName.toLowerCase()} route so a same-day visit is realistic.`
 
   const sections: ContentSection[] = [
