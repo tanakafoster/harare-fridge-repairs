@@ -45,6 +45,8 @@ export type ContentPage = {
     areaName?: string
   }
   pageType?: "WebPage" | "CollectionPage" | "AboutPage" | "ContactPage" | "FAQPage"
+  /** Set on advice guides so they are marked up as articles. ISO dates. */
+  article?: { datePublished: string; dateModified: string }
 }
 
 export type { Faq }

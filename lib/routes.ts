@@ -5,8 +5,15 @@ import { problems } from "@/lib/content/problems"
 import { services } from "@/lib/content/services"
 import { fridgeTypes } from "@/lib/content/types"
 
+/**
+ * Date the site content last changed. Bump it when copy changes so the sitemap
+ * reports real updates instead of the build date on every deploy.
+ */
+export const contentUpdated = "2026-11-06"
+
 export type RouteEntry = {
   path: string
+  lastModified?: string
   priority: number
   changeFrequency: "weekly" | "monthly" | "yearly"
 }
@@ -26,7 +33,12 @@ export function allRoutes(): RouteEntry[] {
     { path: "/areas", priority: 0.8, changeFrequency: "monthly" },
     ...regions.map((r) => ({ path: `/areas/${r.slug}`, priority: 0.8, changeFrequency: "monthly" as const })),
     ...areas.map((a) => ({ path: a.path, priority: 0.6, changeFrequency: "monthly" as const })),
-    ...advicePages.map((a) => ({ path: a.path, priority: 0.7, changeFrequency: "monthly" as const })),
+    ...advicePages.map((a) => ({
+      path: a.path,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+      lastModified: a.article.dateModified,
+    })),
     { path: "/about", priority: 0.6, changeFrequency: "yearly" },
     { path: "/contact", priority: 0.8, changeFrequency: "yearly" },
     { path: "/book-a-repair", priority: 0.8, changeFrequency: "yearly" },

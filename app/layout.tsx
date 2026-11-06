@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import { Poppins } from "next/font/google"
+import { Analytics } from "@/components/analytics"
 import { JsonLd } from "@/components/json-ld"
 import { MobileCallBar } from "@/components/mobile-call-bar"
 import { SiteFooter } from "@/components/site-footer"
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <SiteFooter />
         <MobileCallBar />
+        <Analytics />
       </body>
     </html>
   )

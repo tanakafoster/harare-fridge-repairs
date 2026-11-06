@@ -25,11 +25,11 @@ export const services: ServiceRecord[] = [
     shortName: "Fridge repairs",
     cardText: "Diagnosis and repair of any household or commercial fridge at your address, anywhere in Harare.",
     path: "/fridge-repairs",
-    title: "Fridge Repairs Harare | Mobile Fridge Technicians, 24/7",
+    title: "Fridge Repair Service | Home Visit Fridge Technician, Harare",
     description:
-      "Fridge repairs in Harare at your home or business. We diagnose cooling faults, leaks, noise, electrical and compressor problems on all fridge brands, 24 hours a day. Call 0782 886 252.",
+      "A fridge technician comes to your home or business anywhere in Harare. We diagnose cooling faults, leaks, noise, electrical and compressor problems on all fridge brands, 24 hours a day. Call 0782 886 252.",
     eyebrow: "Fridge repairs in Harare",
-    h1: "Fridge Repairs in Harare, At Your Address",
+    h1: "Fridge Repair Service: A Technician at Your Address",
     lead:
       "A fridge that has stopped cooling cannot wait until Monday. Harare Fridge Repairs sends a refrigeration technician to your home, shop or kitchen anywhere in Harare, finds the real fault and fixes it on the spot wherever parts allow. We work on fridges and freezers only, which is why we are quick at it.",
     points: [

@@ -175,6 +175,37 @@ export function webPageSchema({
   }
 }
 
+export function articleSchema({
+  path,
+  headline,
+  description,
+  image,
+  datePublished,
+  dateModified,
+}: {
+  path: string
+  headline: string
+  description: string
+  image?: string
+  datePublished: string
+  dateModified: string
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${absoluteUrl(path)}#article`,
+    headline,
+    description,
+    image: image ? absoluteUrl(image) : defaultOgImage.url,
+    datePublished,
+    dateModified,
+    inLanguage: "en-ZW",
+    mainEntityOfPage: { "@id": `${absoluteUrl(path)}#webpage` },
+    author: { "@id": businessId },
+    publisher: { "@id": businessId },
+  }
+}
+
 export function itemListSchema(name: string, items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
