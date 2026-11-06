@@ -1,4 +1,5 @@
 import type { ContentPage } from "./model"
+import { moreAdvice } from "./advice-more"
 
 export type AdviceRecord = ContentPage & {
   slug: string
@@ -7,7 +8,7 @@ export type AdviceRecord = ContentPage & {
   article: { datePublished: string; dateModified: string }
 }
 
-export const advicePages: AdviceRecord[] = [
+const coreAdvicePages: AdviceRecord[] = [
   {
     slug: "fridge-regassing-cost-harare",
     article: { datePublished: "2026-10-26", dateModified: "2026-10-26" },
@@ -351,6 +352,8 @@ export const advicePages: AdviceRecord[] = [
     },
   },
 ]
+
+export const advicePages: AdviceRecord[] = [...coreAdvicePages, ...moreAdvice]
 
 export function getAdvice(slug: string) {
   return advicePages.find((page) => page.slug === slug)

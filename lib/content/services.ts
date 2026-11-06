@@ -1,4 +1,5 @@
 import type { ContentPage } from "./model"
+import { moreServices } from "./services-more"
 
 export type ServiceRecord = ContentPage & {
   slug: string
@@ -17,9 +18,12 @@ const problemLinks = [
   { href: "/problems/fridge-compressor-problems", label: "Compressor problems" },
   { href: "/problems/fridge-running-constantly", label: "Fridge running constantly" },
   { href: "/problems/fridge-door-seal-problems", label: "Door seal problems" },
+  { href: "/problems/freezer-working-fridge-not-cooling", label: "Freezer working, fridge warm" },
+  { href: "/problems/fridge-not-working-after-power-cut", label: "Not working after a power cut" },
+  { href: "/problems/fridge-tripping-power", label: "Fridge tripping the power" },
 ]
 
-export const services: ServiceRecord[] = [
+const coreServices: ServiceRecord[] = [
   {
     slug: "fridge-repairs",
     shortName: "Fridge repairs",
@@ -707,6 +711,8 @@ export const services: ServiceRecord[] = [
     },
   },
 ]
+
+export const services: ServiceRecord[] = [...coreServices, ...moreServices]
 
 export function getService(slug: string) {
   return services.find((service) => service.slug === slug)

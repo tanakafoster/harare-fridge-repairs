@@ -1,6 +1,7 @@
 import type { PictureKey } from "@/components/pictures"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { rotate } from "@/lib/utils"
+import { moreProblems } from "./problems-more"
 
 export type ProblemRecord = {
   slug: string
@@ -23,7 +24,7 @@ export type ProblemRecord = {
   pictureAlt: string
 }
 
-export const problems: ProblemRecord[] = [
+const coreProblems: ProblemRecord[] = [
   {
     slug: "fridge-not-cooling",
     name: "Fridge not cooling",
@@ -739,6 +740,8 @@ export const problems: ProblemRecord[] = [
     pictureAlt: "Technician inspecting a fridge door gasket in a Harare kitchen",
   },
 ]
+
+export const problems: ProblemRecord[] = [...coreProblems, ...moreProblems]
 
 export function getProblem(slug: string) {
   return problems.find((problem) => problem.slug === slug)

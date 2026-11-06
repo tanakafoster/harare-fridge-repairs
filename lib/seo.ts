@@ -285,6 +285,9 @@ export function localBusinessSchema() {
       "Thermostat replacement",
       "Commercial refrigeration repairs",
       "Cold room repairs",
+      "Power surge damage repairs",
+      "Fridge control board repairs",
+      "Fridge servicing",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
@@ -297,6 +300,9 @@ export function localBusinessSchema() {
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Thermostat replacement", url: absoluteUrl("/thermostat-replacement") } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial fridge repairs", url: absoluteUrl("/commercial-fridge-repairs") } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "24 hour fridge repairs", url: absoluteUrl("/24-hour-fridge-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fridge power surge repairs", url: absoluteUrl("/fridge-power-surge-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fridge control board repairs", url: absoluteUrl("/fridge-control-board-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fridge servicing", url: absoluteUrl("/fridge-servicing") } },
       ],
     },
   }
