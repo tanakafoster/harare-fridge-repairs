@@ -19,7 +19,7 @@ export const repairServices: ServiceRecord[] = [
     path: "/fridge-door-seal-replacement",
     title: "Fridge Door Seal Replacement Harare | Gaskets Fitted On Site",
     description:
-      "Fridge door seal (gasket) replacement in Harare. Torn, hard or leaking seals on fridges, freezers and commercial units replaced at your address. 24/7. Call 0782 886 252.",
+      "Fridge door seal (gasket) replacement in Harare. Torn, hard or leaking seals on fridges, freezers and commercial units replaced at your address, 24/7.",
     eyebrow: "Door seal replacement in Harare",
     h1: "Fridge Door Seal Replacement in Harare",
     lead:
@@ -64,7 +64,7 @@ export const repairServices: ServiceRecord[] = [
           "Once the new seal is in, we check the door is level and square, adjust the hinges if the door has dropped, and warm the seal if needed so it settles and grips evenly. We finish with a paper test all the way round. If the door itself has warped or the hinge is broken, we tell you before you pay for a seal that cannot work.",
         ],
         picture: "doorSeal",
-        pictureAlt: "Close up of a fridge door gasket being checked for gaps",
+        pictureAlt: "Technician checking a fridge door gasket for gaps by hand",
         reverse: true,
       },
       {
@@ -121,11 +121,11 @@ export const repairServices: ServiceRecord[] = [
     path: "/fridge-fan-motor-replacement",
     title: "Fridge Fan Motor Replacement Harare | Noisy & Failed Fans",
     description:
-      "Fridge fan motor replacement in Harare. Noisy, seized or failed evaporator and condenser fans on frost free and commercial fridges replaced at your address, 24/7. Call 0782 886 252.",
+      "Fridge fan motor replacement in Harare. Noisy, seized or failed evaporator and condenser fans on frost free and commercial fridges, replaced on site, 24/7.",
     eyebrow: "Fan motor replacement in Harare",
     h1: "Fridge Fan Motor Replacement in Harare",
     lead:
-      "On a frost free fridge the fans do as much work as the gas. When the evaporator fan in the freezer fails, cold air stops reaching the fridge section. When the condenser fan at the back fails, the compressor overheats. Harare Fridge Repairs tests and replaces fridge fan motors at your home or business, usually in one visit.",
+      "On a frost free fridge the fans do as much work as the gas. When the evaporator fan in the freezer fails, cold air stops reaching the fridge section. When the condenser fan at the back fails, the compressor overheats. Harare Fridge Repairs tests and replaces fridge fan motors at your home or business.",
     points: [
       "Evaporator fans in frost free freezers",
       "Condenser fans on household and commercial units",
@@ -141,7 +141,7 @@ export const repairServices: ServiceRecord[] = [
         kind: "text",
         heading: "What the fans in your fridge do",
         paragraphs: [
-          "Most modern fridges have two fans. The evaporator fan sits behind the back panel of the freezer and blows air across the cold evaporator into both compartments. The condenser fan, on many fridges and almost all commercial units, sits near the compressor and pulls air across the condenser so the heat taken out of the cabinet can escape.",
+          "Most frost free fridges have an evaporator fan, and many also have a condenser fan. The evaporator fan sits behind the back panel of the freezer and blows air across the cold evaporator into both compartments. The condenser fan, on many fridges and almost all commercial units, sits near the compressor and pulls air across the condenser so the heat taken out of the cabinet can escape.",
           "When the evaporator fan fails, the freezer may stay cold while the fridge section warms up, and frost may build up around the vent. When the condenser fan fails, the compressor runs hot, trips on its overload and the whole fridge cools poorly. Both usually give warning first: a chirp, a grind or a rattle that comes and goes.",
         ],
       },
@@ -166,7 +166,7 @@ export const repairServices: ServiceRecord[] = [
           "We carry common universal and model-specific fan motors, and we source exact replacements for fridges with electronically controlled fans, where the board needs a matching motor.",
         ],
         picture: "noise",
-        pictureAlt: "Technician listening for fan and compressor noise at the back of a fridge",
+        pictureAlt: "Technician shining a torch on the fan at the top of an open fridge compartment",
         reverse: true,
       },
       {
@@ -197,16 +197,16 @@ export const repairServices: ServiceRecord[] = [
       {
         question: "How long does a fan replacement take?",
         answer:
-          "Usually under an hour once we are at your fridge, including removing and refitting the panels and testing. If the fan has failed because of ice, the defrost fault is repaired in the same visit where parts allow.",
+          "It depends on the model and on whether ice has to be cleared first, and the technician will tell you on site. If the fan has failed because of ice, the defrost fault is repaired in the same visit where parts allow.",
       },
       {
         question: "Do you replace fans on commercial fridges?",
         answer:
-          "Yes. Condenser and evaporator fans on beverage chillers, display fridges, underbar units and cold rooms are some of the most common commercial repairs we do.",
+          "Yes. We replace condenser and evaporator fans on beverage chillers, display fridges, underbar units and cold rooms, where long running hours wear them out sooner.",
       },
     ],
     cta: {
-      title: "Noisy or silent fridge fan? We can replace it today.",
+      title: "Noisy or silent fridge fan? We can replace it.",
       text: "Call 0782 886 252 or WhatsApp a short video with the sound. We cover all of Harare, 24 hours a day.",
     },
     schema: {
@@ -223,11 +223,11 @@ export const repairServices: ServiceRecord[] = [
     path: "/fridge-defrost-repairs",
     title: "Fridge Defrost Repairs Harare | Heater, Timer & Sensor Fixes",
     description:
-      "Frost free fridge icing up? We repair defrost heaters, timers, bimetals, sensors and frozen drains at your home in Harare, so the ice does not come back. 24/7. Call 0782 886 252.",
+      "Defrost heater, timer, bimetal, sensor and drain repairs on frost free fridges and freezers in Harare, done at your home so the ice does not come back. 24/7.",
     eyebrow: "Defrost system repairs in Harare",
     h1: "Frost Free Fridge Defrost Repairs in Harare",
     lead:
-      "A frost free fridge melts its own frost several times a day. When one part of that defrost system fails, ice builds up behind the freezer panel until air stops flowing and the fridge goes warm. Harare Fridge Repairs clears the ice, finds the failed part and replaces it at your address, so the problem does not return in a fortnight.",
+      "A frost free fridge melts its own frost automatically, a few times a day. When one part of that defrost system fails, ice builds up behind the freezer panel until air stops flowing and the fridge goes warm. Harare Fridge Repairs clears the ice, finds the failed part and replaces it at your address, so the problem does not return in a fortnight.",
     points: [
       "Defrost heaters, timers, bimetals and sensors",
       "Frozen and blocked drains cleared and drain heaters replaced",
@@ -243,7 +243,7 @@ export const repairServices: ServiceRecord[] = [
         kind: "text",
         heading: "How the defrost system works, and how it fails",
         paragraphs: [
-          "Behind the back panel of a frost free freezer is the evaporator, the coldest part of the fridge. Moisture from the air freezes onto it as frost. Every few hours the fridge stops cooling and switches on a heater under the evaporator to melt that frost, and the water runs down a drain to a tray on the compressor, where it evaporates.",
+          "Behind the back panel of a frost free freezer is the evaporator, the coldest part of the fridge. Moisture from the air freezes onto it as frost. A few times a day the fridge stops cooling and switches on a heater under the evaporator to melt that frost, and the water runs down a drain to a tray on the compressor, where it evaporates.",
           "The heater is switched by a timer or the control board, and protected by a bimetal thermostat or sensor that stops it once the coil is clear. If the heater burns out, the timer sticks, the bimetal fails or the sensor drifts, the frost is never melted. Within days the coil and the air duct are blocked with ice. A frozen or blocked drain causes a similar mess, leaving a sheet of ice in the bottom of the freezer or water in the fridge.",
         ],
       },
@@ -325,7 +325,7 @@ export const repairServices: ServiceRecord[] = [
     path: "/fridge-control-board-repairs",
     title: "Fridge Control Board Repairs Harare | PCB, Sensors, Inverters",
     description:
-      "Fridge control board (PCB) repairs in Harare. Dead displays, error codes, failed sensors and inverter boards on Samsung, LG, Hisense, Defy and more. At your home, 24/7. Call 0782 886 252.",
+      "Fridge control board (PCB) repairs in Harare. Dead displays, error codes, failed sensors and inverter boards on Samsung, LG, Hisense, Defy and more, 24/7.",
     eyebrow: "Control board repairs in Harare",
     h1: "Fridge Control Board and Electronics Repairs in Harare",
     lead:
@@ -366,7 +366,7 @@ export const repairServices: ServiceRecord[] = [
         eyebrow: "Test before replace",
         heading: "Boards are expensive, so we prove the fault first",
         paragraphs: [
-          "Our technician checks the supply to the board, reads any fault codes, measures the sensors against their resistance chart and checks the outputs to the compressor, fans and heater. Many 'board faults' turn out to be a ten-minute sensor or connector repair.",
+          "Our technician checks the supply to the board, reads any fault codes, measures the sensors against their resistance chart and checks the outputs to the compressor, fans and heater. Many 'board faults' turn out to be a sensor or connector repair that costs far less than a board.",
           "When the board really has failed, we explain the options: a replacement board for your model, or a repair of the damaged section of the board where that is reliable. You get the price before anything is ordered.",
         ],
         picture: "electronics",
@@ -380,6 +380,7 @@ export const repairServices: ServiceRecord[] = [
           { href: "/problems/fridge-not-switching-on", label: "Fridge not switching on" },
           { href: "/problems/fridge-freezing-food", label: "Fridge freezing food" },
           { href: "/fridge-power-surge-repairs", label: "Power surge damage" },
+          { href: "/protect-fridge-from-power-cuts", label: "Protecting your fridge from power cuts" },
           { href: "/samsung-fridge-repairs", label: "Samsung fridge repairs" },
           { href: "/lg-fridge-repairs", label: "LG fridge repairs" },
           { href: "/french-door-fridge-repairs", label: "French door fridges" },
@@ -401,7 +402,7 @@ export const repairServices: ServiceRecord[] = [
       {
         question: "Do you repair inverter fridges?",
         answer:
-          "Yes. We test the inverter driver board and the compressor together, because a driver fault and a compressor fault can look the same. Samsung, LG, Hisense and other inverter fridges are part of our everyday work.",
+          "Yes. We test the inverter driver board and the compressor together, because a driver fault and a compressor fault can look the same. We work on Samsung, LG, Hisense and other inverter fridges.",
       },
       {
         question: "How do I protect my fridge board from surges?",
@@ -425,13 +426,13 @@ export const repairServices: ServiceRecord[] = [
     shortName: "Power surge damage repairs",
     cardText: "Fridges that died after load shedding or a surge: relays, boards, thermostats and compressors tested and repaired.",
     path: "/fridge-power-surge-repairs",
-    title: "Fridge Not Working After a Power Cut? Surge Repairs Harare",
+    title: "Fridge Power Surge Damage Repairs Harare | Load Shedding",
     description:
-      "Fridge stopped working after load shedding or a power surge? We test and repair burnt relays, boards, thermostats and compressors at your home in Harare, 24/7. Call 0782 886 252.",
+      "Fridge power surge and load shedding damage repairs in Harare. Start relays, overloads, fuses, boards and compressors tested and repaired on site, 24/7.",
     eyebrow: "Power surge damage repairs in Harare",
-    h1: "Fridge Repairs After a Power Cut or Surge",
+    h1: "Fridge Power Surge Damage Repairs in Harare",
     lead:
-      "Load shedding and voltage swings are one of the most common causes of sudden fridge failures we see in Harare. When the power comes back with a spike, or comes back too low, the most sensitive parts of the fridge take the damage. Harare Fridge Repairs tests each part in turn at your address and repairs only what the surge actually broke.",
+      "Load shedding and voltage swings are among the most common causes of sudden fridge failures in Harare. When the power comes back with a spike, or comes back too low, the most sensitive parts of the fridge take the damage. Harare Fridge Repairs tests each part in turn at your address and repairs only what the surge actually broke.",
     points: [
       "Start relays, overloads and capacitors",
       "Control boards, display boards and fuses",
@@ -491,14 +492,14 @@ export const repairServices: ServiceRecord[] = [
     ],
     faqs: [
       {
-        question: "My fridge stopped after load shedding. Is it ruined?",
+        question: "Which parts does a power surge usually damage?",
         answer:
-          "Rarely. The usual damage is a start relay, overload, fuse or board component, all of which can be repaired or replaced. A failed compressor is the less common outcome and is confirmed with tests before any replacement is suggested.",
+          "Usually a start relay, an overload, a fuse or a component on the control board, all of which can be repaired or replaced. A failed compressor is the less common outcome and is confirmed with tests before any replacement is suggested.",
       },
       {
-        question: "Should I unplug my fridge during load shedding?",
+        question: "Can a power surge damage the compressor?",
         answer:
-          "Switching off at the wall during an outage and back on a few minutes after the power returns protects the fridge from the spike and the low-voltage start. A voltage protector with a built-in delay does the same automatically.",
+          "It can, but it is less common than relay, overload or board damage. Repeated low-voltage restarts are harder on a compressor than a brief spike. We measure the windings and insulation before a compressor is condemned.",
       },
       {
         question: "Does a surge protector really help?",
@@ -506,13 +507,13 @@ export const repairServices: ServiceRecord[] = [
           "A good one helps with spikes, and a voltage protector with a start delay also protects against the low-voltage restarts that damage compressors. Neither is a guarantee, but both reduce the risk considerably.",
       },
       {
-        question: "Can you come out the same day?",
+        question: "How quickly can you come out?",
         answer:
-          "Usually, yes. We work 24 hours a day across Harare. Keep the fridge closed and switched off at the wall until we arrive.",
+          "We work 24 hours a day across Harare, and when you call we tell you honestly when we can arrive. Until then, keep the fridge closed and switched off at the wall.",
       },
     ],
     cta: {
-      title: "Fridge dead after a power cut? We can help today.",
+      title: "Fridge damaged by a power surge? We can help.",
       text: "Call 0782 886 252 or WhatsApp us your suburb and what the fridge is doing. Technicians across Harare, 24 hours a day.",
     },
     schema: {
@@ -529,7 +530,7 @@ export const repairServices: ServiceRecord[] = [
     path: "/fridge-servicing",
     title: "Fridge Servicing & Maintenance Harare | Homes & Businesses",
     description:
-      "Fridge and freezer servicing in Harare: condenser cleaning, seal and drain checks, temperature and electrical tests. Planned maintenance for shops and restaurants. Call 0782 886 252.",
+      "Fridge and freezer servicing in Harare: condenser cleaning, seal, drain and fan checks, temperature and electrical tests, plus planned maintenance for shops.",
     eyebrow: "Fridge servicing in Harare",
     h1: "Fridge and Freezer Servicing in Harare",
     lead:
@@ -548,7 +549,7 @@ export const repairServices: ServiceRecord[] = [
       {
         kind: "list",
         heading: "What a fridge service includes",
-        intro: "Every service is carried out at your address and finishes with a short report of what we found.",
+        intro: "Every service is carried out at your address, and the technician talks you through what was found.",
         items: [
           "Condenser coils cleaned and the fan checked so the compressor can shed heat",
           "Door seals inspected and paper tested all the way round",
@@ -565,7 +566,7 @@ export const repairServices: ServiceRecord[] = [
         heading: "Why servicing makes sense in Harare",
         paragraphs: [
           "Dust, heat and power cuts are hard on fridges. Dust on the condenser makes the compressor work longer and hotter. Hot weather in October and November adds to the load, and every restart after load shedding stresses the start components. A fridge that is clean, sealing well and correctly ventilated copes far better with all three.",
-          "For businesses the case is even stronger. A beverage chiller, display fridge, butchery counter or cold room that fails on a busy weekend costs far more in lost stock and sales than a planned service. We agree a visit schedule that suits your trading hours and keep a record of each unit.",
+          "For businesses the case is even stronger. A beverage chiller, display fridge, butchery counter or cold room that fails on a busy weekend costs far more in lost stock and sales than a planned service. We agree a visit schedule that suits your trading hours.",
         ],
       },
       {
@@ -574,10 +575,10 @@ export const repairServices: ServiceRecord[] = [
         heading: "Planned maintenance for commercial refrigeration",
         paragraphs: [
           "We service underbar fridges, beverage chillers, multideck chillers, display freezers, butchery counters, ice machines and small cold rooms for shops, bars, restaurants, hotels, butcheries and clinics across Harare. Visits can be scheduled early, late or on quieter days.",
-          "Each visit covers coil cleaning, seal and door checks, drain and fan checks, temperature logging and electrical checks, and we report anything that needs attention before it fails, with a price, so you can plan the repair.",
+          "Each visit covers coil cleaning, seal and door checks, drain and fan checks, temperature checks and electrical checks, and we report anything that needs attention before it fails, with a price, so you can plan the repair.",
         ],
         picture: "commercial",
-        pictureAlt: "Technician servicing a commercial display fridge",
+        pictureAlt: "Technician checking a fridge compressor and wiring with a multimeter during a service",
         reverse: true,
       },
       {
@@ -608,7 +609,7 @@ export const repairServices: ServiceRecord[] = [
       {
         question: "Do you service several fridges at one business?",
         answer:
-          "Yes. We regularly service all the refrigeration at a site in one visit and keep a simple record per unit, so recurring problems are spotted early.",
+          "Yes. We can service all the refrigeration at a site in one visit, so recurring problems are spotted early.",
       },
       {
         question: "Is a service worth it on an old fridge?",

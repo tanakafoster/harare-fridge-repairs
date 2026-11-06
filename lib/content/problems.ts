@@ -93,7 +93,7 @@ const coreProblems: ProblemRecord[] = [
       {
         question: "Is my food safe while I wait?",
         answer:
-          "Keep the door closed and the food will stay cooler for longer. Meat and dairy that have been above 5 degrees for several hours should be treated with caution. A full freezer holds its temperature for many hours if left shut.",
+          "Keep the door closed: a closed fridge keeps food cold for about four hours. Meat, fish, milk and cooked food that have been above 5 degrees for more than two hours should be thrown out. A full freezer that stays shut keeps food frozen for about two days.",
       },
     ],
     related: ["freezer-not-freezing", "fridge-running-constantly", "ice-build-up", "fridge-compressor-problems", "fridge-warm-freezer-cold"],
@@ -104,6 +104,7 @@ const coreProblems: ProblemRecord[] = [
       { href: "/does-my-fridge-need-regassing", label: "Does my fridge need regassing?" },
       { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
       { href: "/fridge-fan-motor-replacement", label: "Fan motor replacement" },
+      { href: "/moving-a-fridge", label: "Moving a fridge safely" },
     ],
     picture: "notCooling",
     pictureAlt: "Technician measuring the temperature inside a fridge that is not cooling",
@@ -323,6 +324,7 @@ const coreProblems: ProblemRecord[] = [
       { href: "/combi-fridge-repairs", label: "Combi fridge repairs" },
       { href: "/french-door-fridge-repairs", label: "French door fridge repairs" },
       { href: "/fridge-control-board-repairs", label: "Control board repairs" },
+      { href: "/fridge-temperature-settings", label: "Correct fridge temperatures" },
     ],
     picture: "temperature",
     pictureAlt: "Technician measuring the temperature of a fridge that is freezing food",
@@ -550,6 +552,7 @@ const coreProblems: ProblemRecord[] = [
       { href: "/upright-freezer-repairs", label: "Upright freezer repairs" },
       { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
       { href: "/fridge-door-seal-replacement", label: "Door seal replacement" },
+      { href: "/how-to-defrost-a-freezer", label: "How to defrost a freezer" },
     ],
     picture: "freezerIce",
     pictureAlt: "Technician checking a freezer door seal that is causing ice build up",
@@ -710,10 +713,10 @@ const coreProblems: ProblemRecord[] = [
     quickAnswer:
       "A door seal is faulty if a strip of paper slides out easily when the door is closed on it, if you can see gaps at the corners, or if frost and condensation build up near the door. Seals harden, shrink and tear with age, and a sagging door or a fridge that is not level stops a good seal closing.",
     cardText: "Torn, hardened or shrunken gaskets that let warm air in and cause frost, sweating and high bills.",
-    title: "Fridge Door Seal Problems? Gasket Replacement in Harare",
+    title: "Fridge Door Seal Problems? Signs, Tests & Fixes in Harare",
     description:
       "Fridge door not sealing, gasket torn or hardened, door sweating or frost forming at the edges? Door seal and hinge repairs at your home in Harare for all fridge and freezer brands. Call 0782 886 252.",
-    h1: "Fridge Door Seal Problems and Gasket Replacement",
+    h1: "Fridge Door Seal Problems: Signs of a Faulty Gasket",
     lead:
       "The door gasket is a cheap rubber strip, and when it fails it causes expensive symptoms: frost, condensation, a fridge that runs all day, warm food and eventually a worn out compressor. Harare Fridge Repairs tests door seals, replaces gaskets and adjusts hinges and doors on every brand of fridge and freezer, at your home across Harare.",
     points: [
@@ -794,11 +797,11 @@ export function buildProblemPage(problem: ProblemRecord): ContentPage {
     .map(problemLink)
 
   const sections: ContentSection[] = [
-    { kind: "text", heading: `How a ${problem.name.toLowerCase()} fault develops`, paragraphs: problem.intro },
+    { kind: "text", heading: `${problem.name}: what is going on`, paragraphs: problem.intro },
     {
       kind: "steps",
-      heading: `Common causes of a ${problem.name.toLowerCase()}`,
-      intro: "These are the faults behind this symptom, roughly in the order we find them in Harare.",
+      heading: `${problem.name}: common causes`,
+      intro: "These are the usual causes of this symptom, roughly in the order we find them in Harare.",
       items: problem.causes,
     },
     {
@@ -867,7 +870,7 @@ export function buildProblemPage(problem: ProblemRecord): ContentPage {
     whatsappMessage: `Hi Harare Fridge Repairs, my fridge problem is: ${problem.name.toLowerCase()}. My suburb is: ___`,
     schema: {
       serviceName: `${problem.name} repair in Harare`,
-      serviceDescription: `Diagnosis and repair of a ${problem.name.toLowerCase()} fault at your address in Harare, Zimbabwe.`,
+      serviceDescription: `${problem.name}: diagnosis and repair at your address in Harare, Zimbabwe.`,
       serviceType: "Refrigerator repair",
     },
   }

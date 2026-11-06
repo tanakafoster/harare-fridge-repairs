@@ -27,7 +27,7 @@ All copy lives in `lib/content/`:
 - `services.ts` + `repair-services.ts`, `types.ts`, `brands.ts`, `problems.ts` + `problems-more.ts`, `advice.ts` + `advice-more.ts`, `faqs.ts` – one record per page.
 - `areas/seeds.ts` (names, regions, neighbours), `areas/notes.ts` (one unique paragraph per area) and `areas/index.ts` (page templates and region copy).
 
-Business details (phones, WhatsApp, social links, hours) are in `lib/site.ts`. Links to the sister businesses (Harare Washing Machine Repairs and Electro Appliance Repairs) are listed in `lib/sister-sites.ts`, limited to five pages each. Photos are in `public/images/` and mapped to pages in `components/pictures.tsx`.
+Business details (phones, WhatsApp, social links, hours) are in `lib/site.ts`. Links to the sister businesses (Harare Washing Machine Repairs and Electro Appliance Repairs) are listed in `lib/sister-sites.ts`, limited to five pages each, always to the `www` host and never to Electro's fridge pages; `pnpm check` enforces all three. Photos are in `public/images/` and mapped to pages in `components/pictures.tsx`.
 
 ## Commands
 
@@ -40,7 +40,9 @@ pnpm check:areas  # after build: suburb pages with the least unique text (report
 pnpm indexnow     # after a deploy: tell Bing and other IndexNow engines about the pages
 ```
 
-The same build and checks run on every pull request through GitHub Actions (`.github/workflows/site-checks.yml`). Sitemap `lastmod` dates come from the git history of each page's source file, and are left out when git cannot prove them.
+The same build and checks run on every pull request through GitHub Actions (`.github/workflows/site-checks.yml`).
+
+Sitemap `lastmod` dates come from the git history of the files that hold each page's content (listed per page in `lib/routes.ts`), along the main branch, so a merged change is dated by its merge. Each suburb page is dated by its own note in `areas/notes.ts`, so adding a note to one suburb does not mark every suburb as changed. A date is left out when git cannot prove it: with uncommitted changes, in a shallow clone, or without git.
 
 `scripts/render-assets.mjs` regenerates the icons and share image from the snowflake logo (needs Playwright).
 
@@ -50,6 +52,7 @@ The same build and checks run on every pull request through GitHub Actions (`.gi
 2. Add the domain `hararefridgerepairs.co.zw` (and `www`) under the project's Domains tab and point the DNS records Vercel shows you at the registrar.
 3. After the first deploy, submit `https://hararefridgerepairs.co.zw/sitemap.xml` in Google Search Console and add the website URL to the Google Business Profile and Facebook page.
 4. Verify the site in Bing Webmaster Tools (it can import from Search Console) and run `pnpm indexnow` after each deploy with new or changed pages.
+5. Optional: Vercel builds from a shallow clone, so pages whose files last changed before the most recent commits get no sitemap date (safe, but less useful). Adding the environment variable `VERCEL_DEEP_CLONE` with the value `true` in the Vercel project settings makes Vercel fetch the full history. It is a community-documented setting rather than an official one, so remove it if a build ever fails to clone.
 
 ## Owner actions that move local rankings most
 

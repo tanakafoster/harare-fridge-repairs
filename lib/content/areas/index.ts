@@ -51,7 +51,7 @@ export const regions: RegionRecord[] = [
     shortName: "Northern suburbs",
     title: "Fridge Repairs Harare North | Borrowdale, Mount Pleasant, Highlands",
     description:
-      "Mobile fridge and freezer repairs across Harare's northern suburbs, from the Avenues to Borrowdale, Highlands, Mount Pleasant and Hatcliffe. Same-day callouts, 24/7, all brands.",
+      "Mobile fridge and freezer repairs across Harare's northern suburbs, from the Avenues to Borrowdale, Highlands, Mount Pleasant and Hatcliffe. 24/7, all brands.",
     h1: "Fridge Repairs in Harare's Northern Suburbs",
     lead:
       "From the flats of the Avenues to the big kitchens of Borrowdale Brooke, our technicians repair and regas fridges and freezers across the whole of northern Harare. Call or WhatsApp and we come to you.",
@@ -87,7 +87,7 @@ export const regions: RegionRecord[] = [
     shortName: "Southern suburbs",
     title: "Fridge Repairs Harare South | Hatfield, Waterfalls, Highfield",
     description:
-      "Fridge and freezer repairs across southern Harare, including Hatfield, Waterfalls, Highfield, Glen View, Budiriro, Mbare, Southerton and Chitungwiza. Mobile technicians, 24/7.",
+      "Fridge and freezer repairs across southern Harare, including Hatfield, Waterfalls, Highfield, Glen View, Budiriro, Mbare, Southerton and Chitungwiza. 24/7.",
     h1: "Fridge Repairs in Harare's Southern Suburbs",
     lead:
       "Household fridges in Hatfield and Waterfalls, shop chillers in Mbare and Highfield, and commercial refrigeration in Southerton and Workington all get the same prompt, honest service from our southern route.",
@@ -123,7 +123,7 @@ export const regions: RegionRecord[] = [
     shortName: "Eastern suburbs",
     title: "Fridge Repairs Harare East | Greendale, Eastlea, Mabvuku, Msasa, Ruwa",
     description:
-      "Mobile fridge and freezer repairs in eastern Harare: Greendale, Eastlea, Hillside, Mandara, Msasa, Mabvuku, Tafara, Ruwa and Zimre Park. Same-day service, 24/7 callouts.",
+      "Mobile fridge and freezer repairs in eastern Harare: Greendale, Eastlea, Hillside, Mandara, Msasa, Mabvuku, Tafara, Ruwa and Zimre Park. 24/7 callouts.",
     h1: "Fridge Repairs in Harare's Eastern Suburbs",
     lead:
       "Our eastern route runs from Eastlea and Hillside out through Greendale and Mandara to Msasa, Mabvuku, Tafara and Ruwa, repairing household fridges and the commercial refrigeration that keeps eastern businesses trading.",
@@ -159,7 +159,7 @@ export const regions: RegionRecord[] = [
     shortName: "Western suburbs",
     title: "Fridge Repairs Harare West | Mabelreign, Westgate, Kuwadzana, Tynwald",
     description:
-      "Fridge and freezer repairs across western Harare, including Mabelreign, Westgate, Marlborough, Belvedere, Kuwadzana, Warren Park, Dzivarasekwa, Tynwald and Norton. Mobile, 24/7.",
+      "Fridge and freezer repairs across western Harare, including Mabelreign, Westgate, Marlborough, Belvedere, Kuwadzana, Warren Park, Tynwald and Norton. 24/7.",
     h1: "Fridge Repairs in Harare's Western Suburbs",
     lead:
       "Western Harare is our largest coverage area, from Milton Park and Belvedere near the city through Mabelreign, Marlborough and Westgate to Kuwadzana, Dzivarasekwa, Tynwald and the new estates along the Bulawayo Road.",
@@ -362,34 +362,51 @@ const regionLabel: Record<Region, string> = {
   west: "western Harare",
 }
 
-const titleVariants = [
+/**
+ * How a place is named in titles and snippets: "Avondale, Harare", but a name
+ * that already contains "Harare" (Harare CBD) stands on its own.
+ */
+export function placeName(area: AreaSeed) {
+  return area.name.includes("Harare") ? area.name : `${area.name}, Harare`
+}
+
+// The hot-sides guide is mostly about a normal condition, so it is left out of
+// the lists of faults on suburb and region pages.
+const listedFaults = problems.filter((p) => p.slug !== "fridge-hot-on-the-sides")
+
+type AreaText = (name: string, place: string) => string
+
+const titleVariants: AreaText[] = [
   (name: string) => `Fridge Repairs ${name} | Same-Day Fridge & Freezer Repairs`,
-  (name: string) => `Fridge Repairs in ${name}, Harare | 24/7 Mobile Technicians`,
+  (_name: string, place: string) => `Fridge Repairs in ${place} | 24/7 Mobile Technicians`,
   (name: string) => `${name} Fridge Repairs & Regassing | Fast Local Service`,
-  (name: string) => `Fridge Repair ${name} Harare | Regas, Compressors, All Brands`,
+  (name: string) =>
+    name.includes("Harare")
+      ? `Fridge Repair ${name} | Regas, Compressors, All Brands`
+      : `Fridge Repair ${name} Harare | Regas, Compressors, All Brands`,
 ]
 
-const shortTitleVariants = [
+const shortTitleVariants: AreaText[] = [
   (name: string) => `Fridge Repairs ${name} | 24/7 Mobile Technicians`,
-  (name: string) => `Fridge Repairs in ${name}, Harare | Same-Day Service`,
+  (_name: string, place: string) => `Fridge Repairs in ${place} | Same-Day Service`,
   (name: string) => `${name} Fridge Repairs & Regassing | Harare`,
 ]
 
-const descriptionVariants = [
-  (name: string) =>
-    `Same-day fridge and freezer repairs in ${name}, Harare. Not cooling, leaking, noisy or needs regassing? Mobile technicians, 24/7. Call 0782 886 252.`,
+const descriptionVariants: AreaText[] = [
+  (_name: string, place: string) =>
+    `Same-day fridge and freezer repairs in ${place}. Not cooling, leaking, noisy or needing a regas? Mobile technicians, 24/7. Call 0782 886 252.`,
   (name: string) =>
     `Fridge repairs in ${name}: mobile technicians for fridges and freezers that are not cooling, icing up or leaking. Regassing and compressors on site. 24/7.`,
-  (name: string) =>
-    `Need a fridge technician in ${name}, Harare? We repair and regas all makes at your home or business, usually the same day. Open 24 hours. 0782 886 252.`,
+  (_name: string, place: string) =>
+    `Need a fridge technician in ${place}? We repair and regas all makes at your home or business, usually the same day. Open 24 hours. 0782 886 252.`,
 ]
 
 const nearbyDescriptionVariants = [
-  (name: string, a: string, b: string) =>
-    `Fridge and freezer repairs in ${name}, Harare, and nearby ${a} and ${b}. Not cooling, leaking or needs regassing? Mobile technicians, 24/7.`,
-  (name: string, a: string, b: string) =>
+  (name: string, place: string, a: string, b: string) =>
+    `Fridge and freezer repairs in ${place === name ? name : `${place},`} and nearby ${a} and ${b}. Not cooling, leaking or needing a regas? Mobile technicians, 24/7.`,
+  (name: string, _place: string, a: string, b: string) =>
     `Mobile fridge technicians in ${name}, ${a} and ${b}. Fridges and freezers not cooling, icing up or leaking, repaired and regassed on site. 24/7.`,
-  (name: string, a: string, b: string) =>
+  (name: string, _place: string, a: string, b: string) =>
     `Need a fridge technician in ${name}? We also cover ${a} and ${b}. All makes repaired and regassed at your home or business. Call 0782 886 252.`,
 ]
 
@@ -401,16 +418,16 @@ function areaDescription(area: AreaSeed) {
   const [a, b] = area.nearby
   if (a && b) {
     for (const make of rotate(nearbyDescriptionVariants, `${area.slug}-description`)) {
-      const text = make(area.name, a, b)
+      const text = make(area.name, placeName(area), a, b)
       if (text.length <= 158) return text
     }
   }
-  return pick(descriptionVariants, `${area.slug}-description`)(area.name)
+  return pick(descriptionVariants, `${area.slug}-description`)(area.name, placeName(area))
 }
 
-const h1Variants = [
+const h1Variants: AreaText[] = [
   (name: string) => `Fridge Repairs in ${name}`,
-  (name: string) => `Fridge Repairs ${name}, Harare`,
+  (name: string, place: string) => (place === name ? `Fridge Repairs in ${name}` : `Fridge Repairs ${place}`),
   (name: string) => `${name} Fridge Repairs`,
 ]
 
@@ -520,7 +537,7 @@ const faqPool: ((name: string, region: RegionRecord) => Faq)[] = [
 const picturePool: { key: PictureKey; alt: (name: string) => string }[] = [
   { key: "compressorTest", alt: (name) => `Technician testing a fridge compressor during a repair in ${name}` },
   { key: "temperature", alt: (name) => `Technician checking fridge temperature at a home in ${name}` },
-  { key: "regassing", alt: (name) => `Fridge regassing in progress in ${name}, Harare` },
+  { key: "regassing", alt: (name) => `Fridge regassing in progress in ${name}` },
   { key: "diagnostics", alt: (name) => `Technician diagnosing a fridge that is not cooling in ${name}` },
   { key: "fan", alt: (name) => `Technician inspecting a fridge evaporator fan in ${name}` },
   { key: "controlBoard", alt: (name) => `Technician testing a fridge control board in ${name}` },
@@ -543,7 +560,7 @@ export function buildAreaPage(area: AreaRecord): ContentPage {
   const nearby = area.nearby.map((name) => areaByName.get(name)).filter((a): a is AreaRecord => Boolean(a))
   const nearbyNames = nearby.map((a) => a.name)
 
-  const chosenProblems = rotate(problems, seed).slice(0, 6)
+  const chosenProblems = rotate(listedFaults, seed).slice(0, 6)
   const chosenBrands = rotate(brands, `${seed}-brands`).slice(0, 8)
   const typePool =
     copy.typeGroup === "commercial"
@@ -638,10 +655,10 @@ export function buildAreaPage(area: AreaRecord): ContentPage {
 
   return {
     path: area.path,
-    title: pick(area.name.length > 12 ? shortTitleVariants : titleVariants, `${seed}-title`)(area.name),
+    title: pick(area.name.length > 12 ? shortTitleVariants : titleVariants, `${seed}-title`)(area.name, placeName(area)),
     description: areaDescription(area),
     eyebrow: `${region.name} · Fridge repairs`,
-    h1: pick(h1Variants, `${seed}-h1`)(area.name),
+    h1: pick(h1Variants, `${seed}-h1`)(area.name, placeName(area)),
     lead: pick(leadVariants, `${seed}-lead`)(area.name, regionText),
     points,
     picture: picture.key,
@@ -657,16 +674,16 @@ export function buildAreaPage(area: AreaRecord): ContentPage {
     whatsappMessage: `Hi, I need a fridge repair in ${area.name}. `,
     schema: {
       serviceName: `Fridge repairs in ${area.name}`,
-      serviceDescription: `Mobile fridge and freezer repair, regassing and compressor replacement in ${area.name}, Harare.`,
+      serviceDescription: `Mobile fridge and freezer repair, regassing and compressor replacement in ${placeName(area)}.`,
       serviceType: "Refrigerator repair",
-      areaName: area.name,
+      areaName: placeName(area),
     },
   }
 }
 
 export function buildRegionPage(region: RegionRecord): ContentPage {
   const list = areasInRegion(region.region)
-  const chosenProblems = rotate(problems, region.slug).slice(0, 6)
+  const chosenProblems = rotate(listedFaults, region.slug).slice(0, 6)
   const chosenTypes = rotate([...homeTypes, ...commercialTypes], `${region.slug}-types`).slice(0, 8)
   const chosenBrands = rotate(brands, `${region.slug}-brands`).slice(0, 10)
 

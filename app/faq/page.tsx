@@ -18,7 +18,7 @@ export const metadata: Metadata = pageMetadata({ title, description, path: "/faq
 export default function FaqPage() {
   return (
     <>
-      <JsonLd data={webPageSchema({ path: "/faq", name: title, description, type: "FAQPage" })} />
+      <JsonLd data={webPageSchema({ path: "/faq", name: title, description })} />
       <PageHero
         eyebrow="FAQ"
         title="Fridge Repair Questions, Answered"

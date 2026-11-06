@@ -12,7 +12,7 @@ export const moreAdvicePages: AdviceRecord[] = [
     path: "/protect-fridge-from-power-cuts",
     title: "How to Protect Your Fridge From Power Cuts & Surges",
     description:
-      "Load shedding is a common cause of sudden fridge failures in Harare. How surge protectors, voltage protectors with a start delay, inverters and simple habits protect your fridge.",
+      "How to protect a fridge from load shedding and surges in Harare: voltage protectors with a start delay, surge protectors, inverters and free habits that work.",
     eyebrow: "Fridge advice",
     h1: "How to Protect Your Fridge From Power Cuts and Surges",
     lead:
@@ -69,8 +69,8 @@ export const moreAdvicePages: AdviceRecord[] = [
         eyebrow: "Food safety",
         heading: "Keeping food safe while the power is off",
         paragraphs: [
-          "Keep the doors closed. A closed fridge keeps food cold for around four hours. A full freezer that stays shut keeps food frozen for much longer, often up to a day or two, and a half-full freezer for less. Bottles of water in the freezer gaps help it hold its temperature.",
-          "If food in the fridge has been above about 5 degrees for more than a few hours, treat meat, dairy and cooked food with caution. Frozen food that still has ice crystals can usually be refrozen. If you are unsure, it is safer to throw it out.",
+          "Keep the doors closed. A closed fridge keeps food cold for about four hours. A full freezer that stays shut keeps food frozen for about two days, and a half-full one for about a day. Bottles of water in the freezer gaps help it hold its temperature.",
+          "If the power has been off for more than about four hours, throw out perishable food from the fridge, such as meat, fish, milk, eggs and cooked leftovers. Frozen food that still has ice crystals can usually be refrozen. If you are unsure, it is safer to throw it out.",
         ],
         picture: "temperature",
         pictureAlt: "Technician checking the temperature inside a fridge after a power cut",
@@ -124,7 +124,7 @@ export const moreAdvicePages: AdviceRecord[] = [
     path: "/how-to-defrost-a-freezer",
     title: "How to Defrost a Freezer or Fridge Safely | Step by Step",
     description:
-      "How to defrost a chest freezer, upright freezer or manual defrost fridge safely and quickly, what not to do, and when ice build-up means a fault. Advice from Harare fridge technicians.",
+      "How to defrost a chest freezer, upright freezer or manual defrost fridge safely, what not to do, and when ice build-up means a fault. From Harare technicians.",
     eyebrow: "Fridge advice",
     h1: "How to Defrost a Freezer or Fridge Safely",
     lead:
@@ -182,7 +182,7 @@ export const moreAdvicePages: AdviceRecord[] = [
         heading: "When ice build-up is a fault",
         paragraphs: [
           "If the ice comes back within days or weeks, something is letting moist air in. On a chest freezer it is usually the lid seal or a lid that does not close flat. On an upright it may be the door seal, a sagging door or a fridge that tilts forward so the door does not self-close.",
-          "On frost free fridges, any heavy ice is a defrost fault: the heater, timer, bimetal or sensor. We repair both at your address across Harare.",
+          "On frost free fridges, heavy ice on the back wall or around the vents is usually a defrost fault: the heater, timer, bimetal or sensor. Frost near the door points to the seal. We repair both at your address across Harare.",
         ],
         picture: "doorSeal",
         pictureAlt: "Technician checking a freezer door seal for gaps",
@@ -215,12 +215,12 @@ export const moreAdvicePages: AdviceRecord[] = [
       {
         question: "Do I need to defrost a frost free fridge?",
         answer:
-          "No. It defrosts itself several times a day. Heavy ice on a frost free fridge means the defrost system has failed and should be repaired.",
+          "No. It defrosts itself automatically, a few times a day. Heavy ice on the back wall of a frost free freezer means the defrost system has failed and should be repaired.",
       },
       {
         question: "I damaged the inside while defrosting. Can it be repaired?",
         answer:
-          "Often, yes. A pierced evaporator can sometimes be repaired and the system regassed, depending on where the hole is. Switch the freezer off and call us to assess it.",
+          "Sometimes. Depending on where the hole is, a pierced evaporator can be repaired and the system regassed; on some freezers it is not worth it. Switch the freezer off and call us to assess it.",
       },
     ],
     cta: {
@@ -236,7 +236,7 @@ export const moreAdvicePages: AdviceRecord[] = [
     path: "/fridge-temperature-settings",
     title: "What Temperature Should a Fridge Be? Settings Explained",
     description:
-      "What temperature should your fridge and freezer be? The right settings, what dial numbers 1 to 7 mean, how to check with a thermometer, and when a wrong temperature is a fault.",
+      "What temperature should a fridge and freezer be? The right settings, what dial numbers 1 to 7 mean, how to check with a thermometer, and when it is a fault.",
     eyebrow: "Fridge advice",
     h1: "What Temperature Should My Fridge and Freezer Be?",
     lead:
@@ -348,18 +348,18 @@ export const moreAdvicePages: AdviceRecord[] = [
     path: "/moving-a-fridge",
     title: "Moving a Fridge: Can It Lie Down? How Long Before Use?",
     description:
-      "Moving house in Harare? How to transport a fridge or freezer safely, whether it can lie down, and how long to wait before switching it on so the compressor is not damaged.",
+      "Moving house in Harare? How to transport a fridge or freezer safely, whether it can lie down, and how long to let it stand before you switch it back on.",
     eyebrow: "Fridge advice",
     h1: "How to Move a Fridge Without Damaging It",
     lead:
-      "A fridge that worked perfectly before a move and does not cool afterwards is a call we get regularly. Most of that damage is avoidable. Here is how to transport a fridge or freezer, and what to do when it arrives.",
+      "A fridge that worked perfectly before a move and does not cool afterwards is a common and frustrating problem. Most of that damage is avoidable. Here is how to transport a fridge or freezer, and what to do when it arrives.",
     quickAnswer: {
       question: "Can you lay a fridge down to move it, and how long should it stand before switching on?",
       answer:
-        "Transport a fridge upright whenever you can. If it must lie down, lay it on its side, not on its back or front, with the compressor pipes uppermost where the manual allows. When it arrives, stand it upright and wait before switching on: at least four hours, and longer if it lay down for a long trip, so the compressor oil drains back.",
+        "Transport a fridge upright whenever you can. If it must lie down, follow the manual: many makers say on its side with the compressor pipes uppermost, some say on its back, and it should never lie on its front. When it arrives, stand it upright and wait at least four hours before switching on, longer if it lay down for a long trip, so the compressor oil drains back.",
     },
     points: [
-      "Upright is best, side if you must",
+      "Upright is best; lying down only as the manual allows",
       "Secure doors and loose parts",
       "Let it stand before switching on",
       "What to do if it will not cool after the move",
@@ -393,7 +393,7 @@ export const moreAdvicePages: AdviceRecord[] = [
         heading: "If it must lie down",
         columns: 1,
         items: [
-          "Lay it on its side, not on its back, where the condenser and pipes can be crushed, and not on its front, where the doors take the weight.",
+          "Lay it the way the manual says: many makers say on its side, some on its back. Never lay it on its front, where the doors take the weight, and never let a condenser grille on the back take any weight.",
           "Many technicians lay it on the side opposite the compressor pipes so the oil stays in the compressor. Check the manual for your fridge.",
           "Pad it well and keep the journey as short as possible.",
           "Stand it up as soon as you arrive, and give it longer to settle before switching on.",
@@ -428,12 +428,12 @@ export const moreAdvicePages: AdviceRecord[] = [
       {
         question: "How long should a fridge stand before switching it on?",
         answer:
-          "If it stayed upright, a short wait of an hour or so is enough. If it lay down, wait at least four hours and preferably longer for a long journey. Check your manual, as some makers give their own figure.",
+          "Wait at least four hours after any move before switching on, and longer if it lay down for a long journey. Some makers allow a shorter wait for a fridge that stayed upright, so check your manual for its figure.",
       },
       {
         question: "Can I transport a chest freezer on its back?",
         answer:
-          "It is better kept upright. If it has to tilt, keep the compressor end raised and the journey short, and let it stand for several hours before switching on.",
+          "It is better kept upright. If it has to tilt, keep the compressor end raised and the journey short, and let it stand for at least four hours before switching on.",
       },
       {
         question: "Will moving a fridge cause a gas leak?",

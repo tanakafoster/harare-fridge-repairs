@@ -4,9 +4,10 @@
  *
  * Kept deliberately small: about five contextual links per site, on pages
  * where the link is useful, never site-wide. `scripts/check-site.mjs` fails
- * the build if a sister site is linked from more than five pages. Links go to
- * each site's canonical www host and never to Electro's fridge pages, which
- * would compete with ours.
+ * the build if a sister site is linked from more than five pages, from
+ * outside a note, from a non-www host or to one of Electro's fridge pages
+ * (which would compete with ours). The check keeps its own copy of the two
+ * hosts and the five-page limit, so change both together.
  */
 export const sisterSites = {
   washing: {
@@ -31,8 +32,6 @@ export type SisterMention = {
 }
 
 export type SisterNote = { heading: string; mentions: SisterMention[] }
-
-export const maxSisterPagesPerSite = 5
 
 /** Keyed by the path of the page on this site that shows the note. */
 export const sisterNotes: Record<string, SisterNote> = {
@@ -99,14 +98,14 @@ export const sisterNotes: Record<string, SisterNote> = {
     ],
   },
   "/fridge-power-surge-repairs": {
-    heading: "Did the power cut damage other appliances?",
+    heading: "Did the surge damage other appliances?",
     mentions: [
       {
         site: "electro",
-        target: "/appliance-damage-after-power-cuts",
-        before: "Dishwashers and tumble dryers can be damaged by the same surge. Our sister business Electro Appliance Repairs explains ",
-        anchor: "appliance damage after power cuts",
-        after: " and repairs those appliances across Harare.",
+        target: "/dishwasher-repairs",
+        before: "A surge that damages a fridge can also damage a dishwasher or tumble dryer. We repair fridges and freezers only, so for those our sister business Electro Appliance Repairs offers ",
+        anchor: "dishwasher repairs",
+        after: " and tumble dryer repairs across Harare.",
       },
     ],
   },
@@ -151,13 +150,4 @@ export const sisterNotes: Record<string, SisterNote> = {
 export function sisterHref(mention: SisterMention) {
   const base = sisterSites[mention.site].url
   return mention.target === "/" ? `${base}/` : `${base}${mention.target}`
-}
-
-/** Pages that link to each sister site, for the build check and the README. */
-export function sisterPagesBySite() {
-  const result: Record<SisterSiteKey, string[]> = { washing: [], electro: [] }
-  for (const [path, note] of Object.entries(sisterNotes)) {
-    for (const site of new Set(note.mentions.map((m) => m.site))) result[site].push(path)
-  }
-  return result
 }

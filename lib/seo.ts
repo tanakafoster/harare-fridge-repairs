@@ -134,7 +134,7 @@ export function serviceSchema({
     url: absoluteUrl(path),
     provider: { "@id": businessId },
     areaServed: areaName
-      ? { "@type": "Place", name: `${areaName}, Harare, Zimbabwe` }
+      ? { "@type": "Place", name: `${areaName}, Zimbabwe` }
       : { "@type": "City", name: "Harare" },
     availableChannel: {
       "@type": "ServiceChannel",

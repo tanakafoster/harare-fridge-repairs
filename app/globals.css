@@ -20,15 +20,19 @@
 }
 
 @layer base {
+  /* Keep anchor jumps and keyboard focus clear of the sticky header and,
+     below the lg breakpoint, the fixed call bar at the bottom of the screen. */
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 4.5rem;
+    scroll-padding-bottom: 5rem;
   }
 
-  /* Keep anchor and focus targets clear of the sticky header. */
-  main,
-  [id] {
-    scroll-margin-top: 4.5rem;
+  @media (min-width: 64rem) {
+    html {
+      scroll-padding-bottom: 0;
+    }
   }
 
   body {

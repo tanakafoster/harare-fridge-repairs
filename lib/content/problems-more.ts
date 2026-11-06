@@ -11,14 +11,14 @@ export const moreProblems: ProblemRecord[] = [
     name: "Fridge warm but freezer cold",
     question: "Why is my fridge warm when the freezer is still cold?",
     quickAnswer:
-      "On a frost free fridge the cold is made in the freezer and blown into the fridge section by a fan. If the freezer is cold but the fridge is warm, the air path has stopped: usually ice blocking the evaporator because a defrost part has failed, a failed evaporator fan, or a damper stuck closed. It rarely needs gas.",
+      "On most frost free fridges the cold is made in the freezer and blown into the fridge section by a fan. If the freezer is cold but the fridge is warm, the air path has stopped: usually ice blocking the evaporator because a defrost part has failed, a failed evaporator fan, or a damper stuck closed. It rarely needs gas.",
     cardText: "Freezer frozen, fridge section warm. Almost always airflow or defrost, not gas.",
     title: "Fridge Warm but Freezer Cold? Causes & Repair in Harare",
     description:
-      "Freezer still cold but the fridge section is warm? On frost free fridges this is usually a defrost, fan or damper fault, not gas. Repaired at home across Harare, 24/7. Call 0782 886 252.",
+      "Freezer cold but the fridge section warm? On frost free fridges it is usually a defrost, fan or damper fault, not gas. Repaired at home across Harare, 24/7.",
     h1: "Fridge Warm but Freezer Still Cold? Here Is Why",
     lead:
-      "It is one of the most confusing faults a fridge can have: ice cream still hard in the freezer, but warm milk and soft butter in the fridge. The good news is that it is rarely a gas problem and usually repairable in one visit. Harare Fridge Repairs diagnoses and fixes it at your address, anywhere in Harare.",
+      "It is one of the most confusing faults a fridge can have: ice cream still hard in the freezer, but warm milk and soft butter in the fridge. The good news is that it is rarely a gas problem, and it can often be repaired in one visit. Harare Fridge Repairs diagnoses and fixes it at your address, anywhere in Harare.",
     points: [
       "Most common on frost free combi, double door and side by side fridges",
       "Usually a defrost part, a fan or a damper",
@@ -26,8 +26,8 @@ export const moreProblems: ProblemRecord[] = [
       "Repaired in your kitchen, 24 hours a day",
     ],
     intro: [
-      "A frost free fridge has one cold plate, the evaporator, hidden behind a panel in the freezer. A small fan pulls air across it and pushes some of that cold air through a duct into the fridge section, where a damper or the control board decides how much gets through. When the fridge is warm and the freezer is cold, the refrigeration system is still working. What has failed is the path the cold air takes to the fridge.",
-      "The usual reason is ice. Every few hours a frost free fridge should switch on a heater to melt the frost off the evaporator. If the heater, the defrost timer, the bimetal thermostat or the defrost sensor fails, frost keeps building until the evaporator and the duct are a solid block of ice. The freezer stays cold because it sits right next to the ice, but no air reaches the fridge. You may see frost on the back panel of the freezer or hear the fan scraping.",
+      "Most frost free fridges have one cold plate, the evaporator, hidden behind a panel in the freezer. A small fan pulls air across it and pushes some of that cold air through a duct into the fridge section, where a damper or the control board decides how much gets through. When the fridge is warm and the freezer is cold, the refrigeration system is still working. What has failed is the path the cold air takes to the fridge.",
+      "The usual reason is ice. A few times a day, a frost free fridge should switch on a heater to melt the frost off the evaporator. If the heater, the defrost timer, the bimetal thermostat or the defrost sensor fails, frost keeps building until the evaporator and the duct are a solid block of ice. The freezer stays cold because it sits right next to the ice, but no air reaches the fridge. You may see frost on the back panel of the freezer or hear the fan scraping.",
       "On older fridges with no fan, a warm fridge and cold freezer is more often a thermostat or a fridge-section gasket problem. Either way, the technician confirms the cause before quoting.",
     ],
     causes: [
@@ -46,7 +46,7 @@ export const moreProblems: ProblemRecord[] = [
       "Did the fault start gradually over a few days or suddenly after a power cut?",
     ],
     dontDo: [
-      "Do not pay for a regas. If the freezer is cold, the system has gas.",
+      "Do not pay for a regas first. A cold freezer shows the system is still making cold, so have the airflow and defrost checked before anyone adds gas.",
       "Do not chip ice off the evaporator panel with a knife; a pierced evaporator is an expensive repair.",
       "A manual defrost with the fridge switched off for a day may bring cooling back for a while, but the failed part is still there and the ice will return.",
     ],
@@ -69,7 +69,7 @@ export const moreProblems: ProblemRecord[] = [
       {
         question: "Which fridges get this fault most?",
         answer:
-          "Frost free combi, double door, side by side and French door fridges, because they all move cold air from the freezer to the fridge with a fan. Brands do not matter much; the design does.",
+          "Frost free combi, double door, side by side and French door fridges that move cold air from the freezer to the fridge with a fan. Some models, such as Samsung fridges with Twin Cooling, have a separate evaporator and fan for the fridge section; on those, the same symptom usually means that evaporator has iced over or its fan has failed. The design matters more than the brand.",
       },
     ],
     related: ["fridge-not-cooling", "ice-build-up", "fridge-making-noise", "fridge-freezing-food"],
@@ -92,7 +92,7 @@ export const moreProblems: ProblemRecord[] = [
     cardText: "Earth leakage or breaker trips when the fridge starts. A safety fault, not one to keep resetting.",
     title: "Fridge Tripping the Power? Causes & Safe Repair in Harare",
     description:
-      "Fridge tripping the earth leakage or breaker? It is usually a compressor, defrost heater, cord or wiring fault to earth. Switch it off and call our Harare technicians, 24/7, on 0782 886 252.",
+      "Fridge tripping the earth leakage or breaker? Usually a compressor, defrost heater, cord or wiring fault to earth. Switch it off and call us in Harare, 24/7.",
     h1: "Fridge Tripping the Earth Leakage or Breaker",
     lead:
       "When the lights go out every time the fridge kicks in, something in it is leaking current to earth. That is exactly what the earth leakage is there to catch, so please do not keep resetting it. Harare Fridge Repairs tests the fridge safely, finds the faulty part and repairs it at your address.",
@@ -141,12 +141,12 @@ export const moreProblems: ProblemRecord[] = [
       {
         question: "My fridge only trips at night. Why?",
         answer:
-          "Faults that appear hours after start up usually follow the defrost cycle, when the heater switches on. Nights can also bring voltage changes as load on the network changes. A technician can confirm which with a test.",
+          "Faults that appear hours after start up usually follow the defrost cycle, when the heater switches on. Nights can also bring voltage changes as load on the network changes, and damp nights can let moisture into a heater, connector or cord. A technician can confirm which with a test.",
       },
       {
         question: "Can you come out urgently for this?",
         answer:
-          "Yes. We answer 24 hours a day across Harare. If the fridge is full of food, keep the doors shut and it will hold its temperature for a good while unplugged.",
+          "Yes. We answer 24 hours a day across Harare. Keep the doors shut while it is unplugged: a closed fridge keeps food cold for about four hours, and a full freezer for much longer.",
       },
     ],
     related: ["fridge-not-switching-on", "fridge-compressor-problems", "fridge-leaking-water", "fridge-clicking-on-and-off"],
@@ -165,11 +165,11 @@ export const moreProblems: ProblemRecord[] = [
     name: "Fridge clicking on and off",
     question: "Why does my fridge click on and off?",
     quickAnswer:
-      "A click every few minutes with a short hum, and a fridge that is getting warmer, usually means the compressor is trying to start and failing. The start relay or overload cuts it off. A worn start relay is the most common cause and is a quick repair; an overheating or failing compressor is the less common one.",
+      "A click every few minutes with a short hum, and a fridge that is getting warmer, usually means the compressor is trying to start and failing, and the overload protector is cutting it off. A worn start relay is the most common cause and is usually a straightforward repair; an overheating or failing compressor is the less common one.",
     cardText: "A hum, a click, silence, repeat. Usually the start relay, sometimes the compressor.",
     title: "Fridge Clicking On and Off? Start Relay & Compressor Help",
     description:
-      "Fridge clicking every few minutes and not cooling? It is usually the start relay or overload stopping a compressor that cannot start. Repaired at home in Harare, 24/7. Call 0782 886 252.",
+      "Fridge clicking on and off and not cooling? Usually a worn start relay, with the overload cutting out a compressor that cannot start. Repaired in Harare.",
     h1: "Fridge Clicking On and Off? What the Click Means",
     lead:
       "A single click when the fridge switches on or off is normal. A click every couple of minutes, with a short buzz before it and a fridge that is getting warmer, is not. It is the sound of a compressor that cannot start. Harare Fridge Repairs tests the start components and the compressor at your address and fixes what has failed.",
@@ -185,7 +185,7 @@ export const moreProblems: ProblemRecord[] = [
       "If new start components do not cure it, the compressor itself may be seizing or have a failed winding, or it may be overheating because the condenser is dusty. Those are confirmed with a meter before you are asked to pay for a compressor.",
     ],
     causes: [
-      { title: "Start relay or PTC starter worn", text: "The starter no longer gives the motor its push. Hum, click, silence, repeat. The most common cause and a quick, inexpensive repair." },
+      { title: "Start relay or PTC starter worn", text: "The starter no longer gives the motor its push. Hum, click, silence, repeat. The most common cause and a straightforward repair." },
       { title: "Overload protector failing", text: "A tired overload trips early even when the compressor is fine, so the fridge runs in short bursts and warms up." },
       { title: "Low voltage after power returns", text: "A weak supply, an undersized extension lead or an inverter that cannot deliver starting current stops the compressor starting." },
       { title: "Compressor overheating", text: "Dusty condenser coils or no air space behind the fridge make the compressor too hot, so the overload keeps cutting it out." },
@@ -202,7 +202,7 @@ export const moreProblems: ProblemRecord[] = [
     dontDo: [
       "Do not leave a fridge clicking for days. Each failed start heats the compressor windings and can turn a relay fault into a compressor fault.",
       "Do not tap or hit the compressor to get it going.",
-      "Do not plug the fridge back in straight after a power cut; wait a few minutes for the pressures to settle.",
+      "Do not switch the fridge back on the moment the power returns; wait a few minutes so the supply has settled and, after a short cut, the pressures inside have equalised.",
     ],
     faqs: [
       {
@@ -246,7 +246,7 @@ export const moreProblems: ProblemRecord[] = [
     cardText: "Warm side panels are usually normal. Very hot sides with poor cooling are not.",
     title: "Fridge Hot on the Sides? What Is Normal & What Is Not",
     description:
-      "Fridge sides warm or hot to touch? Warm is normal because the condenser runs behind the panels. Very hot sides with poor cooling are a fault. Harare fridge technicians explain, 24/7.",
+      "Fridge sides warm or hot? Warm is normal, as the condenser runs behind the panels. Very hot sides with poor cooling are a fault. Harare technicians explain.",
     h1: "Fridge Hot on the Sides: Normal or a Fault?",
     lead:
       "Many people call us worried because the sides of their new fridge feel warm. Usually that is exactly how the fridge is designed to work. But hot sides can also be the first sign of a fridge working far too hard. This guide explains the difference, and Harare Fridge Repairs can check it at your address if you are unsure.",
@@ -254,7 +254,7 @@ export const moreProblems: ProblemRecord[] = [
       "Warm sides are normal on most fridges made in the last twenty years",
       "Too hot to touch, or warm sides plus poor cooling, needs a check",
       "Airflow and door seals are the usual causes of overheating",
-      "Same day checks across Harare",
+      "Checks at your home across Harare",
     ],
     intro: [
       "A fridge does not make cold. It moves heat out of the cabinet and releases it into the kitchen. On older fridges that heat comes out of the black grille of pipes on the back. On most modern fridges, including the Defy, Hisense, Samsung and LG models common in Harare, the condenser pipe is fixed to the inside of the outer side panels, so the panels themselves give off the heat. They feel warm, sometimes quite warm, when the compressor is running. That is normal.",
@@ -317,13 +317,13 @@ export const moreProblems: ProblemRecord[] = [
   {
     slug: "fridge-bad-smell",
     name: "Fridge smells bad",
-    question: "Why does my fridge smell bad?",
+    question: "What usually causes a bad smell in a fridge?",
     quickAnswer:
       "Most fridge smells come from spoiled food, spills under the drawers, a blocked drain hole or stagnant water in the drain tray behind the fridge. A fridge that smells even after a thorough clean may not be holding a safe temperature. A burning or chemical smell is different: switch the fridge off and have it checked.",
     cardText: "Musty, sour or burning? What the smell tells you, and when it is a repair rather than a clean.",
     title: "Fridge Smells Bad? Causes, Cleaning & When to Call Us",
     description:
-      "Fridge smells bad even after cleaning? Learn the causes, from a blocked drain and dirty drain tray to a fridge not holding temperature, and what a burning smell means. Harare technicians, 24/7.",
+      "Fridge smells bad even after cleaning? The causes, from a blocked drain or dirty drain tray to a fridge running too warm, and what a burning smell means.",
     h1: "Why Does My Fridge Smell Bad?",
     lead:
       "A smelly fridge is usually a cleaning job, not a repair. But when the smell keeps coming back, or when it is a burning or chemical smell rather than a food smell, there is often a fault behind it. Here is how to tell the difference, and when to call Harare Fridge Repairs.",
@@ -377,7 +377,7 @@ export const moreProblems: ProblemRecord[] = [
       {
         question: "Can a fridge gas leak smell?",
         answer:
-          "Most household fridge gases have little smell in the amounts a fridge holds. Some newer fridges use R600a, a hydrocarbon, so if you smell gas near the fridge, ventilate the room, avoid switches and flames and call us. Most smells, though, are food or drain related.",
+          "Most household fridge gases have little smell in the amounts a fridge holds. Most newer fridges use R600a, a flammable hydrocarbon, so if you smell gas near the fridge, ventilate the room, avoid switches and flames and call us. Most smells, though, are food or drain related.",
       },
     ],
     related: ["fridge-leaking-water", "fridge-not-cooling", "fridge-door-seal-problems", "fridge-tripping-power"],
@@ -396,26 +396,27 @@ export const moreProblems: ProblemRecord[] = [
     name: "Ice maker or water dispenser not working",
     question: "Why is my fridge ice maker or water dispenser not working?",
     quickAnswer:
-      "When a side by side or French door fridge stops making ice or dispensing water, the usual causes are a frozen water line in the door, a failed water inlet valve, a blocked filter, low water pressure, or the ice maker switched off or jammed. Low household pressure and water tank problems are common in Harare and are worth checking first.",
+      "When a side by side or French door fridge stops making ice or dispensing water, the usual causes are a frozen water line in the door, an empty or badly seated water tank on models that are not plumbed in, a failed inlet valve, a blocked filter or low water pressure on plumbed-in models, or the ice maker switched off or jammed. On plumbed-in models, check the household water pressure first: low pressure from tanks and boreholes is common in Harare.",
     cardText: "No ice, slow water or a dispenser that has stopped. Usually the water line, valve or filter.",
     title: "Fridge Ice Maker or Water Dispenser Not Working | Harare",
     description:
-      "Ice maker or water dispenser stopped on your side by side or French door fridge? Frozen lines, inlet valves, filters and water pressure explained. Repaired at home in Harare, 24/7.",
+      "Ice maker or water dispenser stopped on a side by side or French door fridge? Frozen lines, tanks, valves, filters and pressure explained. Repaired in Harare.",
     h1: "Fridge Ice Maker or Water Dispenser Not Working",
     lead:
-      "Side by side and French door fridges with plumbed-in ice makers and water dispensers are common in Borrowdale, Highlands and the newer estates. When they stop, the fridge usually still cools fine, but the convenience is gone and sometimes water ends up on the floor. Harare Fridge Repairs repairs dispensers and ice makers on site.",
+      "Side by side and French door fridges with ice makers and water dispensers, plumbed-in or filled from a tank, are common in Borrowdale, Highlands and the newer estates. When they stop, the fridge usually still cools fine, but the convenience is gone and sometimes water ends up on the floor. Harare Fridge Repairs repairs dispensers and ice makers on site.",
     points: [
-      "Samsung, LG, Hisense and other plumbed-in fridges",
+      "Samsung, LG, Hisense and other dispenser fridges, plumbed-in or with a water tank",
       "Frozen door lines, inlet valves, filters and ice makers",
       "Water pressure and supply checked first",
       "Repaired at your home across Harare",
     ],
     intro: [
-      "A plumbed-in fridge takes water from your house supply through a thin tube, an electrically operated inlet valve at the back, a filter, and then on to the ice maker and the dispenser in the door. Each of those can stop the water. Because the dispenser line runs through the freezer door on many models, it can also freeze solid if the door has been left ajar or the freezer is set very cold.",
-      "Water supply matters a lot in Harare. Many homes rely on a tank, a borehole or a booster pump, and the pressure at the fridge can be too low for the inlet valve to open properly, especially when the tank is low. Sediment from boreholes also blocks filters and valve screens faster than the manual suggests. We check the supply before replacing parts.",
+      "A plumbed-in fridge takes water from your house supply through a thin tube, an electrically operated inlet valve at the back, a filter, and then on to the ice maker and the dispenser in the door. Each of those can stop the water. Models that are not plumbed in draw water from a small tank inside the fridge that you fill by hand, so an empty or badly seated tank is the first thing to check. Because the dispenser line runs through the freezer door on many models, it can also freeze solid if the door has been left ajar or the freezer is set very cold.",
+      "On plumbed-in models the water supply matters a lot in Harare. Many homes rely on a tank, a borehole or a booster pump, and the pressure at the fridge can be too low for the inlet valve to open properly, especially when the tank is low. Sediment from boreholes also blocks filters and valve screens faster than the manual suggests. We check the supply before replacing parts.",
       "If water is dripping from the dispenser or pooling behind the fridge, turn off the water supply to the fridge until it is fixed.",
     ],
     causes: [
+      { title: "Water tank empty or not seated", text: "On models that are not plumbed in, the tank is empty, not pushed fully home or blocked at its outlet, so no water reaches the dispenser or ice maker." },
       { title: "Frozen water line", text: "The tube through the freezer door has frozen, often after the door was left open or the freezer set to its coldest. Water stops, ice may still be made." },
       { title: "Inlet valve failed or blocked", text: "The solenoid valve at the back no longer opens, or its screen is blocked with sediment. No water to the ice maker or dispenser." },
       { title: "Filter blocked or wrongly fitted", text: "An old filter or one not locked in fully slows water to a trickle or stops it. Borehole water clogs filters faster." },
@@ -424,7 +425,8 @@ export const moreProblems: ProblemRecord[] = [
       { title: "Dispenser switch or control fault", text: "The paddle switch, door switch or control board is not powering the valve. Usually shows on the display." },
     ],
     checks: [
-      "Is the water supply tap to the fridge fully open, and is there water pressure at the kitchen sink?",
+      "On a model with a water tank, is the tank full and pushed fully into place?",
+      "On a plumbed-in model, is the supply tap to the fridge fully open, and is there water pressure at the kitchen sink?",
       "Is the ice maker switched on in the settings or with its switch?",
       "When was the water filter last changed, and is it locked fully in place?",
       "Is there ice in the dispenser chute or a frozen line in the freezer door?",
@@ -454,7 +456,7 @@ export const moreProblems: ProblemRecord[] = [
       {
         question: "Do you repair Samsung and LG ice makers?",
         answer:
-          "Yes. Samsung, LG, Hisense, Defy and other plumbed-in side by side and French door fridges are part of our everyday work across Harare.",
+          "Yes. We repair ice makers and water dispensers on Samsung, LG, Hisense, Defy and other side by side and French door fridges across Harare, both plumbed-in models and those with a water tank.",
       },
     ],
     related: ["fridge-leaking-water", "ice-build-up", "fridge-warm-freezer-cold", "fridge-freezing-food"],
@@ -465,6 +467,6 @@ export const moreProblems: ProblemRecord[] = [
       { href: "/lg-fridge-repairs", label: "LG fridge repairs" },
     ],
     picture: "sideBySide",
-    pictureAlt: "Technician repairing a side by side fridge with a water dispenser",
+    pictureAlt: "Technician repairing a French door fridge with a screwdriver",
   },
 ]

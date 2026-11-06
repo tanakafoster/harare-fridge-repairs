@@ -2,7 +2,7 @@
 // every page has exactly one h1, a unique title and description, a canonical
 // that points at itself, no noindex, valid JSON-LD whose FAQ answers are
 // visible on the page, at least one inbound internal link, no forbidden
-// strings, and the sitemap matches the built pages.
+// strings, the sister-site link rules, and the sitemap matches the built pages.
 // Run after `pnpm build`: `node scripts/check-site.mjs`
 import { readdir, readFile, stat } from "node:fs/promises"
 import path from "node:path"
@@ -17,9 +17,13 @@ const sisterHosts = {
   electro: "https://www.electroappliancerepairs.co.zw",
 }
 const maxSisterPages = 5
-const sisterDomain = /^https?:\/\/(?:www\.)?(hararewashingmachinerepairs|electroappliancerepairs)\.co\.zw/i
-const sisterBlock = /<section data-sister-sites[^>]*>[\s\S]*?<\/section>/g
-const forbidden = [/electro\s*appliance/i, /electroappliance/i, /0771\s?371\s?600/, /AW-18395132504/, /G-NC7MND1ZD1/, /lorem ipsum/i]
+const sisterDomain = /^(?:https?:)?\/\/(?:www\.)?(hararewashingmachinerepairs|electroappliancerepairs)\.co\.zw/i
+// Electro also repairs fridges; links must never point at those pages, which compete with ours.
+const electroFridgePath = /fridge|freezer|refrigerat|chiller|cold-room|ice-machine/i
+const sisterBlock = /<section\b[^>]*\bdata-sister-sites\b[^>]*>[\s\S]*?<\/section>/g
+// Electro's name may appear only inside a sister note; the rest applies everywhere.
+const electroName = [/electro\s*appliance/i, /electroappliance/i]
+const forbidden = [/0771\s?371\s?600/, /AW-18395132504/, /G-NC7MND1ZD1/, /lorem ipsum/i]
 
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true })
@@ -137,6 +141,10 @@ for (const file of htmlFiles) {
       if (types.includes("Answer") && typeof node.text === "string" && !text.includes(decode(node.text).replace(/\s+/g, " ").trim())) {
         problems.push(`${rel}: FAQ answer in JSON-LD not visible on page: ${node.text.slice(0, 60)}…`)
       }
+      if (types.includes("Question") && typeof node.name === "string" && !text.includes(decode(node.name).replace(/\s+/g, " ").trim())) {
+        problems.push(`${rel}: FAQ question in JSON-LD not visible on page: ${node.name.slice(0, 60)}…`)
+      }
+      if (types.includes("FAQPage") && !node.mainEntity) problems.push(`${rel}: FAQPage without questions (mainEntity)`)
     }
     if (/\bundefined\b|\bNaN\b|\bTODO\b|lorem ipsum/.test(raw)) problems.push(`${rel}: placeholder text in JSON-LD`)
   }
@@ -153,14 +161,20 @@ for (const file of htmlFiles) {
     if (!domain) continue
     const site = domain[1].toLowerCase().startsWith("electro") ? "electro" : "washing"
     if (!match[1].startsWith(sisterHosts[site])) problems.push(`${rel}: sister link should use ${sisterHosts[site]}: ${match[1]}`)
+    if (site === "electro" && electroFridgePath.test(match[1].replace(sisterDomain, ""))) {
+      problems.push(`${rel}: links to an Electro fridge page, which competes with ours: ${match[1]}`)
+    }
     sisterPages[site].add(pagePath)
   }
   for (const match of outsideSister.matchAll(/href="([^"]+)"/g)) {
     if (sisterDomain.test(match[1])) problems.push(`${rel}: sister-site link outside the sister note: ${match[1]}`)
   }
 
-  for (const pattern of forbidden) {
+  for (const pattern of electroName) {
     if (pattern.test(outsideSister)) problems.push(`${rel}: forbidden text ${pattern}`)
+  }
+  for (const pattern of forbidden) {
+    if (pattern.test(html)) problems.push(`${rel}: forbidden text ${pattern}`)
   }
 
   const hrefs = [...html.matchAll(/href="([^"]+)"/g)].map((m) => m[1])

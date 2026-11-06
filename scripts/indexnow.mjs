@@ -9,16 +9,26 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
+import { parseArgs } from "node:util"
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 const host = "hararefridgerepairs.co.zw"
 const key = "a1dc5ebc9cbc7802941906786d11e3c6"
 const keyLocation = `https://${host}/${key}.txt`
 
-const args = process.argv.slice(2)
-const dryRun = args.includes("--dry-run")
-const sinceIndex = args.indexOf("--changed-since")
-const since = sinceIndex > -1 ? new Date(args[sinceIndex + 1]) : undefined
+// Strict, so a typo such as --dryrun stops the script instead of sending for real.
+let options
+try {
+  options = parseArgs({
+    args: process.argv.slice(2).filter((arg) => arg !== "--"),
+    options: { "dry-run": { type: "boolean" }, "changed-since": { type: "string" } },
+  }).values
+} catch (error) {
+  console.error(`${error.message}\nUsage: pnpm indexnow -- [--dry-run] [--changed-since 2026-11-06]`)
+  process.exit(1)
+}
+const dryRun = Boolean(options["dry-run"])
+const since = options["changed-since"] ? new Date(options["changed-since"]) : undefined
 if (since && Number.isNaN(since.getTime())) {
   console.error("--changed-since needs a date such as 2026-11-06")
   process.exit(1)
@@ -34,12 +44,16 @@ const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => ({
   loc: m[1].match(/<loc>([^<]+)<\/loc>/)?.[1],
   lastmod: m[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1],
 }))
+// A page with no lastmod has an unknown date (shallow clone, uncommitted
+// files or no git), not an old one, so it is sent rather than skipped.
+const undated = entries.filter((entry) => entry.loc && !entry.lastmod).length
 const urlList = entries
   .filter((entry) => entry.loc)
-  .filter((entry) => !since || (entry.lastmod && new Date(entry.lastmod) >= since))
+  .filter((entry) => !since || !entry.lastmod || new Date(entry.lastmod) >= since)
   .map((entry) => entry.loc)
 
 console.log(`${urlList.length} URL(s) to submit${since ? ` changed since ${since.toISOString().slice(0, 10)}` : ""}.`)
+if (since && undated) console.log(`${undated} of them have no lastmod in the sitemap and are included to be safe.`)
 if (dryRun || urlList.length === 0) {
   for (const url of urlList) console.log(" ", url)
   process.exit(0)

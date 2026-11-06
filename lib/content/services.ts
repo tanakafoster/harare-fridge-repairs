@@ -104,6 +104,12 @@ const coreServices: ServiceRecord[] = [
         items: problemLinks,
       },
       {
+        kind: "chips",
+        heading: "Specific fridge repairs",
+        intro: "Some repairs have their own page with the detail of how we do them.",
+        items: repairServices.map((s) => ({ href: s.path, label: s.shortName })),
+      },
+      {
         kind: "cards",
         heading: "Related fridge services in Harare",
         items: [
@@ -356,6 +362,7 @@ const coreServices: ServiceRecord[] = [
           { href: "/problems/ice-build-up", label: "Ice build up" },
           { href: "/problems/fridge-compressor-problems", label: "Compressor problems" },
           { href: "/fridge-regassing", label: "Freezer regassing" },
+          { href: "/how-to-defrost-a-freezer", label: "How to defrost a freezer" },
         ],
       },
     ],
@@ -470,6 +477,7 @@ const coreServices: ServiceRecord[] = [
           { href: "/fridge-regassing", label: "Fridge regassing" },
           { href: "/fridge-repair-or-replace", label: "Repair or replace?" },
           { href: "/commercial-fridge-repairs", label: "Commercial fridge repairs" },
+          { href: "/moving-a-fridge", label: "Moving a fridge safely" },
         ],
       },
     ],
@@ -572,6 +580,8 @@ const coreServices: ServiceRecord[] = [
           { href: "/problems/fridge-not-cooling", label: "Fridge not cooling" },
           { href: "/chest-freezer-repairs", label: "Chest freezer repairs" },
           { href: "/fridge-repairs", label: "All fridge repairs" },
+          { href: "/fridge-temperature-settings", label: "Correct fridge temperatures" },
+          { href: "/fridge-control-board-repairs", label: "Control board repairs" },
         ],
       },
     ],
