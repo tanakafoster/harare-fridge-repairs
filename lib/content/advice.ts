@@ -1,10 +1,17 @@
 import type { ContentPage } from "./model"
+import { moreAdvice } from "./advice-more"
 
-export type AdviceRecord = ContentPage & { slug: string; shortName: string; cardText: string }
+export type AdviceRecord = ContentPage & {
+  slug: string
+  shortName: string
+  cardText: string
+  article: { datePublished: string; dateModified: string }
+}
 
-export const advicePages: AdviceRecord[] = [
+const coreAdvicePages: AdviceRecord[] = [
   {
     slug: "fridge-regassing-cost-harare",
+    article: { datePublished: "2026-10-26", dateModified: "2026-10-26" },
     shortName: "Fridge regassing cost",
     cardText: "What decides the price of a regas in Harare, and why the cheapest quote is rarely the cheapest repair.",
     path: "/fridge-regassing-cost-harare",
@@ -120,6 +127,7 @@ export const advicePages: AdviceRecord[] = [
 
   {
     slug: "does-my-fridge-need-regassing",
+    article: { datePublished: "2026-10-26", dateModified: "2026-10-26" },
     shortName: "Does my fridge need regassing?",
     cardText: "The signs that really point to low gas, and the faults that get mistaken for it every day.",
     path: "/does-my-fridge-need-regassing",
@@ -236,6 +244,7 @@ export const advicePages: AdviceRecord[] = [
 
   {
     slug: "fridge-repair-or-replace",
+    article: { datePublished: "2026-10-26", dateModified: "2026-10-26" },
     shortName: "Repair or replace?",
     cardText: "The questions to weigh up when a fridge fault is expensive, from age and cabinet condition to running cost.",
     path: "/fridge-repair-or-replace",
@@ -343,6 +352,8 @@ export const advicePages: AdviceRecord[] = [
     },
   },
 ]
+
+export const advicePages: AdviceRecord[] = [...coreAdvicePages, ...moreAdvice]
 
 export function getAdvice(slug: string) {
   return advicePages.find((page) => page.slug === slug)

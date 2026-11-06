@@ -175,6 +175,37 @@ export function webPageSchema({
   }
 }
 
+export function articleSchema({
+  path,
+  headline,
+  description,
+  image,
+  datePublished,
+  dateModified,
+}: {
+  path: string
+  headline: string
+  description: string
+  image?: string
+  datePublished: string
+  dateModified: string
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${absoluteUrl(path)}#article`,
+    headline,
+    description,
+    image: image ? absoluteUrl(image) : defaultOgImage.url,
+    datePublished,
+    dateModified,
+    inLanguage: "en-ZW",
+    mainEntityOfPage: { "@id": `${absoluteUrl(path)}#webpage` },
+    author: { "@id": businessId },
+    publisher: { "@id": businessId },
+  }
+}
+
 export function itemListSchema(name: string, items: { name: string; path: string }[]) {
   return {
     "@context": "https://schema.org",
@@ -254,18 +285,24 @@ export function localBusinessSchema() {
       "Thermostat replacement",
       "Commercial refrigeration repairs",
       "Cold room repairs",
+      "Power surge damage repairs",
+      "Fridge control board repairs",
+      "Fridge servicing",
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Fridge repair services in Harare",
       itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fridge repairs", url: absoluteUrl("/fridge-repairs") } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Fridge regassing", url: absoluteUrl("/fridge-regassing") } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Freezer repairs", url: absoluteUrl("/freezer-repairs") } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Compressor replacement", url: absoluteUrl("/compressor-replacement") } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Thermostat replacement", url: absoluteUrl("/thermostat-replacement") } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Commercial fridge repairs", url: absoluteUrl("/commercial-fridge-repairs") } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "24 hour fridge repairs", url: absoluteUrl("/24-hour-fridge-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Fridge repairs", url: absoluteUrl("/fridge-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Fridge regassing", url: absoluteUrl("/fridge-regassing") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Freezer repairs", url: absoluteUrl("/freezer-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Compressor replacement", url: absoluteUrl("/compressor-replacement") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Thermostat replacement", url: absoluteUrl("/thermostat-replacement") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Commercial fridge repairs", url: absoluteUrl("/commercial-fridge-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "24 hour fridge repairs", url: absoluteUrl("/24-hour-fridge-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Fridge power surge repairs", url: absoluteUrl("/fridge-power-surge-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Fridge control board repairs", url: absoluteUrl("/fridge-control-board-repairs") } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", provider: { "@id": businessId }, name: "Fridge servicing", url: absoluteUrl("/fridge-servicing") } },
       ],
     },
   }

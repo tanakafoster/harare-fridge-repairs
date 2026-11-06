@@ -1,0 +1,46 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "npx --yes serve@14 out -l 3000",
+      "startServerReadyPattern": "Accepting connections|Serving",
+      "startServerReadyTimeout": 60000,
+      "numberOfRuns": 3,
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/fridge-repairs",
+        "http://localhost:3000/fridge-power-surge-repairs",
+        "http://localhost:3000/problems/fridge-not-cooling",
+        "http://localhost:3000/areas/borrowdale",
+        "http://localhost:3000/samsung-fridge-repairs"
+      ],
+      "settings": {
+        "onlyCategories": ["seo", "performance", "accessibility"]
+      }
+    },
+    "assert": {
+      "aggregationMethod": "median-run",
+      "assertions": {
+        "document-title": ["error", { "minScore": 1 }],
+        "meta-description": ["error", { "minScore": 1 }],
+        "canonical": ["error", { "minScore": 1 }],
+        "is-crawlable": ["error", { "minScore": 1 }],
+        "robots-txt": ["warn", { "minScore": 1 }],
+        "http-status-code": ["error", { "minScore": 1 }],
+        "link-text": ["error", { "minScore": 1 }],
+        "crawlable-anchors": ["warn", { "minScore": 1 }],
+        "image-alt": ["error", { "minScore": 1 }],
+        "hreflang": "off",
+        "largest-contentful-paint": ["warn", { "maxNumericValue": 4000 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+        "total-blocking-time": ["warn", { "maxNumericValue": 300 }],
+        "categories:seo": ["error", { "minScore": 0.95 }],
+        "categories:accessibility": ["warn", { "minScore": 0.95 }],
+        "categories:performance": ["warn", { "minScore": 0.8 }]
+      }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci"
+    }
+  }
+}

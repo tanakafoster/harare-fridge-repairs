@@ -10,6 +10,9 @@ const serviceLinks = [
   { href: "/freezer-repairs", label: "Freezer repairs" },
   { href: "/compressor-replacement", label: "Compressor replacement" },
   { href: "/thermostat-replacement", label: "Thermostat replacement" },
+  { href: "/fridge-power-surge-repairs", label: "Power surge repairs" },
+  { href: "/fridge-control-board-repairs", label: "Control board repairs" },
+  { href: "/fridge-servicing", label: "Fridge servicing" },
   { href: "/24-hour-fridge-repairs", label: "24 hour fridge repairs" },
   { href: "/commercial-fridge-repairs", label: "Commercial fridge repairs" },
 ]

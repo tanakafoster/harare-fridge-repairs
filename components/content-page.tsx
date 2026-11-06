@@ -14,7 +14,8 @@ import {
 } from "@/components/blocks"
 import { JsonLd } from "@/components/json-ld"
 import type { ContentPage, ContentSection } from "@/lib/content/model"
-import { serviceSchema, webPageSchema } from "@/lib/seo"
+import { getPicture } from "@/components/pictures"
+import { articleSchema, serviceSchema, webPageSchema } from "@/lib/seo"
 
 function SectionBody({ section }: { section: ContentSection }) {
   switch (section.kind) {
@@ -77,6 +78,19 @@ export function ContentPageView({ page }: { page: ContentPage }) {
   const schemas: Record<string, unknown>[] = [
     webPageSchema({ path: page.path, name: page.h1, description: page.description, type: page.pageType ?? "WebPage" }),
   ]
+  if (page.article) {
+    const picture = page.picture ? getPicture(page.picture).src : undefined
+    schemas.push(
+      articleSchema({
+        path: page.path,
+        headline: page.h1,
+        description: page.description,
+        image: picture,
+        datePublished: page.article.datePublished,
+        dateModified: page.article.dateModified,
+      }),
+    )
+  }
   if (page.schema) {
     schemas.push(
       serviceSchema({

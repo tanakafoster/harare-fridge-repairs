@@ -1,6 +1,8 @@
 import type { PictureKey } from "@/components/pictures"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { rotate } from "@/lib/utils"
+import { advicePages } from "./advice"
+import { moreProblems } from "./problems-more"
 
 export type ProblemRecord = {
   slug: string
@@ -23,7 +25,7 @@ export type ProblemRecord = {
   pictureAlt: string
 }
 
-export const problems: ProblemRecord[] = [
+const coreProblems: ProblemRecord[] = [
   {
     slug: "fridge-not-cooling",
     name: "Fridge not cooling",
@@ -740,6 +742,8 @@ export const problems: ProblemRecord[] = [
   },
 ]
 
+export const problems: ProblemRecord[] = [...coreProblems, ...moreProblems]
+
 export function getProblem(slug: string) {
   return problems.find((problem) => problem.slug === slug)
 }
@@ -791,6 +795,9 @@ export function buildProblemPage(problem: ProblemRecord): ContentPage {
       items: [
         ...related,
         { href: "/problems", label: "All fridge problems" },
+        ...rotate(advicePages, `${problem.slug}-advice`)
+          .slice(0, 2)
+          .map((a) => ({ href: a.path, label: a.shortName })),
         ...rotate(
           [
             { href: "/areas", label: "Areas we cover" },
