@@ -39,6 +39,10 @@ node scripts/check-site.mjs   # after build: broken links, titles, descriptions,
 
 `scripts/render-assets.mjs` regenerates the icons and share image from the snowflake logo (needs Playwright).
 
+## SEO playbook and checks
+
+See [`docs/seo/README.md`](docs/seo/README.md): the checks to run after every change, the suburb page evidence workflow, Search Console tools and off-site actions. Every pull request runs `.github/workflows/seo-checks.yml` (build, site check, JSON-LD validation, suburb uniqueness report and Lighthouse CI). Existing pages are never removed; weak pages are improved.
+
 ## Analytics and enquiry tracking
 
 Set `NEXT_PUBLIC_GA_ID` (your GA4 measurement ID, e.g. `G-XXXXXXX`) in Vercel's environment variables and redeploy. Google Analytics then loads on every page, and every call, WhatsApp and booking click is sent as a `generate_lead` event with `method` (call, whatsapp, book) and the page it came from. Mark `generate_lead` as a key event in GA4 to see which pages bring enquiries. Without the variable, no analytics code loads.
