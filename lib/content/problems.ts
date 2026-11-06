@@ -1,11 +1,14 @@
 import type { PictureKey } from "@/components/pictures"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { rotate } from "@/lib/utils"
+import { moreProblems } from "./problems-more"
 
 export type ProblemRecord = {
   slug: string
   name: string
   question: string
+  /** Two or three sentences that answer the question directly, shown first on the page. */
+  quickAnswer: string
   cardText: string
   title: string
   description: string
@@ -23,11 +26,13 @@ export type ProblemRecord = {
   pictureAlt: string
 }
 
-export const problems: ProblemRecord[] = [
+const coreProblems: ProblemRecord[] = [
   {
     slug: "fridge-not-cooling",
     name: "Fridge not cooling",
     question: "Why is my fridge not cooling?",
+    quickAnswer:
+      "A fridge that runs but stays warm usually has an evaporator iced over by a failed defrost part, a failed fan, a faulty thermostat or start relay, a worn door seal or dusty condenser coils. A gas leak is the cause in a minority of cases, so have the pressures measured before you pay for a regas.",
     cardText: "The fridge runs, the light is on, but the food is warm. The most common call we get.",
     title: "Fridge Not Cooling in Harare? Causes & Same Day Repair",
     description:
@@ -91,12 +96,14 @@ export const problems: ProblemRecord[] = [
           "Keep the door closed and the food will stay cooler for longer. Meat and dairy that have been above 5 degrees for several hours should be treated with caution. A full freezer holds its temperature for many hours if left shut.",
       },
     ],
-    related: ["freezer-not-freezing", "fridge-running-constantly", "ice-build-up", "fridge-compressor-problems"],
+    related: ["freezer-not-freezing", "fridge-running-constantly", "ice-build-up", "fridge-compressor-problems", "fridge-warm-freezer-cold"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/fridge-regassing", label: "Fridge regassing" },
       { href: "/thermostat-replacement", label: "Thermostat replacement" },
       { href: "/does-my-fridge-need-regassing", label: "Does my fridge need regassing?" },
+      { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
+      { href: "/fridge-fan-motor-replacement", label: "Fan motor replacement" },
     ],
     picture: "notCooling",
     pictureAlt: "Technician measuring the temperature inside a fridge that is not cooling",
@@ -106,6 +113,8 @@ export const problems: ProblemRecord[] = [
     slug: "fridge-leaking-water",
     name: "Fridge leaking water",
     question: "Why is my fridge leaking water?",
+    quickAnswer:
+      "Water inside or under a fridge is most often a blocked defrost drain at the back of the fridge section. Other causes are a frozen freezer drain, a door seal that lets humid air in, a cracked drain tray on the compressor, a leaking water dispenser line or a fridge that tilts forward.",
     cardText: "Water under the crisper drawers or on the kitchen floor, usually a blocked defrost drain.",
     title: "Fridge Leaking Water? Causes & Repair in Harare",
     description:
@@ -161,12 +170,13 @@ export const problems: ProblemRecord[] = [
           "No, refrigerant does not leak as liquid water. Water behind a dispenser fridge is from the water line, inlet valve or filter housing, and all three are repairable on site.",
       },
     ],
-    related: ["ice-build-up", "fridge-door-seal-problems", "fridge-not-cooling", "freezer-not-freezing"],
+    related: ["ice-build-up", "fridge-door-seal-problems", "fridge-not-cooling", "freezer-not-freezing", "fridge-bad-smell", "fridge-ice-maker-not-working"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/side-by-side-fridge-repairs", label: "Side by side fridge repairs" },
       { href: "/combi-fridge-repairs", label: "Combi fridge repairs" },
       { href: "/tips", label: "Fridge care tips" },
+      { href: "/fridge-defrost-repairs", label: "Defrost and drain repairs" },
     ],
     picture: "doorSeal",
     pictureAlt: "Technician checking a fridge door seal that is letting water form inside",
@@ -176,6 +186,8 @@ export const problems: ProblemRecord[] = [
     slug: "fridge-making-noise",
     name: "Fridge making noise",
     question: "Why is my fridge making a noise?",
+    quickAnswer:
+      "Grinding or chirping from inside the freezer is usually the evaporator fan or a fan blade touching ice. Rattling at the back points to the condenser fan or a loose pipe or tray. A hum, a click and then silence, repeating, is a compressor that cannot start, usually a failed start relay.",
     cardText: "Buzzing, clicking, rattling or grinding that was not there before.",
     title: "Fridge Making Noise? Buzzing, Clicking & Rattling Explained",
     description:
@@ -231,12 +243,13 @@ export const problems: ProblemRecord[] = [
           "A buzz from vibration is harmless but annoying. A buzz accompanied by a burning smell, a hot plug or tripping power is an electrical fault; switch the fridge off and call us.",
       },
     ],
-    related: ["fridge-compressor-problems", "ice-build-up", "fridge-not-switching-on", "fridge-running-constantly"],
+    related: ["fridge-compressor-problems", "ice-build-up", "fridge-not-switching-on", "fridge-running-constantly", "fridge-clicking-on-and-off"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/compressor-replacement", label: "Compressor replacement" },
       { href: "/double-door-fridge-repairs", label: "Double door fridge repairs" },
       { href: "/24-hour-fridge-repairs", label: "24 hour fridge repairs" },
+      { href: "/fridge-fan-motor-replacement", label: "Fan motor replacement" },
     ],
     picture: "noise",
     pictureAlt: "Technician inspecting the compressor at the back of a noisy fridge",
@@ -246,6 +259,8 @@ export const problems: ProblemRecord[] = [
     slug: "fridge-freezing-food",
     name: "Fridge freezing food",
     question: "Why is my fridge freezing my food?",
+    quickAnswer:
+      "If a fridge freezes food, first check the thermostat has not been turned to maximum. If the setting is right, the usual causes are a thermostat stuck closed, a drifting temperature sensor on an electronic fridge, a damper jammed open, or food packed against the cold back wall or air vent.",
     cardText: "Lettuce frozen, milk slushy, eggs cracked. The fridge is running too cold.",
     title: "Fridge Freezing Food? Causes & Thermostat Repair in Harare",
     description:
@@ -301,12 +316,13 @@ export const problems: ProblemRecord[] = [
           "Usually. Thermostats, sensors and damper motors are carried on the vehicle, and the fridge is tested before we leave.",
       },
     ],
-    related: ["fridge-running-constantly", "fridge-not-cooling", "ice-build-up", "fridge-door-seal-problems"],
+    related: ["fridge-running-constantly", "fridge-not-cooling", "ice-build-up", "fridge-door-seal-problems", "fridge-warm-freezer-cold"],
     services: [
       { href: "/thermostat-replacement", label: "Thermostat replacement" },
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/combi-fridge-repairs", label: "Combi fridge repairs" },
       { href: "/french-door-fridge-repairs", label: "French door fridge repairs" },
+      { href: "/fridge-control-board-repairs", label: "Control board repairs" },
     ],
     picture: "temperature",
     pictureAlt: "Technician measuring the temperature of a fridge that is freezing food",
@@ -316,6 +332,8 @@ export const problems: ProblemRecord[] = [
     slug: "fridge-not-switching-on",
     name: "Fridge not switching on",
     question: "Why is my fridge not switching on?",
+    quickAnswer:
+      "Check the socket, plug and earth leakage first. If the supply is fine, the usual causes are a failed thermostat, a burnt start relay or overload, a blown control board fuse after a power surge, or a failed compressor. If only the light is out, the fridge may still be cooling normally.",
     cardText: "No light, no hum, nothing. Usually after a power cut or surge.",
     title: "Fridge Not Switching On? Dead Fridge Repair in Harare, 24/7",
     description:
@@ -371,12 +389,14 @@ export const problems: ProblemRecord[] = [
           "Yes, especially on an electronic fridge. A good surge protector or a voltage protection plug costs a fraction of a control board and we can fit one during the visit.",
       },
     ],
-    related: ["fridge-compressor-problems", "fridge-making-noise", "fridge-not-cooling", "fridge-running-constantly"],
+    related: ["fridge-compressor-problems", "fridge-making-noise", "fridge-not-cooling", "fridge-running-constantly", "fridge-tripping-power"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/compressor-replacement", label: "Compressor replacement" },
       { href: "/thermostat-replacement", label: "Thermostat replacement" },
       { href: "/24-hour-fridge-repairs", label: "24 hour fridge repairs" },
+      { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },
+      { href: "/fridge-control-board-repairs", label: "Control board repairs" },
     ],
     picture: "controlBoard",
     pictureAlt: "Technician testing a dead fridge with a multimeter",
@@ -386,6 +406,8 @@ export const problems: ProblemRecord[] = [
     slug: "freezer-not-freezing",
     name: "Freezer not freezing",
     question: "Why is my freezer not freezing?",
+    quickAnswer:
+      "A freezer that will not reach minus 18 degrees usually has a worn thermostat, a refrigerant leak, a weak compressor, a failed defrost system on a frost free model, a lid or door seal that leaks, or a compressor tripping on its overload because the condenser is dusty or boxed in.",
     cardText: "The freezer runs but the meat is soft. Chest and upright freezers alike.",
     title: "Freezer Not Freezing? Causes & Emergency Repair in Harare",
     description:
@@ -447,12 +469,13 @@ export const problems: ProblemRecord[] = [
           "For most electrical repairs, yes. For a regas or compressor replacement the freezer is off for a few hours and a closed chest freezer holds its cold well in that time.",
       },
     ],
-    related: ["ice-build-up", "fridge-compressor-problems", "fridge-not-cooling", "fridge-running-constantly"],
+    related: ["ice-build-up", "fridge-compressor-problems", "fridge-not-cooling", "fridge-running-constantly", "fridge-warm-freezer-cold"],
     services: [
       { href: "/freezer-repairs", label: "Freezer repairs" },
       { href: "/chest-freezer-repairs", label: "Chest freezer repairs" },
       { href: "/upright-freezer-repairs", label: "Upright freezer repairs" },
       { href: "/fridge-regassing", label: "Regassing" },
+      { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
     ],
     picture: "freezerNotFreezing",
     pictureAlt: "Technician checking a freezer that is not freezing",
@@ -462,6 +485,8 @@ export const problems: ProblemRecord[] = [
     slug: "ice-build-up",
     name: "Ice build up",
     question: "Why is ice building up in my fridge or freezer?",
+    quickAnswer:
+      "Thick ice on the back wall of a frost free fridge means the defrost system has failed: the heater, the timer, the bimetal or the sensor. Heavy frost near the door or lid points to a seal that leaks or a door left slightly open. Ice in the bottom drawer is often a frozen drain.",
     cardText: "Thick frost on the walls or a sheet of ice behind the back panel, coming back after every defrost.",
     title: "Ice Build Up in Fridge or Freezer? Causes & Repair in Harare",
     description:
@@ -517,12 +542,14 @@ export const problems: ProblemRecord[] = [
           "Yes, switch it off, leave the door open and let the ice melt naturally with towels on the floor. Do not chip at it. The technician will still need to find and replace the failed part.",
       },
     ],
-    related: ["freezer-not-freezing", "fridge-door-seal-problems", "fridge-not-cooling", "fridge-leaking-water"],
+    related: ["freezer-not-freezing", "fridge-door-seal-problems", "fridge-not-cooling", "fridge-leaking-water", "fridge-ice-maker-not-working"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/freezer-repairs", label: "Freezer repairs" },
       { href: "/double-door-fridge-repairs", label: "Double door fridge repairs" },
       { href: "/upright-freezer-repairs", label: "Upright freezer repairs" },
+      { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
+      { href: "/fridge-door-seal-replacement", label: "Door seal replacement" },
     ],
     picture: "freezerIce",
     pictureAlt: "Technician checking a freezer door seal that is causing ice build up",
@@ -532,6 +559,8 @@ export const problems: ProblemRecord[] = [
     slug: "fridge-compressor-problems",
     name: "Fridge compressor problems",
     question: "How do I know if my fridge compressor is faulty?",
+    quickAnswer:
+      "A compressor that hums, clicks off and tries again a minute later usually has a failed start relay, which is a cheap repair. A tripping overload, a failed capacitor, open or earthed windings, a seized rotor or a compressor that runs but no longer pumps are confirmed with a meter and gauges before replacement.",
     cardText: "Hum and click, hot compressor, or a compressor that runs but does not cool.",
     title: "Fridge Compressor Problems: Symptoms, Tests & Repair in Harare",
     description:
@@ -587,12 +616,13 @@ export const problems: ProblemRecord[] = [
           "The sealed compressor cannot be rebuilt economically, but the relay, overload, capacitor and wiring around it can all be repaired, and they are the fault most of the time.",
       },
     ],
-    related: ["fridge-not-switching-on", "fridge-making-noise", "fridge-not-cooling", "fridge-running-constantly"],
+    related: ["fridge-not-switching-on", "fridge-making-noise", "fridge-not-cooling", "fridge-running-constantly", "fridge-clicking-on-and-off", "fridge-tripping-power"],
     services: [
       { href: "/compressor-replacement", label: "Compressor replacement" },
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/fridge-regassing", label: "Fridge regassing" },
       { href: "/fridge-repair-or-replace", label: "Repair or replace?" },
+      { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },
     ],
     picture: "compressor",
     pictureAlt: "Technician connecting gauges to test a fridge compressor",
@@ -602,6 +632,8 @@ export const problems: ProblemRecord[] = [
     slug: "fridge-running-constantly",
     name: "Fridge running constantly",
     question: "Why does my fridge run all the time?",
+    quickAnswer:
+      "A fridge that never switches off is usually fighting dusty condenser coils, no air space around it, or a worn door seal. Other causes are a thermostat stuck closed, low gas from a leak, an iced evaporator on a frost free fridge, or a worn compressor.",
     cardText: "The compressor never switches off, the sides are hot and the bill is climbing.",
     title: "Fridge Running Constantly? Why It Never Switches Off",
     description:
@@ -658,12 +690,14 @@ export const problems: ProblemRecord[] = [
           "Often it helps a great deal, and it is the first thing we do. If the fridge still runs constantly afterwards, the gasket, thermostat, gas charge or compressor is tested next.",
       },
     ],
-    related: ["fridge-freezing-food", "fridge-not-cooling", "fridge-door-seal-problems", "fridge-compressor-problems"],
+    related: ["fridge-freezing-food", "fridge-not-cooling", "fridge-door-seal-problems", "fridge-compressor-problems", "fridge-hot-on-the-sides"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/thermostat-replacement", label: "Thermostat replacement" },
       { href: "/fridge-regassing", label: "Fridge regassing" },
       { href: "/tips", label: "Fridge care tips" },
+      { href: "/fridge-door-seal-replacement", label: "Door seal replacement" },
+      { href: "/fridge-servicing", label: "Fridge servicing" },
     ],
     picture: "condenser",
     pictureAlt: "Technician working at the back of a fridge that runs constantly",
@@ -673,6 +707,8 @@ export const problems: ProblemRecord[] = [
     slug: "fridge-door-seal-problems",
     name: "Fridge door seal problems",
     question: "How do I know if my fridge door seal is faulty?",
+    quickAnswer:
+      "A door seal is faulty if a strip of paper slides out easily when the door is closed on it, if you can see gaps at the corners, or if frost and condensation build up near the door. Seals harden, shrink and tear with age, and a sagging door or a fridge that is not level stops a good seal closing.",
     cardText: "Torn, hardened or shrunken gaskets that let warm air in and cause frost, sweating and high bills.",
     title: "Fridge Door Seal Problems? Gasket Replacement in Harare",
     description:
@@ -728,17 +764,20 @@ export const problems: ProblemRecord[] = [
           "Because it makes the fridge run continuously, which costs electricity and shortens the compressor's life. A gasket is one of the cheapest repairs a fridge can have and one of the most worthwhile.",
       },
     ],
-    related: ["ice-build-up", "fridge-running-constantly", "fridge-leaking-water", "fridge-not-cooling"],
+    related: ["ice-build-up", "fridge-running-constantly", "fridge-leaking-water", "fridge-not-cooling", "fridge-bad-smell"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/chest-freezer-repairs", label: "Chest freezer repairs" },
       { href: "/smeg-fridge-repairs", label: "Smeg fridge repairs" },
       { href: "/tips", label: "Fridge care tips" },
+      { href: "/fridge-door-seal-replacement", label: "Door seal replacement" },
     ],
     picture: "doorSeal",
     pictureAlt: "Technician inspecting a fridge door gasket in a Harare kitchen",
   },
 ]
+
+export const problems: ProblemRecord[] = [...coreProblems, ...moreProblems]
 
 export function getProblem(slug: string) {
   return problems.find((problem) => problem.slug === slug)
@@ -755,7 +794,7 @@ export function buildProblemPage(problem: ProblemRecord): ContentPage {
     .map(problemLink)
 
   const sections: ContentSection[] = [
-    { kind: "text", heading: problem.question, paragraphs: problem.intro },
+    { kind: "text", heading: `How a ${problem.name.toLowerCase()} fault develops`, paragraphs: problem.intro },
     {
       kind: "steps",
       heading: `Common causes of a ${problem.name.toLowerCase()}`,
@@ -810,6 +849,7 @@ export function buildProblemPage(problem: ProblemRecord): ContentPage {
     eyebrow: "Fridge problems",
     h1: problem.h1,
     lead: problem.lead,
+    quickAnswer: { question: problem.question, answer: problem.quickAnswer },
     points: problem.points,
     picture: problem.picture,
     pictureAlt: problem.pictureAlt,

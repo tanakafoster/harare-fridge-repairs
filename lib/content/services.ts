@@ -1,4 +1,5 @@
 import type { ContentPage } from "./model"
+import { repairServices } from "./repair-services"
 
 export type ServiceRecord = ContentPage & {
   slug: string
@@ -17,9 +18,15 @@ const problemLinks = [
   { href: "/problems/fridge-compressor-problems", label: "Compressor problems" },
   { href: "/problems/fridge-running-constantly", label: "Fridge running constantly" },
   { href: "/problems/fridge-door-seal-problems", label: "Door seal problems" },
+  { href: "/problems/fridge-warm-freezer-cold", label: "Fridge warm, freezer cold" },
+  { href: "/problems/fridge-tripping-power", label: "Fridge tripping the power" },
+  { href: "/problems/fridge-clicking-on-and-off", label: "Fridge clicking on and off" },
+  { href: "/problems/fridge-hot-on-the-sides", label: "Fridge hot on the sides" },
+  { href: "/problems/fridge-bad-smell", label: "Fridge smells bad" },
+  { href: "/problems/fridge-ice-maker-not-working", label: "Ice maker not working" },
 ]
 
-export const services: ServiceRecord[] = [
+const coreServices: ServiceRecord[] = [
   {
     slug: "fridge-repairs",
     shortName: "Fridge repairs",
@@ -708,12 +715,19 @@ export const services: ServiceRecord[] = [
   },
 ]
 
+/** Every service page: the core services first, then the specific repairs. */
+export const services: ServiceRecord[] = [...coreServices, ...repairServices]
+
 export function getService(slug: string) {
   return services.find((service) => service.slug === slug)
 }
 
-export const serviceLinks = services.map((service) => ({
-  href: service.path,
-  label: service.shortName,
-  text: service.cardText,
-}))
+function toLink(service: ServiceRecord) {
+  return { href: service.path, label: service.shortName, text: service.cardText }
+}
+
+/** The six core services, shown as cards across the site. */
+export const serviceLinks = coreServices.map(toLink)
+
+/** Specific repairs (door seals, fans, defrost, boards, surge damage, servicing). */
+export const repairServiceLinks = repairServices.map(toLink)

@@ -1,0 +1,36 @@
+name: Site checks
+
+# Builds the static site and runs the SEO checks on every pull request and on
+# every push to main, so a broken link, a duplicate title, invalid structured
+# data or a missing sitemap entry is caught before it reaches Google.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history, so sitemap <lastmod> dates come from real commits.
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm type-check
+      - run: pnpm build
+      - name: SEO checks (links, titles, descriptions, canonicals, structured data, sitemap, sister-site links)
+        run: pnpm check
+      - name: Suburb page uniqueness report (information only)
+        run: pnpm check:areas -- --top 15

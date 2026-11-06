@@ -2,7 +2,7 @@ import type { PictureKey } from "@/components/pictures"
 import { brandLink, brands } from "@/lib/content/brands"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "@/lib/content/model"
 import { problemLink, problems } from "@/lib/content/problems"
-import { serviceLinks } from "@/lib/content/services"
+import { repairServiceLinks, serviceLinks } from "@/lib/content/services"
 import { commercialTypes, homeTypes, typeLink } from "@/lib/content/types"
 import { site } from "@/lib/site"
 import { joinNames, pick, rotate } from "@/lib/utils"
@@ -384,6 +384,30 @@ const descriptionVariants = [
     `Need a fridge technician in ${name}, Harare? We repair and regas all makes at your home or business, usually the same day. Open 24 hours. 0782 886 252.`,
 ]
 
+const nearbyDescriptionVariants = [
+  (name: string, a: string, b: string) =>
+    `Fridge and freezer repairs in ${name}, Harare, and nearby ${a} and ${b}. Not cooling, leaking or needs regassing? Mobile technicians, 24/7.`,
+  (name: string, a: string, b: string) =>
+    `Mobile fridge technicians in ${name}, ${a} and ${b}. Fridges and freezers not cooling, icing up or leaking, repaired and regassed on site. 24/7.`,
+  (name: string, a: string, b: string) =>
+    `Need a fridge technician in ${name}? We also cover ${a} and ${b}. All makes repaired and regassed at your home or business. Call 0782 886 252.`,
+]
+
+/**
+ * Names the two nearest suburbs where the snippet has room, so each area's
+ * description is about its own corner of Harare rather than a name swap.
+ */
+function areaDescription(area: AreaSeed) {
+  const [a, b] = area.nearby
+  if (a && b) {
+    for (const make of rotate(nearbyDescriptionVariants, `${area.slug}-description`)) {
+      const text = make(area.name, a, b)
+      if (text.length <= 158) return text
+    }
+  }
+  return pick(descriptionVariants, `${area.slug}-description`)(area.name)
+}
+
 const h1Variants = [
   (name: string) => `Fridge Repairs in ${name}`,
   (name: string) => `Fridge Repairs ${name}, Harare`,
@@ -579,6 +603,12 @@ export function buildAreaPage(area: AreaRecord): ContentPage {
       columns: 3,
     },
     {
+      kind: "chips",
+      heading: `Specific fridge repairs in ${area.name}`,
+      intro: `Each of these repairs has its own page explaining what we check and replace.`,
+      items: rotate(repairServiceLinks, `${seed}-repairs`),
+    },
+    {
       kind: "text",
       heading: `Fridge regassing in ${area.name}`,
       paragraphs: [pick(regasVariants, `${seed}-regas`)(area.name)],
@@ -609,7 +639,7 @@ export function buildAreaPage(area: AreaRecord): ContentPage {
   return {
     path: area.path,
     title: pick(area.name.length > 12 ? shortTitleVariants : titleVariants, `${seed}-title`)(area.name),
-    description: pick(descriptionVariants, `${seed}-description`)(area.name),
+    description: areaDescription(area),
     eyebrow: `${region.name} · Fridge repairs`,
     h1: pick(h1Variants, `${seed}-h1`)(area.name),
     lead: pick(leadVariants, `${seed}-lead`)(area.name, regionText),
@@ -677,6 +707,11 @@ export function buildRegionPage(region: RegionRecord): ContentPage {
         heading: "Our services",
         items: serviceLinks,
         columns: 3,
+      },
+      {
+        kind: "chips",
+        heading: "Specific fridge repairs",
+        items: repairServiceLinks,
       },
       {
         kind: "chips",
