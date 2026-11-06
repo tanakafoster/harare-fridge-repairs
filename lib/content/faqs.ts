@@ -20,7 +20,7 @@ export const generalFaqs: Faq[] = [
   {
     question: "How quickly can a technician get to me?",
     answer:
-      "Often within a few hours and usually the same day. Because our technicians follow daily routes through the northern, southern, eastern and western suburbs, someone is normally not far away. When you call we tell you honestly when we can arrive.",
+      "Usually the same day. We cover the northern, southern, eastern and western suburbs, and when you call we tell you honestly when we can arrive.",
   },
   {
     question: "Do you repair the fridge at my home or take it away?",

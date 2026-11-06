@@ -22,7 +22,7 @@ const page: ContentPage = {
   h1: "Fridge Repairs Across Every Part of Harare",
   lead:
     "We are a mobile service with no shop to bring your fridge to, which means we come to you wherever you are in Harare. Choose your region or suburb below for local details, or simply call and tell us where you are.",
-  points: [`${areas.length} suburbs and towns covered`, "Technicians on daily routes in all four regions", "Same-day callouts in most areas", "24/7 phone and WhatsApp"],
+  points: [`${areas.length} suburbs and towns covered`, "Technicians covering all four regions", "Same-day callouts in most areas", "24/7 phone and WhatsApp"],
   picture: "hero",
   pictureAlt: "Harare Fridge Repairs technician arriving at a home in Harare",
   crumbs: [{ name: "Home", path: "/" }, { name: "Areas" }],
@@ -30,7 +30,7 @@ const page: ContentPage = {
     {
       kind: "cards",
       heading: "Harare by region",
-      intro: "Our technicians work daily routes through four regions so that a visit to any suburb is realistic the same day.",
+      intro: "Our technicians cover four regions, so a same-day visit is realistic in most suburbs.",
       items: regions.map(regionLink),
       columns: 4,
     },

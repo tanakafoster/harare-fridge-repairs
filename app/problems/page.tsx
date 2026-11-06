@@ -3,7 +3,7 @@ import { ContentPageView } from "@/components/content-page"
 import { JsonLd } from "@/components/json-ld"
 import type { ContentPage } from "@/lib/content/model"
 import { problemLink, problems } from "@/lib/content/problems"
-import { serviceLinks } from "@/lib/content/services"
+import { repairServiceLinks, serviceLinks } from "@/lib/content/services"
 import { itemListSchema, pageMetadata } from "@/lib/seo"
 import { site } from "@/lib/site"
 
@@ -39,6 +39,12 @@ const page: ContentPage = {
       kind: "cards",
       heading: "Services that fix these problems",
       items: serviceLinks,
+      columns: 3,
+    },
+    {
+      kind: "cards",
+      heading: "Specific repairs",
+      items: repairServiceLinks,
       columns: 3,
     },
   ],

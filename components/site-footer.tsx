@@ -12,6 +12,8 @@ const serviceLinks = [
   { href: "/thermostat-replacement", label: "Thermostat replacement" },
   { href: "/24-hour-fridge-repairs", label: "24 hour fridge repairs" },
   { href: "/commercial-fridge-repairs", label: "Commercial fridge repairs" },
+  { href: "/fridge-power-surge-repairs", label: "Power surge repairs" },
+  { href: "/fridge-servicing", label: "Fridge servicing" },
 ]
 
 const typeLinks = [
@@ -42,6 +44,7 @@ const companyLinks = [
   { href: "/faq", label: "FAQ" },
   { href: "/tips", label: "Fridge care tips" },
   { href: "/fridge-regassing-cost-harare", label: "Regassing cost" },
+  { href: "/protect-fridge-from-power-cuts", label: "Power cut advice" },
 ]
 
 function FooterList({ heading, links }: { heading: string; links: { href: string; label: string }[] }) {

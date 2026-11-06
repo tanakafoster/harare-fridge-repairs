@@ -1,4 +1,5 @@
 import type { ContentPage } from "./model"
+import { repairServices } from "./repair-services"
 
 export type ServiceRecord = ContentPage & {
   slug: string
@@ -17,9 +18,15 @@ const problemLinks = [
   { href: "/problems/fridge-compressor-problems", label: "Compressor problems" },
   { href: "/problems/fridge-running-constantly", label: "Fridge running constantly" },
   { href: "/problems/fridge-door-seal-problems", label: "Door seal problems" },
+  { href: "/problems/fridge-warm-freezer-cold", label: "Fridge warm, freezer cold" },
+  { href: "/problems/fridge-tripping-power", label: "Fridge tripping the power" },
+  { href: "/problems/fridge-clicking-on-and-off", label: "Fridge clicking on and off" },
+  { href: "/problems/fridge-hot-on-the-sides", label: "Fridge hot on the sides" },
+  { href: "/problems/fridge-bad-smell", label: "Fridge smells bad" },
+  { href: "/problems/fridge-ice-maker-not-working", label: "Ice maker not working" },
 ]
 
-export const services: ServiceRecord[] = [
+const coreServices: ServiceRecord[] = [
   {
     slug: "fridge-repairs",
     shortName: "Fridge repairs",
@@ -95,6 +102,12 @@ export const services: ServiceRecord[] = [
         heading: "Fridge problems explained",
         intro: "Read about the fault you are seeing before you call, so you know what to expect.",
         items: problemLinks,
+      },
+      {
+        kind: "chips",
+        heading: "Specific fridge repairs",
+        intro: "Some repairs have their own page with the detail of how we do them.",
+        items: repairServices.map((s) => ({ href: s.path, label: s.shortName })),
       },
       {
         kind: "cards",
@@ -349,6 +362,7 @@ export const services: ServiceRecord[] = [
           { href: "/problems/ice-build-up", label: "Ice build up" },
           { href: "/problems/fridge-compressor-problems", label: "Compressor problems" },
           { href: "/fridge-regassing", label: "Freezer regassing" },
+          { href: "/how-to-defrost-a-freezer", label: "How to defrost a freezer" },
         ],
       },
     ],
@@ -463,6 +477,7 @@ export const services: ServiceRecord[] = [
           { href: "/fridge-regassing", label: "Fridge regassing" },
           { href: "/fridge-repair-or-replace", label: "Repair or replace?" },
           { href: "/commercial-fridge-repairs", label: "Commercial fridge repairs" },
+          { href: "/moving-a-fridge", label: "Moving a fridge safely" },
         ],
       },
     ],
@@ -565,6 +580,8 @@ export const services: ServiceRecord[] = [
           { href: "/problems/fridge-not-cooling", label: "Fridge not cooling" },
           { href: "/chest-freezer-repairs", label: "Chest freezer repairs" },
           { href: "/fridge-repairs", label: "All fridge repairs" },
+          { href: "/fridge-temperature-settings", label: "Correct fridge temperatures" },
+          { href: "/fridge-control-board-repairs", label: "Control board repairs" },
         ],
       },
     ],
@@ -708,12 +725,19 @@ export const services: ServiceRecord[] = [
   },
 ]
 
+/** Every service page: the core services first, then the specific repairs. */
+export const services: ServiceRecord[] = [...coreServices, ...repairServices]
+
 export function getService(slug: string) {
   return services.find((service) => service.slug === slug)
 }
 
-export const serviceLinks = services.map((service) => ({
-  href: service.path,
-  label: service.shortName,
-  text: service.cardText,
-}))
+function toLink(service: ServiceRecord) {
+  return { href: service.path, label: service.shortName, text: service.cardText }
+}
+
+/** The six core services, shown as cards across the site. */
+export const serviceLinks = coreServices.map(toLink)
+
+/** Specific repairs (door seals, fans, defrost, boards, surge damage, servicing). */
+export const repairServiceLinks = repairServices.map(toLink)

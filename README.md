@@ -10,11 +10,12 @@ Built with Next.js (App Router, static export), React, TypeScript and Tailwind C
 | --- | --- |
 | Home | `/` |
 | Services | `/fridge-repairs`, `/fridge-regassing`, `/freezer-repairs`, `/compressor-replacement`, `/thermostat-replacement`, `/24-hour-fridge-repairs`, `/commercial-fridge-repairs` |
+| Specific repairs | `/fridge-door-seal-replacement`, `/fridge-fan-motor-replacement`, `/fridge-defrost-repairs`, `/fridge-control-board-repairs`, `/fridge-power-surge-repairs`, `/fridge-servicing` |
 | Fridge types | `/refrigerator-repairs` hub plus 19 type pages (single door to cold rooms) |
 | Brands | `/brands` hub plus 24 brand pages |
-| Problems | `/problems` hub plus 10 symptom guides |
+| Problems | `/problems` hub plus 16 symptom guides, each opening with a short answer |
 | Areas | `/areas` hub, 4 region pages (`/areas/harare-north|south|east|west`) and 166 suburb/town pages |
-| Advice | `/fridge-regassing-cost-harare`, `/does-my-fridge-need-regassing`, `/fridge-repair-or-replace`, `/tips` |
+| Advice | `/fridge-regassing-cost-harare`, `/does-my-fridge-need-regassing`, `/fridge-repair-or-replace`, `/protect-fridge-from-power-cuts`, `/how-to-defrost-a-freezer`, `/fridge-temperature-settings`, `/moving-a-fridge`, `/tips` |
 | Core | `/about`, `/contact`, `/book-a-repair`, `/faq`, `/reviews`, `/privacy-policy`, `/terms` |
 
 Plus `sitemap.xml`, `robots.txt`, favicons, `og-image.png` and LocalBusiness / Service / FAQ / Breadcrumb structured data on every page.
@@ -23,10 +24,10 @@ Plus `sitemap.xml`, `robots.txt`, favicons, `og-image.png` and LocalBusiness / S
 
 All copy lives in `lib/content/`:
 
-- `services.ts`, `types.ts`, `brands.ts`, `problems.ts`, `advice.ts`, `faqs.ts` – one record per page.
+- `services.ts` + `repair-services.ts`, `types.ts`, `brands.ts`, `problems.ts` + `problems-more.ts`, `advice.ts` + `advice-more.ts`, `faqs.ts` – one record per page.
 - `areas/seeds.ts` (names, regions, neighbours), `areas/notes.ts` (one unique paragraph per area) and `areas/index.ts` (page templates and region copy).
 
-Business details (phones, WhatsApp, social links, hours) are in `lib/site.ts`. Photos are in `public/images/` and mapped to pages in `components/pictures.tsx`.
+Business details (phones, WhatsApp, social links, hours) are in `lib/site.ts`. Links to the sister businesses (Harare Washing Machine Repairs and Electro Appliance Repairs) are listed in `lib/sister-sites.ts`, limited to five pages each, always to the `www` host and never to Electro's fridge pages; `pnpm check` enforces all three. Photos are in `public/images/` and mapped to pages in `components/pictures.tsx`.
 
 ## Commands
 
@@ -34,8 +35,14 @@ Business details (phones, WhatsApp, social links, hours) are in `lib/site.ts`. P
 pnpm install
 pnpm dev          # local preview at http://localhost:3000
 pnpm build        # static export to ./out
-node scripts/check-site.mjs   # after build: broken links, titles, descriptions, sitemap
+pnpm check        # after build: links, titles, descriptions, canonicals, structured data, orphans, sitemap
+pnpm check:areas  # after build: suburb pages with the least unique text (report only)
+pnpm indexnow     # after a deploy: tell Bing and other IndexNow engines about the pages
 ```
+
+The same build and checks run on every pull request through GitHub Actions (`.github/workflows/site-checks.yml`).
+
+Sitemap `lastmod` dates come from the git history of the files that hold each page's content (listed per page in `lib/routes.ts`), along the main branch, so a merged change is dated by its merge. Each suburb page is dated by its own note in `areas/notes.ts`, so adding a note to one suburb does not mark every suburb as changed. A date is left out when git cannot prove it: with uncommitted changes, in a shallow clone, or without git.
 
 `scripts/render-assets.mjs` regenerates the icons and share image from the snowflake logo (needs Playwright).
 
@@ -44,3 +51,14 @@ node scripts/check-site.mjs   # after build: broken links, titles, descriptions,
 1. Import this GitHub repository in Vercel. The framework preset is Next.js; no extra settings are needed (`output: "export"` is already configured).
 2. Add the domain `hararefridgerepairs.co.zw` (and `www`) under the project's Domains tab and point the DNS records Vercel shows you at the registrar.
 3. After the first deploy, submit `https://hararefridgerepairs.co.zw/sitemap.xml` in Google Search Console and add the website URL to the Google Business Profile and Facebook page.
+4. Verify the site in Bing Webmaster Tools (it can import from Search Console) and run `pnpm indexnow` after each deploy with new or changed pages.
+5. Optional: Vercel builds from a shallow clone, so pages whose files last changed before the most recent commits get no sitemap date (safe, but less useful). Adding the environment variable `VERCEL_DEEP_CLONE` with the value `true` in the Vercel project settings makes Vercel fetch the full history. It is a community-documented setting rather than an official one, so remove it if a build ever fails to clone.
+
+## Owner actions that move local rankings most
+
+The website can only do part of the job. From the SEO research, these matter most for the map pack and are done outside the code:
+
+- Complete the Google Business Profile: primary category for fridge repair, every relevant service with a short description, 24/7 hours, service areas (up to 20), real photos of jobs, and the website link. Keep the address hidden, as the business is mobile.
+- Ask every happy customer for a Google review by WhatsApp, with a direct link. No incentives and no review bursts.
+- Keep the business name, phone numbers and website identical on Google, Facebook and any directory listings.
+- Send real job photos and short notes from callouts in particular suburbs; adding them to the suburb pages makes those pages genuinely local.

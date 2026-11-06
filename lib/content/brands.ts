@@ -1459,6 +1459,7 @@ export function buildBrandPage(brand: BrandRecord): ContentPage {
         ...typeLinks,
         { href: "/fridge-regassing", label: `${brand.name} fridge regassing` },
         { href: "/problems/fridge-not-cooling", label: `${brand.name} fridge not cooling` },
+        { href: "/fridge-control-board-repairs", label: `${brand.name} control board repairs` },
       ],
     },
     {

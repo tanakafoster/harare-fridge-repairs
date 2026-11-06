@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { CardGrid, CtaBand, FaqList, LinkChips, PageHero, Section, SectionHeading, TrustStrip } from "@/components/blocks"
 import { JsonLd } from "@/components/json-ld"
+import { SisterSiteNote } from "@/components/sister-site-note"
 import { advicePages } from "@/lib/content/advice"
 import { generalFaqs } from "@/lib/content/faqs"
 import { problemLink, problems } from "@/lib/content/problems"
@@ -17,7 +18,7 @@ export const metadata: Metadata = pageMetadata({ title, description, path: "/faq
 export default function FaqPage() {
   return (
     <>
-      <JsonLd data={webPageSchema({ path: "/faq", name: title, description, type: "FAQPage" })} />
+      <JsonLd data={webPageSchema({ path: "/faq", name: title, description })} />
       <PageHero
         eyebrow="FAQ"
         title="Fridge Repair Questions, Answered"
@@ -43,6 +44,7 @@ export default function FaqPage() {
           items={[...advicePages.map((a) => ({ href: a.path, label: a.shortName })), ...serviceLinks, { href: "/tips", label: "Fridge care tips" }]}
         />
       </Section>
+      <SisterSiteNote path="/faq" tone="frost" />
       <CtaBand title="Still have a question?" text={`Call ${site.phonePrimaryDisplay} or WhatsApp us any time. A technician, not a call centre, will answer.`} />
     </>
   )

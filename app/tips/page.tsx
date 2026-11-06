@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { CardGrid, CtaBand, PageHero, Section, SectionHeading, TrustStrip } from "@/components/blocks"
 import { JsonLd } from "@/components/json-ld"
+import { SisterSiteNote } from "@/components/sister-site-note"
 import { advicePages, tips } from "@/lib/content/advice"
 import { problemLink, problems } from "@/lib/content/problems"
 import { pageMetadata, webPageSchema } from "@/lib/seo"
@@ -53,6 +54,7 @@ export default function TipsPage() {
           <CardGrid items={advicePages.map((a) => ({ href: a.path, label: a.shortName, text: a.cardText }))} columns={3} />
         </div>
       </Section>
+      <SisterSiteNote path="/tips" tone="frost" />
       <CtaBand title="Fridge already in trouble?" text={`Call ${site.phonePrimaryDisplay} or WhatsApp a photo. We repair fridges and freezers across Harare, 24 hours a day.`} />
     </>
   )

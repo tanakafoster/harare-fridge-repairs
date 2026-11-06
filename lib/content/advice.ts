@@ -1,8 +1,9 @@
+import { moreAdvicePages } from "./advice-more"
 import type { ContentPage } from "./model"
 
 export type AdviceRecord = ContentPage & { slug: string; shortName: string; cardText: string }
 
-export const advicePages: AdviceRecord[] = [
+const coreAdvicePages: AdviceRecord[] = [
   {
     slug: "fridge-regassing-cost-harare",
     shortName: "Fridge regassing cost",
@@ -343,6 +344,8 @@ export const advicePages: AdviceRecord[] = [
     },
   },
 ]
+
+export const advicePages: AdviceRecord[] = [...coreAdvicePages, ...moreAdvicePages]
 
 export function getAdvice(slug: string) {
   return advicePages.find((page) => page.slug === slug)

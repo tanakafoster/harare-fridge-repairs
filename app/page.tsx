@@ -16,12 +16,13 @@ import {
 import { FridgeTypeStrip, HeroCollage } from "@/components/hero-collage"
 import { WhatsAppIcon } from "@/components/icons"
 import { JsonLd } from "@/components/json-ld"
+import { SisterSiteNote } from "@/components/sister-site-note"
 import { advicePages } from "@/lib/content/advice"
 import { areaLink, areas, regionLink, regions } from "@/lib/content/areas"
 import { brandLink, brands } from "@/lib/content/brands"
 import { homeFaqs } from "@/lib/content/faqs"
 import { problemLink, problems } from "@/lib/content/problems"
-import { serviceLinks } from "@/lib/content/services"
+import { repairServiceLinks, serviceLinks } from "@/lib/content/services"
 import { commercialTypes, homeTypes, typeLink } from "@/lib/content/types"
 import { pageMetadata, serviceSchema, webPageSchema } from "@/lib/seo"
 import { defaultWhatsappMessage, site, whatsappLink } from "@/lib/site"
@@ -169,6 +170,8 @@ export default function HomePage() {
         <div className="mt-8">
           <CardGrid items={serviceLinks} columns={3} />
         </div>
+        <h3 className="mt-10 text-lg font-bold text-navy">Specific fridge repairs</h3>
+        <LinkChips items={repairServiceLinks} className="mt-4" />
         <p className="mt-6 text-sm text-muted">
           Running a business?{" "}
           <Link href="/commercial-fridge-repairs" className="font-semibold text-brand hover:underline">
@@ -261,7 +264,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Fridge repairs near you"
           title="Anywhere in Harare, north, south, east or west"
-          lead={`We run daily routes through all four regions and cover ${areas.length} suburbs and towns, so a same-day visit is realistic wherever you are.`}
+          lead={`We cover all four regions and ${areas.length} suburbs and towns, so a same-day visit is usually realistic wherever you are.`}
         />
         <div className="mt-8">
           <CardGrid items={regions.map(regionLink)} columns={4} />
@@ -364,7 +367,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Guides"
           title="Before you call, a little reading"
-          lead="Honest guides on regassing costs, whether your fridge really needs gas, and when to repair rather than replace."
+          lead="Honest guides on regassing costs, whether your fridge really needs gas, repair or replace, power cuts, defrosting, temperatures and moving a fridge."
         />
         <div className="mt-8">
           <CardGrid
@@ -385,6 +388,8 @@ export default function HomePage() {
           </Link>
         </div>
       </Section>
+
+      <SisterSiteNote path="/" tone="frost" />
 
       <CtaBand
         title="Fridge trouble? We are open right now."

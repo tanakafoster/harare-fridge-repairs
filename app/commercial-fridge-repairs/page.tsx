@@ -64,6 +64,17 @@ const page: ContentPage = {
     },
     {
       kind: "chips",
+      heading: "Commercial servicing and specific repairs",
+      items: [
+        { href: "/fridge-servicing", label: "Planned servicing and maintenance" },
+        { href: "/fridge-fan-motor-replacement", label: "Fan motor replacement" },
+        { href: "/fridge-door-seal-replacement", label: "Door seal replacement" },
+        { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
+        { href: "/fridge-control-board-repairs", label: "Controller and board repairs" },
+      ],
+    },
+    {
+      kind: "chips",
       heading: "Business areas we cover",
       intro: "From the city centre and Msasa to Southerton, Westgate and Borrowdale, we attend commercial sites across Harare.",
       items: [

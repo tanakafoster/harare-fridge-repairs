@@ -29,6 +29,8 @@ export type ContentPage = {
   eyebrow: string
   h1: string
   lead: string
+  /** A direct answer shown straight after the hero, for readers and answer engines. */
+  quickAnswer?: { question: string; answer: string }
   points?: string[]
   picture?: PictureKey
   pictureAlt?: string

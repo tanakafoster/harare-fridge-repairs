@@ -13,6 +13,8 @@ import {
   TrustStrip,
 } from "@/components/blocks"
 import { JsonLd } from "@/components/json-ld"
+import { SisterSiteNote } from "@/components/sister-site-note"
+import { sisterNotes } from "@/lib/sister-sites"
 import type { ContentPage, ContentSection } from "@/lib/content/model"
 import { serviceSchema, webPageSchema } from "@/lib/seo"
 
@@ -89,6 +91,8 @@ export function ContentPageView({ page }: { page: ContentPage }) {
     )
   }
 
+  const hasSisterNote = Boolean(sisterNotes[page.path])
+
   return (
     <>
       <JsonLd data={schemas} />
@@ -102,14 +106,30 @@ export function ContentPageView({ page }: { page: ContentPage }) {
         pictureAlt={page.pictureAlt}
         whatsappMessage={page.whatsappMessage}
       />
+      {page.quickAnswer ? (
+        <section aria-labelledby="short-answer" className="bg-white py-10 sm:py-12">
+          <div className="container-site">
+            <div className="max-w-3xl rounded-2xl border border-line bg-ice p-6 sm:p-8">
+              <p className="eyebrow">The short answer</p>
+              <h2 id="short-answer" className="mt-2 text-xl font-bold sm:text-2xl">
+                {page.quickAnswer.question}
+              </h2>
+              <p className="mt-3 text-base leading-relaxed sm:text-lg">{page.quickAnswer.answer}</p>
+            </div>
+          </div>
+        </section>
+      ) : null}
       <TrustStrip />
       {page.sections.map((section, index) => (
         <Section key={index} tone={section.tone ?? (index % 2 === 1 ? "frost" : "white")}>
           <SectionBody section={section} />
         </Section>
       ))}
+      {hasSisterNote ? (
+        <SisterSiteNote path={page.path} tone={page.sections.length % 2 === 1 ? "frost" : "white"} />
+      ) : null}
       {page.faqs.length ? (
-        <Section tone={page.sections.length % 2 === 1 ? "frost" : "white"}>
+        <Section tone={(page.sections.length + (hasSisterNote ? 1 : 0)) % 2 === 1 ? "frost" : "white"}>
           <FaqList items={page.faqs} heading={page.faqHeading} />
         </Section>
       ) : null}
