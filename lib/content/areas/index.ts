@@ -1,4 +1,5 @@
 import type { PictureKey } from "@/components/pictures"
+import { advicePages } from "@/lib/content/advice"
 import { brandLink, brands } from "@/lib/content/brands"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "@/lib/content/model"
 import { problemLink, problems } from "@/lib/content/problems"
@@ -597,6 +598,13 @@ export function buildAreaPage(area: AreaRecord): ContentPage {
       heading: `Fridge brands we repair in ${area.name}`,
       intro: `We work on every make sold in Zimbabwe. These are some of the brands we see most often in ${area.name}.`,
       items: chosenBrands.map(brandLink),
+    },
+    {
+      kind: "chips",
+      heading: "Fridge advice from our technicians",
+      items: rotate(advicePages, `${seed}-advice`)
+        .slice(0, 3)
+        .map((a) => ({ href: a.path, label: a.shortName })),
     },
     {
       kind: "chips",
