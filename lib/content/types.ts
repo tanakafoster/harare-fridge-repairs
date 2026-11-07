@@ -1,6 +1,9 @@
 import type { PictureKey } from "@/components/pictures"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { pick, rotate } from "@/lib/utils"
+import { areaSeeds } from "./areas/seeds"
+import { typeAdditions, withAdditions } from "./page-additions"
+import { moreFridgeTypes } from "./types-more"
 
 export type FridgeTypeGroup = "home" | "commercial"
 
@@ -25,7 +28,7 @@ export type FridgeTypeRecord = {
   pictureAlt: string
 }
 
-export const fridgeTypes: FridgeTypeRecord[] = [
+const coreFridgeTypes: FridgeTypeRecord[] = [
   /* ------------------------------------------------------------------ */
   /* Home                                                                */
   /* ------------------------------------------------------------------ */
@@ -1188,6 +1191,8 @@ export const fridgeTypes: FridgeTypeRecord[] = [
   },
 ]
 
+export const fridgeTypes: FridgeTypeRecord[] = [...coreFridgeTypes, ...moreFridgeTypes]
+
 export const homeTypes = fridgeTypes.filter((type) => type.group === "home")
 export const commercialTypes = fridgeTypes.filter((type) => type.group === "commercial")
 
@@ -1198,6 +1203,13 @@ export function getFridgeType(slug: string) {
 export function typeLink(type: FridgeTypeRecord): LinkItem {
   return { href: `/${type.slug}`, label: `${type.name} repairs`, text: type.cardText }
 }
+
+const regionLinks: LinkItem[] = [
+  { href: "/areas/harare-north", label: "Harare North" },
+  { href: "/areas/harare-east", label: "Harare East" },
+  { href: "/areas/harare-south", label: "Harare South" },
+  { href: "/areas/harare-west", label: "Harare West" },
+]
 
 const processVariants = [
   [
@@ -1224,6 +1236,20 @@ export function buildFridgeTypePage(type: FridgeTypeRecord): ContentPage {
 
   const process = pick(processVariants, type.slug)
 
+  // Like a local service page, say where the work is done: the four regions
+  // plus a rotating set of suburbs, business districts for commercial units.
+  const businessSettings = new Set(["cbd", "cbd-adjacent", "industrial-edge"])
+  const suburbPool = areaSeeds.filter((seed) =>
+    type.group === "commercial" ? businessSettings.has(seed.setting) : !businessSettings.has(seed.setting),
+  )
+  const whereLinks: LinkItem[] = [
+    ...regionLinks,
+    ...rotate(suburbPool, `${type.slug}-areas`)
+      .slice(0, 8)
+      .map((seed) => ({ href: `/areas/${seed.slug}`, label: seed.name })),
+    { href: "/areas", label: "All Harare areas" },
+  ]
+
   const sections: ContentSection[] = [
     { kind: "text", heading: `${type.name} repairs: what goes wrong`, paragraphs: type.intro },
     { kind: "list", heading: `${type.name} faults we repair in Harare`, items: type.faults },
@@ -1245,6 +1271,15 @@ export function buildFridgeTypePage(type: FridgeTypeRecord): ContentPage {
         { href: hubHref, label: hubName, text: type.group === "home" ? "Every type of home fridge and freezer we repair." : "Every type of commercial refrigeration we repair." },
       ],
       columns: 2,
+    },
+    {
+      kind: "chips",
+      heading: `Where we repair ${type.plural}`,
+      intro:
+        type.group === "commercial"
+          ? `We attend shops, kitchens and bars across all four parts of Harare, including these business districts.`
+          : `We come to homes in every suburb of Harare. These are some of the areas we visit for ${type.plural}.`,
+      items: whereLinks,
     },
     {
       kind: "chips",
@@ -1281,7 +1316,7 @@ export function buildFridgeTypePage(type: FridgeTypeRecord): ContentPage {
       { name: hubName, path: hubHref },
       { name: `${type.name} repairs`, path: `/${type.slug}` },
     ],
-    sections,
+    sections: withAdditions(sections, typeAdditions[type.slug]),
     faqs: type.faqs,
     faqHeading: `${type.name} repair questions`,
     cta: {

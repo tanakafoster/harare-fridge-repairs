@@ -1,6 +1,8 @@
 import type { PictureKey } from "@/components/pictures"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { rotate } from "@/lib/utils"
+import { problemAdditions, withAdditions } from "./page-additions"
+import { extraProblems } from "./problems-extra"
 import { moreProblems } from "./problems-more"
 
 export type ProblemRecord = {
@@ -171,7 +173,7 @@ const coreProblems: ProblemRecord[] = [
           "No, refrigerant does not leak as liquid water. Water behind a dispenser fridge is from the water line, inlet valve or filter housing, and all three are repairable on site.",
       },
     ],
-    related: ["ice-build-up", "fridge-door-seal-problems", "fridge-not-cooling", "freezer-not-freezing", "fridge-bad-smell", "fridge-ice-maker-not-working"],
+    related: ["ice-build-up", "fridge-door-seal-problems", "fridge-not-cooling", "freezer-not-freezing", "fridge-bad-smell", "fridge-ice-maker-not-working", "fridge-sweating-condensation"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/side-by-side-fridge-repairs", label: "Side by side fridge repairs" },
@@ -391,7 +393,7 @@ const coreProblems: ProblemRecord[] = [
           "Yes, especially on an electronic fridge. A good surge protector or a voltage protection plug costs a fraction of a control board and we can fit one during the visit.",
       },
     ],
-    related: ["fridge-compressor-problems", "fridge-making-noise", "fridge-not-cooling", "fridge-running-constantly", "fridge-tripping-power"],
+    related: ["fridge-compressor-problems", "fridge-making-noise", "fridge-not-cooling", "fridge-running-constantly", "fridge-tripping-power", "fridge-guard-red-light"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/compressor-replacement", label: "Compressor replacement" },
@@ -767,7 +769,7 @@ const coreProblems: ProblemRecord[] = [
           "Because it makes the fridge run continuously, which costs electricity and shortens the compressor's life. A gasket is one of the cheapest repairs a fridge can have and one of the most worthwhile.",
       },
     ],
-    related: ["ice-build-up", "fridge-running-constantly", "fridge-leaking-water", "fridge-not-cooling", "fridge-bad-smell"],
+    related: ["ice-build-up", "fridge-running-constantly", "fridge-leaking-water", "fridge-not-cooling", "fridge-bad-smell", "fridge-door-not-closing"],
     services: [
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/chest-freezer-repairs", label: "Chest freezer repairs" },
@@ -780,7 +782,7 @@ const coreProblems: ProblemRecord[] = [
   },
 ]
 
-export const problems: ProblemRecord[] = [...coreProblems, ...moreProblems]
+export const problems: ProblemRecord[] = [...coreProblems, ...moreProblems, ...extraProblems]
 
 export function getProblem(slug: string) {
   return problems.find((problem) => problem.slug === slug)
@@ -860,7 +862,7 @@ export function buildProblemPage(problem: ProblemRecord): ContentPage {
       { name: "Fridge problems", path: "/problems" },
       { name: problem.name, path: `/problems/${problem.slug}` },
     ],
-    sections,
+    sections: withAdditions(sections, problemAdditions[problem.slug]),
     faqs: problem.faqs,
     faqHeading: `${problem.name}: your questions answered`,
     cta: {

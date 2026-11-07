@@ -1,13 +1,18 @@
 import type { DateSource } from "@/lib/content-dates"
 import { advicePages } from "@/lib/content/advice"
+import { extraAdvicePages } from "@/lib/content/advice-extra"
 import { moreAdvicePages } from "@/lib/content/advice-more"
 import { areas, regions } from "@/lib/content/areas"
 import { brands } from "@/lib/content/brands"
+import { industries, industryPath } from "@/lib/content/industries"
 import { problems } from "@/lib/content/problems"
+import { extraProblems } from "@/lib/content/problems-extra"
 import { moreProblems } from "@/lib/content/problems-more"
 import { repairServices } from "@/lib/content/repair-services"
 import { services } from "@/lib/content/services"
 import { fridgeTypes } from "@/lib/content/types"
+import { moreFridgeTypes } from "@/lib/content/types-more"
+import { problemAdditions, serviceAdditions, typeAdditions } from "@/lib/content/page-additions"
 import { sisterNotes } from "@/lib/sister-sites"
 
 export type RouteEntry = {
@@ -26,6 +31,9 @@ export type RouteEntry = {
 const repairSlugs = new Set(repairServices.map((s) => s.slug))
 const moreProblemSlugs = new Set(moreProblems.map((p) => p.slug))
 const moreAdviceSlugs = new Set(moreAdvicePages.map((a) => a.slug))
+const extraAdviceSlugs = new Set(extraAdvicePages.map((a) => a.slug))
+const extraProblemSlugs = new Set(extraProblems.map((p) => p.slug))
+const moreTypeSlugs = new Set(moreFridgeTypes.map((t) => t.slug))
 const areaTemplates = ["lib/content/areas/index.ts", "lib/content/areas/seeds.ts", "app/areas/[slug]/page.tsx"]
 
 function pageFile(path: string) {
@@ -46,17 +54,33 @@ export function allRoutes(): RouteEntry[] {
       path: "/commercial-fridge-repairs",
       priority: 0.9,
       changeFrequency: "monthly",
-      sources: [...pageFile("/commercial-fridge-repairs"), "lib/content/types.ts"],
+      sources: [...pageFile("/commercial-fridge-repairs"), "lib/content/types.ts", "lib/content/types-more.ts", "lib/content/industries.ts"],
     },
-    { path: "/refrigerator-repairs", priority: 0.8, changeFrequency: "monthly", sources: [...pageFile("/refrigerator-repairs"), "lib/content/types.ts"] },
-    ...fridgeTypes.map((t) => ({ path: `/${t.slug}`, priority: 0.7, changeFrequency: "monthly" as const, sources: ["lib/content/types.ts"] })),
-    { path: "/problems", priority: 0.8, changeFrequency: "monthly", sources: ["app/problems/page.tsx", "lib/content/problems.ts", "lib/content/problems-more.ts"] },
+    { path: "/refrigerator-repairs", priority: 0.8, changeFrequency: "monthly", sources: [...pageFile("/refrigerator-repairs"), "lib/content/types.ts", "lib/content/types-more.ts"] },
+    ...fridgeTypes.map((t) => ({
+      path: `/${t.slug}`,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+      // buildFridgeTypePage in types.ts lays out every type page, including the newer ones.
+      sources: moreTypeSlugs.has(t.slug) ? ["lib/content/types-more.ts", "lib/content/types.ts"] : ["lib/content/types.ts"],
+    })),
+    ...industries.map((i) => ({
+      path: industryPath(i),
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+      sources: ["lib/content/industries.ts", "app/commercial-fridge-repairs/[slug]/page.tsx"],
+    })),
+    { path: "/problems", priority: 0.8, changeFrequency: "monthly", sources: ["app/problems/page.tsx", "lib/content/problems.ts", "lib/content/problems-more.ts", "lib/content/problems-extra.ts"] },
     ...problems.map((p) => ({
       path: `/problems/${p.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as const,
       // buildProblemPage in problems.ts lays out every guide, including the newer ones.
-      sources: moreProblemSlugs.has(p.slug) ? ["lib/content/problems-more.ts", "lib/content/problems.ts"] : ["lib/content/problems.ts"],
+      sources: moreProblemSlugs.has(p.slug)
+        ? ["lib/content/problems-more.ts", "lib/content/problems.ts"]
+        : extraProblemSlugs.has(p.slug)
+          ? ["lib/content/problems-extra.ts", "lib/content/problems.ts"]
+          : ["lib/content/problems.ts"],
     })),
     { path: "/brands", priority: 0.8, changeFrequency: "monthly", sources: [...pageFile("/brands"), "lib/content/brands.ts"] },
     ...brands.map((b) => ({ path: `/${b.slug}`, priority: 0.6, changeFrequency: "monthly" as const, sources: ["lib/content/brands.ts"] })),
@@ -76,7 +100,13 @@ export function allRoutes(): RouteEntry[] {
       path: a.path,
       priority: 0.7,
       changeFrequency: "monthly" as const,
-      sources: [moreAdviceSlugs.has(a.slug) ? "lib/content/advice-more.ts" : "lib/content/advice.ts"],
+      sources: [
+        moreAdviceSlugs.has(a.slug)
+          ? "lib/content/advice-more.ts"
+          : extraAdviceSlugs.has(a.slug)
+            ? "lib/content/advice-extra.ts"
+            : "lib/content/advice.ts",
+      ],
     })),
     { path: "/about", priority: 0.6, changeFrequency: "yearly", sources: pageFile("/about") },
     { path: "/contact", priority: 0.8, changeFrequency: "yearly", sources: pageFile("/contact") },
@@ -87,6 +117,12 @@ export function allRoutes(): RouteEntry[] {
     { path: "/privacy-policy", priority: 0.2, changeFrequency: "yearly", sources: pageFile("/privacy-policy") },
     { path: "/terms", priority: 0.2, changeFrequency: "yearly", sources: pageFile("/terms") },
   ]
+  // Pages that show extra sections from page-additions.ts are dated by that file too.
+  const additionPaths = new Set([
+    ...Object.keys(typeAdditions).map((slug) => `/${slug}`),
+    ...Object.keys(serviceAdditions).map((slug) => services.find((s) => s.slug === slug)?.path ?? `/${slug}`),
+    ...Object.keys(problemAdditions).map((slug) => `/problems/${slug}`),
+  ])
   const seen = new Set<string>()
   return entries
     .filter((entry) => {
@@ -94,5 +130,6 @@ export function allRoutes(): RouteEntry[] {
       seen.add(entry.path)
       return true
     })
+    .map((entry) => (additionPaths.has(entry.path) ? { ...entry, sources: [...entry.sources, "lib/content/page-additions.ts"] } : entry))
     .map((entry) => (sisterNotes[entry.path] ? { ...entry, sources: [...entry.sources, "lib/sister-sites.ts"] } : entry))
 }
