@@ -10,12 +10,13 @@ Built with Next.js (App Router, static export), React, TypeScript and Tailwind C
 | --- | --- |
 | Home | `/` |
 | Services | `/fridge-repairs`, `/fridge-regassing`, `/freezer-repairs`, `/compressor-replacement`, `/thermostat-replacement`, `/24-hour-fridge-repairs`, `/commercial-fridge-repairs` |
+| Commercial by business | `/commercial-fridge-repairs/<business>`: restaurants and takeaways, hotels and lodges, supermarkets and tuck shops, bars and bottle stores, bakeries and cafes |
 | Specific repairs | `/fridge-door-seal-replacement`, `/fridge-fan-motor-replacement`, `/fridge-defrost-repairs`, `/fridge-control-board-repairs`, `/fridge-power-surge-repairs`, `/fridge-servicing` |
-| Fridge types | `/refrigerator-repairs` hub plus 19 type pages (single door to cold rooms) |
+| Fridge types | `/refrigerator-repairs` hub plus 24 type pages (single door to cold rooms, including frost free, inverter, built-in, solar DC and prep tables) |
 | Brands | `/brands` hub plus 24 brand pages |
-| Problems | `/problems` hub plus 16 symptom guides, each opening with a short answer |
+| Problems | `/problems` hub plus 21 symptom guides, each opening with a short answer |
 | Areas | `/areas` hub, 4 region pages (`/areas/harare-north|south|east|west`) and 166 suburb/town pages |
-| Advice | `/fridge-regassing-cost-harare`, `/does-my-fridge-need-regassing`, `/fridge-repair-or-replace`, `/protect-fridge-from-power-cuts`, `/how-to-defrost-a-freezer`, `/fridge-temperature-settings`, `/moving-a-fridge`, `/tips` |
+| Advice | `/fridge-regassing-cost-harare`, `/does-my-fridge-need-regassing`, `/fridge-repair-or-replace`, `/protect-fridge-from-power-cuts`, `/how-to-defrost-a-freezer`, `/fridge-temperature-settings`, `/moving-a-fridge`, `/fridge-stopped-working-what-to-do`, `/commercial-fridge-maintenance-checklist`, `/tips` |
 | Core | `/about`, `/contact`, `/book-a-repair`, `/faq`, `/reviews`, `/privacy-policy`, `/terms` |
 
 Plus `sitemap.xml`, `robots.txt`, favicons, `og-image.png` and LocalBusiness / Service / FAQ / Breadcrumb structured data on every page.
@@ -24,7 +25,7 @@ Plus `sitemap.xml`, `robots.txt`, favicons, `og-image.png` and LocalBusiness / S
 
 All copy lives in `lib/content/`:
 
-- `services.ts` + `repair-services.ts`, `types.ts`, `brands.ts`, `problems.ts` + `problems-more.ts`, `advice.ts` + `advice-more.ts`, `faqs.ts` – one record per page.
+- `services.ts` + `repair-services.ts`, `types.ts` + `types-more.ts`, `industries.ts`, `brands.ts`, `problems.ts` + `problems-more.ts` + `problems-extra.ts`, `advice.ts` + `advice-more.ts` + `advice-extra.ts`, `faqs.ts` – one record per page.
 - `areas/seeds.ts` (names, regions, neighbours), `areas/notes.ts` (one unique paragraph per area) and `areas/index.ts` (page templates and region copy).
 
 Business details (phones, WhatsApp, social links, hours) are in `lib/site.ts`. Links to the sister businesses (Harare Washing Machine Repairs and Electro Appliance Repairs) are listed in `lib/sister-sites.ts`, limited to five pages each, always to the `www` host and never to Electro's fridge pages; `pnpm check` enforces all three. Photos are in `public/images/` and mapped to pages in `components/pictures.tsx`.

@@ -149,7 +149,7 @@ export const moreProblems: ProblemRecord[] = [
           "Yes. We answer 24 hours a day across Harare. Keep the doors shut while it is unplugged: a closed fridge keeps food cold for about four hours, and a full freezer for much longer.",
       },
     ],
-    related: ["fridge-not-switching-on", "fridge-compressor-problems", "fridge-leaking-water", "fridge-clicking-on-and-off"],
+    related: ["fridge-not-switching-on", "fridge-compressor-problems", "fridge-leaking-water", "fridge-clicking-on-and-off", "fridge-electric-shock"],
     services: [
       { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },
       { href: "/compressor-replacement", label: "Compressor replacement" },
@@ -226,7 +226,7 @@ export const moreProblems: ProblemRecord[] = [
           "No. A single click when the thermostat switches the compressor on or off is normal. It is a click every minute or two, with a hum and no cooling, that needs attention.",
       },
     ],
-    related: ["fridge-compressor-problems", "fridge-not-switching-on", "fridge-making-noise", "fridge-not-cooling"],
+    related: ["fridge-compressor-problems", "fridge-not-switching-on", "fridge-making-noise", "fridge-not-cooling", "fridge-guard-red-light"],
     services: [
       { href: "/compressor-replacement", label: "Compressor replacement" },
       { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },

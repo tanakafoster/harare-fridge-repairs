@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ContentPageView } from "@/components/content-page"
 import { regionLink, regions } from "@/lib/content/areas"
+import { industries, industryLink } from "@/lib/content/industries"
 import type { ContentPage } from "@/lib/content/model"
 import { commercialTypes, typeLink } from "@/lib/content/types"
 import { pageMetadata } from "@/lib/seo"
@@ -36,6 +37,13 @@ const page: ContentPage = {
       ],
       picture: "condenser",
       pictureAlt: "Technician cleaning and servicing condenser coils",
+    },
+    {
+      kind: "cards",
+      heading: "Fridge repairs by type of business",
+      intro: "Every trade uses and wears out its refrigeration differently. These pages explain what fails most in yours.",
+      items: industries.map(industryLink),
+      columns: 3,
     },
     {
       kind: "steps",
