@@ -12,6 +12,7 @@ import { repairServices } from "@/lib/content/repair-services"
 import { services } from "@/lib/content/services"
 import { fridgeTypes } from "@/lib/content/types"
 import { moreFridgeTypes } from "@/lib/content/types-more"
+import { problemAdditions, serviceAdditions, typeAdditions } from "@/lib/content/page-additions"
 import { sisterNotes } from "@/lib/sister-sites"
 
 export type RouteEntry = {
@@ -116,6 +117,12 @@ export function allRoutes(): RouteEntry[] {
     { path: "/privacy-policy", priority: 0.2, changeFrequency: "yearly", sources: pageFile("/privacy-policy") },
     { path: "/terms", priority: 0.2, changeFrequency: "yearly", sources: pageFile("/terms") },
   ]
+  // Pages that show extra sections from page-additions.ts are dated by that file too.
+  const additionPaths = new Set([
+    ...Object.keys(typeAdditions).map((slug) => `/${slug}`),
+    ...Object.keys(serviceAdditions).map((slug) => services.find((s) => s.slug === slug)?.path ?? `/${slug}`),
+    ...Object.keys(problemAdditions).map((slug) => `/problems/${slug}`),
+  ])
   const seen = new Set<string>()
   return entries
     .filter((entry) => {
@@ -123,5 +130,6 @@ export function allRoutes(): RouteEntry[] {
       seen.add(entry.path)
       return true
     })
+    .map((entry) => (additionPaths.has(entry.path) ? { ...entry, sources: [...entry.sources, "lib/content/page-additions.ts"] } : entry))
     .map((entry) => (sisterNotes[entry.path] ? { ...entry, sources: [...entry.sources, "lib/sister-sites.ts"] } : entry))
 }

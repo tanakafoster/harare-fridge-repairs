@@ -1,4 +1,5 @@
 import type { ContentPage } from "./model"
+import { serviceAdditions, withAdditions } from "./page-additions"
 import { repairServices } from "./repair-services"
 
 export type ServiceRecord = ContentPage & {
@@ -726,7 +727,9 @@ const coreServices: ServiceRecord[] = [
 ]
 
 /** Every service page: the core services first, then the specific repairs. */
-export const services: ServiceRecord[] = [...coreServices, ...repairServices]
+export const services: ServiceRecord[] = [...coreServices, ...repairServices].map((service) =>
+  serviceAdditions[service.slug] ? { ...service, sections: withAdditions(service.sections, serviceAdditions[service.slug]) } : service,
+)
 
 export function getService(slug: string) {
   return services.find((service) => service.slug === slug)

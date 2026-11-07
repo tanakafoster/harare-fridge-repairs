@@ -2,6 +2,7 @@ import type { PictureKey } from "@/components/pictures"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { pick, rotate } from "@/lib/utils"
 import { areaSeeds } from "./areas/seeds"
+import { typeAdditions, withAdditions } from "./page-additions"
 import { moreFridgeTypes } from "./types-more"
 
 export type FridgeTypeGroup = "home" | "commercial"
@@ -1315,7 +1316,7 @@ export function buildFridgeTypePage(type: FridgeTypeRecord): ContentPage {
       { name: hubName, path: hubHref },
       { name: `${type.name} repairs`, path: `/${type.slug}` },
     ],
-    sections,
+    sections: withAdditions(sections, typeAdditions[type.slug]),
     faqs: type.faqs,
     faqHeading: `${type.name} repair questions`,
     cta: {

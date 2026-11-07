@@ -1,6 +1,7 @@
 import type { PictureKey } from "@/components/pictures"
 import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { rotate } from "@/lib/utils"
+import { problemAdditions, withAdditions } from "./page-additions"
 import { extraProblems } from "./problems-extra"
 import { moreProblems } from "./problems-more"
 
@@ -861,7 +862,7 @@ export function buildProblemPage(problem: ProblemRecord): ContentPage {
       { name: "Fridge problems", path: "/problems" },
       { name: problem.name, path: `/problems/${problem.slug}` },
     ],
-    sections,
+    sections: withAdditions(sections, problemAdditions[problem.slug]),
     faqs: problem.faqs,
     faqHeading: `${problem.name}: your questions answered`,
     cta: {
