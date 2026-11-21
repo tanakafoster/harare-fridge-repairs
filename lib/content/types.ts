@@ -25,6 +25,8 @@ export type FridgeTypeRecord = {
   repairNotes: string[]
   faqs: Faq[]
   related: string[]
+  /** Guides that the copy refers to, shown as a chips block of their own. */
+  guides?: LinkItem[]
   picture: PictureKey
   pictureAlt: string
 }
@@ -1264,6 +1266,9 @@ export function buildFridgeTypePage(type: FridgeTypeRecord): ContentPage {
       reverse: true,
     },
     { kind: "steps", heading: `Booking a ${type.name.toLowerCase()} repair`, items: process },
+    ...(type.guides && type.guides.length > 0
+      ? [{ kind: "chips" as const, heading: `${type.name} guides`, items: type.guides }]
+      : []),
     {
       kind: "cards",
       heading: "Related refrigeration repairs",

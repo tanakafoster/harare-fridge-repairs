@@ -14,6 +14,7 @@ import {
   UprightFreezerIcon,
 } from "@/components/fridge-type-icons"
 import { SitePicture, type PictureKey } from "@/components/pictures"
+import { fridgeTypes } from "@/lib/content/types"
 import { cn } from "@/lib/utils"
 
 type Tile = { picture: PictureKey; alt: string; label: string; shortLabel?: string; href: string }
@@ -82,7 +83,7 @@ export function HeroCollage({ className }: { className?: string }) {
           href="/refrigerator-repairs"
           className="-my-2 inline-flex shrink-0 items-center gap-1 rounded-full px-3 py-2.5 text-sm font-semibold underline-offset-4 hover:bg-white/10 hover:underline"
         >
-          19 types <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          {fridgeTypes.length} types <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>
     </div>

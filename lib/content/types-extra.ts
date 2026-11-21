@@ -20,20 +20,20 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
       "Water dispenser and ice maker fridge repairs in Harare: leaks, drips, inlet valves, filters, auger motors and frozen lines fixed at your home, 24/7. Call 0782 886 252.",
     h1: "Fridge Water Dispenser and Ice Maker Repairs in Harare",
     lead:
-      "A fridge with a water dispenser or ice maker has a second, smaller system hidden inside it: a water supply, a valve, a filter, tubes through the door and a set of motors that make and push out the ice. It is usually that system, not the cooling, that fails. Harare Fridge Repairs repairs dispenser fridges at your home, and stops leaks before they reach your floors and cupboards.",
+      "A fridge with a water dispenser or ice maker has a second, smaller system hidden inside it: a water supply, a valve, a filter, tubes through the door and a set of motors that make and push out the ice. It is usually that system, not the cooling, that fails. Harare Fridge Repairs repairs dispenser fridges at your home and traces every leak to its source to protect your floors and cupboards.",
     points: [
       "Plumbed-in and hand-filled tank models",
       "Inlet valves, filter heads, tubes and push-fit joints",
       "Ice makers, auger motors, crushers and chute flaps",
-      "Leaks traced before they damage floors and cabinets",
+      "Leaks traced to their source to protect floors and cabinets",
     ],
     intro: [
-      "There are two kinds of dispenser fridge in Harare kitchens. A plumbed-in model is joined to the house water supply by a thin tube, and an electric inlet valve at the back lets water through to a filter, the ice maker and the dispenser in the door. A tank model has no plumbing at all: you fill a small reservoir inside the fridge and a pump or gravity feeds the dispenser. The tank models were made for homes where running water cannot be relied on, and many Harare households now prefer them.",
+      "There are two kinds of dispenser fridge in Harare kitchens. A plumbed-in model is joined to the house water supply by a thin tube, and an electric inlet valve at the back lets water through to a filter, the ice maker and the dispenser in the door. A tank model has no plumbing at all: you fill a small reservoir inside the fridge and a pump or gravity feeds the dispenser. Because a tank model needs no water connection, it suits Harare homes where municipal water cannot be relied on.",
       "Water supply decides how a plumbed-in fridge behaves. Homes on municipal water see the pressure drop and return when supply is interrupted, homes on a borehole get iron and sediment in the line, and homes on a tank and booster pump see pressure swing every time the pump cuts in. Sediment wears valve screens and filters faster than the manual expects, and a pressure surge when supply returns is a common cause of a split tube or a weeping joint behind the fridge.",
-      "Ice adds its own parts. A small heater frees each tray of cubes, an arm or a twisting tray drops them into a bucket, and on dispensing models an auger motor turns a screw to push the ice to the chute, with a blade to crush it if you ask for crushed ice. A flap at the top of the chute is held shut by a small motor or solenoid, often with a heater to stop it freezing. Any one of these can stop while the fridge itself keeps cooling perfectly.",
+      "Ice brings its own parts, and any of them can fail while the fridge keeps cooling perfectly: the heater and ejector that release cubes from the mould or, on models without a heater, the motor that twists the tray; the auger motor that turns the corkscrew in the ice bucket to feed the chute; the crusher blades; and the chute flap, worked by a small solenoid or motor and often kept from freezing by a heater.",
     ],
     faults: [
-      "Water dripping from the dispenser after you let go of the paddle",
+      "Water that keeps dripping from the dispenser after you let go of the paddle",
       "Puddle behind or under the fridge, or a swollen kitchen floor or cabinet base",
       "Water tastes or smells bad, or comes out cloudy",
       "Dispenser buzzes but no water comes out",
@@ -45,18 +45,18 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
     ],
     repairNotes: [
       "A leak is always the first job, because water under a fridge can lift laminate floors and rot cabinet bases before anyone notices. We pull the fridge out, run the system and trace the water to its source: the supply tube, a push-fit joint, the inlet valve, the filter head or the tube through the door hinge. Damaged tubes and joints are replaced, the inlet valve is tested and replaced if it lets water past when closed, and the filter is checked for the right fit.",
-      "Ice and dispensing faults are tested part by part. We check the ice maker's heater, motor and sensor, the auger motor and crusher, the chute flap motor and its heater, and the paddle and door switches, then replace what has failed. If your household water is the root of the problem, such as heavy sediment from a borehole, we will say so and suggest how to protect the new parts. For a dispenser that has simply stopped, our guide to an ice maker or water dispenser that is not working covers the checks you can do first.",
+      "Ice and dispensing faults are tested part by part. We check the ice maker's motor, sensor and heater where it has one, the auger motor and crusher, the chute flap solenoid or motor and its heater, and the paddle and door switches, then replace what has failed. If your household water is the root of the problem, such as heavy sediment from a borehole, we will say so and suggest how to protect the new parts. For a dispenser that has simply stopped, our guide to an ice maker or water dispenser that is not working covers the checks you can do first.",
     ],
     faqs: [
       {
         question: "Why is my fridge water dispenser dripping?",
         answer:
-          "Usually the inlet valve is not closing fully, often because grit from the water supply is holding it open, or the dispenser line has a small leak. A drip that freezes into icicles under the chute can also come from the flap not closing. We test the valve and the flap and replace whichever has failed.",
+          "A few drops in the seconds after you dispense are normal, and after a filter change trapped air can cause drips until you have run a few jugs of water through. A drip that keeps going is usually the inlet valve not closing fully, often because grit from the water supply is holding it open, or a small leak in the dispenser line. A drip that freezes into icicles under the chute can also come from the flap not closing. We test the valve and the flap and replace whichever has failed.",
       },
       {
         question: "Is it safe to keep using a fridge that is leaking water?",
         answer:
-          "The fridge will keep cooling, but the water can damage floors and cabinets. Close the supply tap to the fridge, or empty the tank on a hand-filled model, and keep using the fridge until we arrive.",
+          "The fridge will keep cooling, but the water can damage floors and cabinets. If water has reached the wall socket or the plug, do not touch them: switch off the power at the distribution board first and leave the fridge off until it has been checked. Then close the supply tap to the fridge, or empty the tank on a hand-filled model. If the socket and plug are dry, you can keep using the fridge until we arrive.",
       },
       {
         question: "Can a plumbed-in fridge run on borehole water?",
@@ -70,6 +70,10 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
       },
     ],
     related: ["side-by-side-fridge-repairs", "french-door-fridge-repairs", "multi-door-fridge-repairs", "ice-machine-repairs"],
+    guides: [
+      { href: "/problems/fridge-ice-maker-not-working", label: "Ice maker or water dispenser not working" },
+      { href: "/problems/fridge-leaking-water", label: "Fridge leaking water" },
+    ],
     picture: "sideBySide",
     pictureAlt: "Technician working on a large fridge with a door dispenser in a Harare kitchen",
   },
@@ -110,7 +114,7 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
     ],
     repairNotes: [
       "We look first at why the ice or water is there. A cold plate that stays iced usually means the compressor never stops, so we check the thermostat, its sensing tube clipped to the plate and the door seal that lets damp air in. Water in the fridge is usually a blocked drain channel or drain hole, which we clear and flush. If the freezer frosts up within days, the freezer door seal or the door alignment is normally to blame.",
-      "When the plates stay frost free and warm, the problem is in the sealed system: a refrigerant leak, a pierced evaporator, a blocked capillary or a compressor that is not pumping. We confirm it with gauges and a leak test before any regas, and tell you honestly if a pierced freezer on an old fridge is worth repairing. Most manual defrost repairs are thermostats, seals, drains and relays, finished in one visit.",
+      "When the compressor runs but the plates stay frost free and warm, the problem is in the sealed system: a refrigerant leak, a pierced evaporator, a blocked capillary or a compressor that is not pumping. We confirm it with gauges and a leak test before any regas, and tell you honestly if a pierced freezer on an old fridge is worth repairing. If the compressor is not running at all, the plates stay warm too, and we test the supply, thermostat, relay and overload first. Most manual defrost repairs are thermostats, seals, drains and relays, finished in one visit.",
     ],
     faqs: [
       {
@@ -135,6 +139,10 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
       },
     ],
     related: ["frost-free-fridge-repairs", "double-door-fridge-repairs", "single-door-fridge-repairs", "chest-freezer-repairs"],
+    guides: [
+      { href: "/how-to-defrost-a-freezer", label: "How to defrost a freezer or manual defrost fridge" },
+      { href: "/problems/fridge-leaking-water", label: "Water in the bottom of the fridge" },
+    ],
     picture: "freezerIce",
     pictureAlt: "Thick ice on the evaporator of a manual defrost fridge before repair",
   },
@@ -160,8 +168,8 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
     ],
     intro: [
       "Most four door fridges have two fridge doors on top and two freezer doors below, or a freezer on one side and a convertible zone on the other that you can set as a fridge, a chiller or a freezer. To make that possible, the fridge uses several temperature sensors, motorised air dampers or a second evaporator, and more than one fan. A main board reads the sensors and decides where cold air goes, usually driving an inverter compressor.",
-      "That means a fault rarely affects the whole fridge. One zone runs warm while the rest is fine, the convertible drawer refuses to reach freezer temperature, or frost forms behind one panel only. The cause can be a sensor that has drifted, a damper stuck shut, a fan that has stopped, or a defrost heater that has failed on one evaporator. Guessing from the symptom is how these fridges end up with an unnecessary regas.",
-      "Power is the other half of the story in Harare. Multi door fridges carry the most electronics of any household fridge, so surges and repeated restarts after load shedding are hard on their boards and inverter drivers. A good surge protector is worth fitting, and if the display went dark after an outage, tell us when you book.",
+      "That means many faults affect only one zone. One zone runs warm while the rest is fine, the convertible drawer refuses to reach freezer temperature, or frost forms behind one panel only. The cause can be a sensor that has drifted, a damper stuck shut, a fan that has stopped, or a defrost heater that has failed on one evaporator. Guessing from the symptom is how these fridges end up with an unnecessary regas.",
+      "Power is the other half of the story in Harare. Multi door fridges carry more electronics than most household fridges, so surges and repeated restarts after load shedding are hard on their boards and inverter drivers. A voltage protector with a start delay helps protect those boards, and our power cut advice explains the options. If the display has been dark or erratic since an outage, mention it when you book so the technician can start with the boards.",
     ],
     faults: [
       "One zone warm while the other compartments are cold",
@@ -191,7 +199,7 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
       {
         question: "Is a four door fridge the same as a French door fridge?",
         answer:
-          "They are close relatives. A French door fridge has two fridge doors and one freezer drawer; a four door fridge splits the lower section into two, often with a convertible zone. Our French door page covers the three door design.",
+          "They overlap. A typical French door fridge has two fridge doors above one freezer drawer, but some have two drawers. We call a fridge four door when its lower section is split into two separately controlled compartments, often with one that converts between fridge and freezer, or when it has four hinged doors in a cross-door layout. Models with one freezer drawer, or two drawers on a single control, are covered on our French door page.",
       },
       {
         question: "Which brands of multi door fridge do you repair?",
@@ -200,6 +208,10 @@ export const extraFridgeTypes: FridgeTypeRecord[] = [
       },
     ],
     related: ["french-door-fridge-repairs", "side-by-side-fridge-repairs", "inverter-fridge-repairs", "water-dispenser-fridge-repairs"],
+    guides: [
+      { href: "/protect-fridge-from-power-cuts", label: "Protecting your fridge from power cuts" },
+      { href: "/problems/fridge-error-code", label: "Fridge showing an error code" },
+    ],
     picture: "frenchDoor",
     pictureAlt: "Technician repairing a large multi door fridge in a Harare kitchen",
   },

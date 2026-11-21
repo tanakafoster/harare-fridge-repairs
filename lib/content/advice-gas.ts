@@ -22,7 +22,7 @@ export const gasAdvicePages: AdviceRecord[] = [
     quickAnswer: {
       question: "How do I know which gas my fridge uses?",
       answer:
-        "Look at the rating plate, a sticker usually found on the inside wall of the fridge, behind the salad drawers or on the back near the compressor. Next to the word refrigerant it gives a code such as R600a or R134a and the charge in grams. Most household fridges made in the last ten years or so use R600a; many older ones use R134a. That gas, and that weight, is what should go back in.",
+        "The gas is printed on the rating plate. Beside the word Refrigerant you will see a code, usually R600a or R134a, and a weight in grams. On most fridges the plate is a sticker low on an inside wall, behind the salad drawer; on others it is on the back beside the compressor. Fridges built in roughly the last ten years mostly run on R600a, while plenty of older ones were built for R134a. That gas, and that weight, is what should go back in.",
     },
     points: [
       "Where to find the rating plate and what it tells you",
@@ -55,7 +55,7 @@ export const gasAdvicePages: AdviceRecord[] = [
           "R134a: the standard gas in household fridges for many years and still found in a great number of older fridges, chest freezers and some drinks coolers. It is not flammable.",
           "R290 (propane): used more and more in commercial bottle coolers, display fridges and ice cream freezers, and in some newer household models. Like R600a, it is flammable and needs the right procedures.",
           "R404A and its replacements such as R452A and R449A: found in commercial freezers, cold rooms and larger display cabinets. Each needs its own gauges and the correct oil.",
-          "R22: an older gas still found in some cold rooms and older commercial systems. It is being phased out under the Montreal Protocol, which Zimbabwe has signed, so it is becoming scarce.",
+          "R22: an older gas still found in some cold rooms and older commercial systems. It is being phased out under the Montreal Protocol, which Zimbabwe joined in 1992, so it is becoming scarce.",
           "R12: the gas in very old fridges from decades ago. It is no longer made, and a fridge that needs it repaired properly will need a careful conversation about whether it is worth it.",
         ],
         columns: 1,
@@ -66,7 +66,7 @@ export const gasAdvicePages: AdviceRecord[] = [
         heading: "The wrong gas is worse than no regas at all",
         paragraphs: [
           "A fridge's compressor, capillary tube and oil are all chosen for one gas. R600a and R134a, the two most common household gases, work at very different pressures and need different amounts. Putting R134a into an R600a fridge, or topping up one gas with another, gives a fridge that runs hot and cools poorly, and it can shorten the life of the compressor. Mixed gas cannot be separated again: the system has to be emptied, vacuumed and charged from fresh.",
-          "Quantity matters just as much. Household fridges hold a small charge, often well under a hundred grams, and a few grams too much or too little is enough to spoil the cooling. That is why we charge by weight, using a scale and the figure on the rating plate, rather than by guessing from the gauge. It is also why a quick top up without finding the leak never lasts: the gas was lost somewhere, and it will keep escaping until that leak is found and repaired.",
+          "Quantity matters just as much. The charge itself is tiny, often less than 60 grams on an R600a combi and under 50 grams on a bar fridge, so a few grams either way is enough to spoil the cooling. That is why we charge by weight, using a scale and the figure on the rating plate, rather than by guessing from the gauge. It is also why a quick top up without finding the leak never lasts: the gas was lost somewhere, and it will keep escaping until that leak is found and repaired.",
         ],
         picture: "regassing",
         pictureAlt: "Refrigerant being weighed on a scale during a fridge regas",
@@ -90,8 +90,8 @@ export const gasAdvicePages: AdviceRecord[] = [
         kind: "text",
         heading: "Safety with flammable refrigerants",
         paragraphs: [
-          "R600a and R290 fridges are safe in normal use: the charge is small and sealed inside the pipes. The risk comes during a repair, or if the pipes are pierced, for example by chipping ice from a freezer with a knife. If you hear hissing from inside the fridge after damaging a pipe, unplug it, open a window, and keep flames and sparks away from the kitchen until the gas has cleared.",
-          "Repairs on these fridges need tools and methods made for flammable gas: proper ventilation, no naked flame near a charged system, and the gas recovered or released safely before any brazing. Ask how your technician handles that. It is part of every regas we do.",
+          "R600a and R290 fridges are safe in normal use: the charge is small and sealed inside the pipes. The risk comes during a repair, or if the pipes are pierced, for example by chipping ice from a freezer with a knife. If you hear hissing from inside the fridge after damaging a pipe, open the windows and doors, keep flames and sparks away, and do not switch lights or appliances on or off in the kitchen until the gas has cleared. Then switch the fridge off at the wall and call us.",
+          "Repairs on these fridges need tools and methods made for flammable gas: good ventilation, no naked flame near a charged system and, before any brazing, the gas removed safely outdoors and the pipes flushed with nitrogen. Ask any technician how they will handle that before the work starts.",
         ],
       },
       {

@@ -644,7 +644,7 @@ export const repairServices: ServiceRecord[] = [
       "PTC and current relays, overloads and start capacitors",
       "Tested with a meter before anything is replaced",
       "Compressor windings checked at the same time",
-      "All household and most commercial fridges and freezers",
+      "Fixed speed household fridges and freezers, and most commercial units",
     ],
     picture: "compressorTest",
     pictureAlt: "Technician testing the start relay on a fridge compressor with a meter",
@@ -655,8 +655,8 @@ export const repairServices: ServiceRecord[] = [
         kind: "text",
         heading: "What the start relay and overload do",
         paragraphs: [
-          "A fridge compressor motor has two windings: one that keeps it running and one that only helps it start. The start relay switches the start winding in for the first second or two, then out again once the motor is up to speed. The overload protector sits beside it and cuts the power if the compressor draws too much current or gets too hot, then resets itself when it cools. Some compressors add a start or run capacitor to give the motor an extra push.",
-          "These are the parts that take the strain every time the compressor starts, and in Harare that is many more starts than the designers planned for. Each time power returns after load shedding, the compressor may try to start at low voltage or against pressure that has not had time to settle. The relay and overload get hot, contacts wear, and the ceramic element inside a PTC relay can crack. When they fail, the compressor cannot start, and the overload clicks it off again and again.",
+          "A standard fixed speed fridge compressor has two windings: a run winding that keeps it turning and a start winding that helps it get going. The start relay switches the start winding in for the first second or two, then out again once the motor is up to speed. The overload protector sits beside it and cuts the power if the compressor draws too much current or gets too hot, then resets itself when it cools. Some add a start capacitor for a stronger start, or a run capacitor that keeps the start winding working while the motor runs. Inverter fridges have no start relay: an electronic board starts the compressor, and those faults are covered on our inverter fridge page.",
+          "These are the parts that take the strain every time the compressor starts, and in Harare many of those starts are much harder than the designers planned for. Each time power returns after load shedding, the compressor may try to start at low voltage or against pressure that has not had time to settle. The relay and overload get hot, contacts wear, and the ceramic element inside a PTC relay can crack. When they fail, the compressor cannot start, and the overload clicks it off again and again.",
         ],
       },
       {
@@ -665,7 +665,7 @@ export const repairServices: ServiceRecord[] = [
         items: [
           "A hum from the back, then a loud click, every few minutes",
           "The light and display work but the fridge never gets cold",
-          "A rattle when you shake the relay after it is unplugged, which means a cracked element",
+          "On a PTC starter, a rattle when our technician takes it off and shakes it, a sign that the ceramic disc inside has cracked",
           "The compressor is hot to the touch but not running",
           "The fridge stopped cooling straight after a power cut or a storm",
           "A burnt smell or blackened plastic at the compressor terminals",
@@ -704,6 +704,7 @@ export const repairServices: ServiceRecord[] = [
           { href: "/problems/fridge-guard-red-light", label: "Fridge guard red light" },
           { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },
           { href: "/protect-fridge-from-power-cuts", label: "Protecting your fridge from power cuts" },
+          { href: "/inverter-fridge-repairs", label: "Inverter fridge repairs" },
         ],
       },
       { kind: "cards", heading: "Other fridge services in Harare", items: coreServiceCards, columns: 4 },

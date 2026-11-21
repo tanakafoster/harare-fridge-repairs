@@ -16,6 +16,10 @@ export type BrandRecord = {
   notes: string[]
   faqs: Faq[]
   types: string[]
+  /** Intro above the models list, for brands the default wording does not fit. */
+  modelsIntro?: string
+  /** Intro above the faults list, for brands the default wording does not fit. */
+  faultsIntro?: string
 }
 
 export const brands: BrandRecord[] = [
@@ -1384,12 +1388,12 @@ export const brands: BrandRecord[] = [
     cardText: "ActiveSmart fridges, integrated column fridges and CoolDrawer models, repaired with care.",
     title: "Fisher & Paykel Fridge Repairs Harare | ActiveSmart & Integrated",
     description:
-      "Fisher & Paykel fridge repairs in Harare for ActiveSmart, French door, integrated column and ice and water models. Sensor, fan, board and ice faults fixed at home.",
+      "Fisher & Paykel fridge repairs in Harare: ActiveSmart, French door, integrated and ice and water models. Sensor, fan, board and ice faults fixed at home.",
     lead:
-      "Fisher & Paykel fridges are less common in Harare than Samsung or Defy, so when one breaks down it can be hard to find someone who has opened one before. Harare Fridge Repairs repairs Fisher & Paykel ActiveSmart, French door and integrated fridges at your home, with the patience and care a premium fridge deserves.",
+      "Fisher & Paykel fridges are less common in Harare than Samsung or Defy, and their sensors and electronics need careful testing before any part is replaced. Harare Fridge Repairs repairs Fisher & Paykel ActiveSmart, French door and integrated fridges at your home, with the patience and care a premium fridge deserves.",
     intro: [
-      "Many Fisher & Paykel fridges we see in Harare were bought abroad or imported privately, and some are integrated into custom kitchens. Most are ActiveSmart models, which use a variable speed compressor and several sensors so the fridge learns how it is used and adjusts its cooling, with a fan and no frost evaporator in the freezer. Larger models add ice and water, and the integrated column range sits fully behind cabinet doors.",
-      "Because the electronics run the whole fridge, the faults we meet are mostly electronic or airflow related: a sensor that reads wrongly, a fan that has stopped, a defrost heater that has failed so ice builds behind the freezer panel, or a control board or compressor driver damaged by a power surge. The compressors themselves are reliable and are condemned only after proper tests.",
+      "Fisher & Paykel is a New Zealand brand that is less widely sold in Zimbabwe than Samsung, LG or Defy, so many of its fridges in Harare were bought abroad or imported privately. Some are built into custom kitchens. Most current models are ActiveSmart fridges: no frost designs that use several sensors to watch temperatures and door openings, and adjust cooling and defrost to how the fridge is used. Some also have a variable speed compressor. Larger models add ice and water, and the integrated column range sits fully behind cabinet doors.",
+      "Because the electronics run the whole fridge, most faults on these fridges are electronic or airflow related: a sensor that reads wrongly, a fan that has stopped, a defrost heater that has failed so ice builds behind the freezer panel, or a control board, or on variable speed models the compressor driver, damaged by a power surge. The compressors themselves are reliable and are condemned only after proper tests.",
       "Imported fridges raise one practical question: parts. We check the model and serial number before we order, tell you honestly how long a part will take, and keep the fridge running on a temporary repair where that is safe.",
     ],
     models: [
@@ -1400,7 +1404,7 @@ export const brands: BrandRecord[] = [
     ],
     faults: [
       "Fridge running warm while the display shows the set temperature",
-      "Ice on the back panel of the freezer, fridge slowly warming",
+      "Freezer back wall frosting over while the fridge section creeps warmer",
       "Door alarm beeping although the door is closed",
       "Ice maker not filling or water dispenser not working",
       "Fan noise from behind the freezer panel",
@@ -1430,6 +1434,8 @@ export const brands: BrandRecord[] = [
       },
     ],
     types: ["combi-fridge-repairs", "french-door-fridge-repairs", "built-in-fridge-repairs", "water-dispenser-fridge-repairs"],
+    modelsIntro: "These are the Fisher & Paykel fridge and freezer ranges we repair at your home in Harare.",
+    faultsIntro: "These are common faults on Fisher & Paykel fridges, and each one is tested before any part is replaced.",
   },
 
   {
@@ -1437,14 +1443,14 @@ export const brands: BrandRecord[] = [
     name: "Liebherr",
     tier: "premium",
     origin: "Germany",
-    cardText: "BioFresh, NoFrost and SmartFrost fridges and freezers, built in or freestanding.",
+    cardText: "BioFresh combis, built in fridges, freezers and wine cabinets, repaired at home in Harare.",
     title: "Liebherr Fridge Repairs Harare | BioFresh, NoFrost & Built In",
     description:
-      "Liebherr fridge repairs in Harare for BioFresh, NoFrost, SmartFrost, built in and wine models. Sensor, fan, defrost, board and seal faults repaired at your home.",
+      "Liebherr fridge repairs in Harare for BioFresh, NoFrost, SmartFrost, built in and wine models. Sensor, fan, defrost, board and seal faults fixed at home.",
     lead:
       "Liebherr makes fridges and freezers built for a long working life, from built in BioFresh combis in new kitchens to freestanding freezers and wine cabinets. Harare Fridge Repairs repairs Liebherr fridges at your home in Harare, tests before it replaces, and tells you plainly when a part has to be ordered.",
     intro: [
-      "The Liebherr fridges we attend in Harare are mostly combis and built in fridges with BioFresh drawers, which hold fresh food just above freezing in a separately controlled zone, together with NoFrost freezers that defrost themselves and SmartFrost freezers that only frost slowly and still need an occasional manual defrost. Liebherr also builds wine cabinets and some commercial drinks fridges and freezers.",
+      "Liebherr makes combis and built in fridges, many with BioFresh drawers, which hold fresh food just above freezing in a separately controlled zone, as well as NoFrost freezers that defrost themselves and SmartFrost freezers that frost slowly and still need an occasional manual defrost. Liebherr also builds wine cabinets and some commercial drinks fridges and freezers.",
       "Their faults follow the design. A BioFresh drawer that freezes vegetables or runs too warm points to its sensor, damper or heater. A NoFrost freezer with ice behind the panel has a defrost or fan fault. A SmartFrost freezer with thick ice is often just due a defrost, unless the door seal has hardened. Electronic controls and power supplies are the parts most at risk from Harare's power surges.",
       "We confirm each fault with readings before replacing anything, because Liebherr parts are usually ordered in and it matters that the right one comes the first time.",
     ],
@@ -1455,13 +1461,13 @@ export const brands: BrandRecord[] = [
       "Wine cabinets and drinks fridges",
     ],
     faults: [
-      "BioFresh drawer too cold or too warm",
-      "Freezer icing up behind the panel or around the drawers",
-      "Temperature alarm or error showing on the display",
-      "One zone warm on a model with two cooling circuits",
-      "Controls dead after a power cut or storm",
-      "Built in door dropped or not sealing",
-      "Water collecting inside the fridge compartment",
+      "Vegetables freezing in the BioFresh drawer",
+      "Freezer food going soft while the fridge section stays cold",
+      "Display dead or flashing after load shedding",
+      "Thick ice in a SmartFrost freezer soon after a defrost",
+      "Built in door not pulling shut against the cabinet",
+      "Wine cabinet drifting off its set temperature",
+      "Water pooling under the drawers",
       "Compressor running non-stop on hot days",
     ],
     notes: [
@@ -1486,6 +1492,8 @@ export const brands: BrandRecord[] = [
       },
     ],
     types: ["combi-fridge-repairs", "built-in-fridge-repairs", "upright-freezer-repairs", "wine-cooler-repairs"],
+    modelsIntro: "These are the Liebherr fridge and freezer ranges we repair at your home in Harare.",
+    faultsIntro: "These are common faults on Liebherr fridges, and each one is tested before any part is replaced.",
   },
 ]
 
@@ -1546,14 +1554,14 @@ export function buildBrandPage(brand: BrandRecord): ContentPage {
     {
       kind: "list",
       heading: `${brand.name} models we repair`,
-      intro: `These are the ${brand.name} fridges and freezers we attend most often across Harare.`,
+      intro: brand.modelsIntro ?? `These are the ${brand.name} fridges and freezers we attend most often across Harare.`,
       items: brand.models,
       columns: 1,
     },
     {
       kind: "list",
       heading: `Common ${brand.name} fridge problems`,
-      intro: "If your fridge is doing any of these, it is a fault we have repaired many times before.",
+      intro: brand.faultsIntro ?? "If your fridge is doing any of these, it is a fault we have repaired many times before.",
       items: brand.faults,
     },
     {
