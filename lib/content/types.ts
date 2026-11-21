@@ -3,6 +3,7 @@ import type { ContentPage, ContentSection, Faq, LinkItem } from "./model"
 import { pick, rotate } from "@/lib/utils"
 import { areaSeeds } from "./areas/seeds"
 import { typeAdditions, withAdditions } from "./page-additions"
+import { extraFridgeTypes } from "./types-extra"
 import { moreFridgeTypes } from "./types-more"
 
 export type FridgeTypeGroup = "home" | "commercial"
@@ -87,7 +88,7 @@ const coreFridgeTypes: FridgeTypeRecord[] = [
           "Yes. We work in flats across the Avenues, Milton Park, Eastlea, Belvedere and every other part of Harare. Tell us the floor, the block and who will let the technician in.",
       },
     ],
-    related: ["double-door-fridge-repairs", "bar-fridge-repairs", "combi-fridge-repairs"],
+    related: ["double-door-fridge-repairs", "bar-fridge-repairs", "combi-fridge-repairs", "manual-defrost-fridge-repairs"],
     picture: "temperature",
     pictureAlt: "Technician testing a fridge compressor circuit with a multimeter",
   },
@@ -152,7 +153,7 @@ const coreFridgeTypes: FridgeTypeRecord[] = [
           "All brands sold in Zimbabwe, including Defy, KIC, Kelvinator, Capri, Samsung, LG, Hisense, Haier, Midea, Whirlpool, Bosch, Beko, FRESH, Alaska, Tornado, White Whale, TCL, SPJ and Hybrid.",
       },
     ],
-    related: ["combi-fridge-repairs", "single-door-fridge-repairs", "side-by-side-fridge-repairs"],
+    related: ["combi-fridge-repairs", "single-door-fridge-repairs", "side-by-side-fridge-repairs", "manual-defrost-fridge-repairs"],
     picture: "fan",
     pictureAlt: "Technician measuring the temperature inside a fridge compartment",
   },
@@ -272,7 +273,7 @@ const coreFridgeTypes: FridgeTypeRecord[] = [
           "No. For most side by side repairs the food can stay in. If a repair needs the fridge off for a few hours we will tell you when we quote so you can move anything perishable.",
       },
     ],
-    related: ["french-door-fridge-repairs", "combi-fridge-repairs", "double-door-fridge-repairs"],
+    related: ["french-door-fridge-repairs", "combi-fridge-repairs", "double-door-fridge-repairs", "water-dispenser-fridge-repairs"],
     picture: "sideBySide",
     pictureAlt: "Technician diagnosing a large fridge in a Harare home",
   },
@@ -332,7 +333,7 @@ const coreFridgeTypes: FridgeTypeRecord[] = [
           "Yes. We repair every brand of French door fridge sold in Zimbabwe, including Samsung, LG, Hisense, Bosch, Siemens, Smeg, Haier, Midea, Whirlpool and Electrolux.",
       },
     ],
-    related: ["side-by-side-fridge-repairs", "combi-fridge-repairs", "wine-cooler-repairs"],
+    related: ["side-by-side-fridge-repairs", "combi-fridge-repairs", "wine-cooler-repairs", "multi-door-fridge-repairs", "water-dispenser-fridge-repairs"],
     picture: "frenchDoor",
     pictureAlt: "Technician inspecting the compressor compartment of a large fridge",
   },
@@ -1120,7 +1121,7 @@ const coreFridgeTypes: FridgeTypeRecord[] = [
           "Yes. We are open 24 hours and understand that ice is urgent for a bar or hotel on a busy night.",
       },
     ],
-    related: ["underbar-fridge-repairs", "beverage-chiller-repairs", "commercial-upright-fridge-repairs"],
+    related: ["underbar-fridge-repairs", "beverage-chiller-repairs", "commercial-upright-fridge-repairs", "water-dispenser-fridge-repairs"],
     picture: "regassing",
     pictureAlt: "Technician repairing commercial refrigeration equipment",
   },
@@ -1191,7 +1192,7 @@ const coreFridgeTypes: FridgeTypeRecord[] = [
   },
 ]
 
-export const fridgeTypes: FridgeTypeRecord[] = [...coreFridgeTypes, ...moreFridgeTypes]
+export const fridgeTypes: FridgeTypeRecord[] = [...coreFridgeTypes, ...moreFridgeTypes, ...extraFridgeTypes]
 
 export const homeTypes = fridgeTypes.filter((type) => type.group === "home")
 export const commercialTypes = fridgeTypes.filter((type) => type.group === "commercial")

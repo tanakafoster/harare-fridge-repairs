@@ -1,6 +1,7 @@
 import type { DateSource } from "@/lib/content-dates"
 import { advicePages } from "@/lib/content/advice"
 import { extraAdvicePages } from "@/lib/content/advice-extra"
+import { gasAdvicePages } from "@/lib/content/advice-gas"
 import { moreAdvicePages } from "@/lib/content/advice-more"
 import { areas, regions } from "@/lib/content/areas"
 import { brands } from "@/lib/content/brands"
@@ -11,6 +12,7 @@ import { moreProblems } from "@/lib/content/problems-more"
 import { repairServices } from "@/lib/content/repair-services"
 import { services } from "@/lib/content/services"
 import { fridgeTypes } from "@/lib/content/types"
+import { extraFridgeTypes } from "@/lib/content/types-extra"
 import { moreFridgeTypes } from "@/lib/content/types-more"
 import { problemAdditions, serviceAdditions, typeAdditions } from "@/lib/content/page-additions"
 import { sisterNotes } from "@/lib/sister-sites"
@@ -34,6 +36,8 @@ const moreAdviceSlugs = new Set(moreAdvicePages.map((a) => a.slug))
 const extraAdviceSlugs = new Set(extraAdvicePages.map((a) => a.slug))
 const extraProblemSlugs = new Set(extraProblems.map((p) => p.slug))
 const moreTypeSlugs = new Set(moreFridgeTypes.map((t) => t.slug))
+const extraTypeSlugs = new Set(extraFridgeTypes.map((t) => t.slug))
+const gasAdviceSlugs = new Set(gasAdvicePages.map((a) => a.slug))
 const areaTemplates = ["lib/content/areas/index.ts", "lib/content/areas/seeds.ts", "app/areas/[slug]/page.tsx"]
 
 function pageFile(path: string) {
@@ -56,13 +60,22 @@ export function allRoutes(): RouteEntry[] {
       changeFrequency: "monthly",
       sources: [...pageFile("/commercial-fridge-repairs"), "lib/content/types.ts", "lib/content/types-more.ts", "lib/content/industries.ts"],
     },
-    { path: "/refrigerator-repairs", priority: 0.8, changeFrequency: "monthly", sources: [...pageFile("/refrigerator-repairs"), "lib/content/types.ts", "lib/content/types-more.ts"] },
+    {
+      path: "/refrigerator-repairs",
+      priority: 0.8,
+      changeFrequency: "monthly",
+      sources: [...pageFile("/refrigerator-repairs"), "lib/content/types.ts", "lib/content/types-more.ts", "lib/content/types-extra.ts"],
+    },
     ...fridgeTypes.map((t) => ({
       path: `/${t.slug}`,
       priority: 0.7,
       changeFrequency: "monthly" as const,
       // buildFridgeTypePage in types.ts lays out every type page, including the newer ones.
-      sources: moreTypeSlugs.has(t.slug) ? ["lib/content/types-more.ts", "lib/content/types.ts"] : ["lib/content/types.ts"],
+      sources: moreTypeSlugs.has(t.slug)
+        ? ["lib/content/types-more.ts", "lib/content/types.ts"]
+        : extraTypeSlugs.has(t.slug)
+          ? ["lib/content/types-extra.ts", "lib/content/types.ts"]
+          : ["lib/content/types.ts"],
     })),
     ...industries.map((i) => ({
       path: industryPath(i),
@@ -105,7 +118,9 @@ export function allRoutes(): RouteEntry[] {
           ? "lib/content/advice-more.ts"
           : extraAdviceSlugs.has(a.slug)
             ? "lib/content/advice-extra.ts"
-            : "lib/content/advice.ts",
+            : gasAdviceSlugs.has(a.slug)
+              ? "lib/content/advice-gas.ts"
+              : "lib/content/advice.ts",
       ],
     })),
     { path: "/about", priority: 0.6, changeFrequency: "yearly", sources: pageFile("/about") },

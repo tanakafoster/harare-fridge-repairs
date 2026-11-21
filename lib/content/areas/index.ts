@@ -738,7 +738,7 @@ export function buildRegionPage(region: RegionRecord): ContentPage {
       {
         kind: "chips",
         heading: "Brands we repair",
-        items: [...chosenBrands.map(brandLink), { href: "/brands", label: "All 24 brands" }],
+        items: [...chosenBrands.map(brandLink), { href: "/brands", label: `All ${brands.length} brands` }],
       },
       {
         kind: "chips",

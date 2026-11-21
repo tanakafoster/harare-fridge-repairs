@@ -242,6 +242,7 @@ const coreServices: ServiceRecord[] = [
           { href: "/display-freezer-repairs", label: "Display freezers" },
           { href: "/fridge-regassing-cost-harare", label: "Regassing cost guide" },
           { href: "/does-my-fridge-need-regassing", label: "Does my fridge need regassing?" },
+          { href: "/which-gas-does-my-fridge-use", label: "Which gas does my fridge use?" },
         ],
       },
     ],
@@ -473,6 +474,7 @@ const coreServices: ServiceRecord[] = [
         heading: "Related pages",
         items: [
           { href: "/problems/fridge-compressor-problems", label: "Compressor problems explained" },
+          { href: "/fridge-start-relay-replacement", label: "Start relay and overload replacement" },
           { href: "/problems/fridge-not-switching-on", label: "Fridge not switching on" },
           { href: "/problems/fridge-making-noise", label: "Fridge making noise" },
           { href: "/fridge-regassing", label: "Fridge regassing" },

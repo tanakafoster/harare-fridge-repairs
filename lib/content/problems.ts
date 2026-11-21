@@ -555,6 +555,7 @@ const coreProblems: ProblemRecord[] = [
       { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
       { href: "/fridge-door-seal-replacement", label: "Door seal replacement" },
       { href: "/how-to-defrost-a-freezer", label: "How to defrost a freezer" },
+      { href: "/manual-defrost-fridge-repairs", label: "Manual defrost fridge repairs" },
     ],
     picture: "freezerIce",
     pictureAlt: "Technician checking a freezer door seal that is causing ice build up",
@@ -624,6 +625,7 @@ const coreProblems: ProblemRecord[] = [
     related: ["fridge-not-switching-on", "fridge-making-noise", "fridge-not-cooling", "fridge-running-constantly", "fridge-clicking-on-and-off", "fridge-tripping-power"],
     services: [
       { href: "/compressor-replacement", label: "Compressor replacement" },
+      { href: "/fridge-start-relay-replacement", label: "Start relay and overload replacement" },
       { href: "/fridge-repairs", label: "Fridge repairs" },
       { href: "/fridge-regassing", label: "Fridge regassing" },
       { href: "/fridge-repair-or-replace", label: "Repair or replace?" },

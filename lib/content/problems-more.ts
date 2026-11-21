@@ -228,6 +228,7 @@ export const moreProblems: ProblemRecord[] = [
     ],
     related: ["fridge-compressor-problems", "fridge-not-switching-on", "fridge-making-noise", "fridge-not-cooling", "fridge-guard-red-light"],
     services: [
+      { href: "/fridge-start-relay-replacement", label: "Start relay and overload replacement" },
       { href: "/compressor-replacement", label: "Compressor replacement" },
       { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },
       { href: "/protect-fridge-from-power-cuts", label: "Protecting your fridge from power cuts" },
@@ -461,6 +462,7 @@ export const moreProblems: ProblemRecord[] = [
     ],
     related: ["fridge-leaking-water", "ice-build-up", "fridge-warm-freezer-cold", "fridge-freezing-food"],
     services: [
+      { href: "/water-dispenser-fridge-repairs", label: "Water dispenser and ice maker fridge repairs" },
       { href: "/side-by-side-fridge-repairs", label: "Side by side fridge repairs" },
       { href: "/french-door-fridge-repairs", label: "French door fridge repairs" },
       { href: "/samsung-fridge-repairs", label: "Samsung fridge repairs" },

@@ -73,7 +73,7 @@ export const brands: BrandRecord[] = [
           "Samsung codes point to a specific sensor, fan, defrost or communication fault. Send the code and model number on WhatsApp and we will tell you what it indicates before the visit.",
       },
     ],
-    types: ["side-by-side-fridge-repairs", "french-door-fridge-repairs", "combi-fridge-repairs", "double-door-fridge-repairs"],
+    types: ["side-by-side-fridge-repairs", "french-door-fridge-repairs", "combi-fridge-repairs", "double-door-fridge-repairs", "multi-door-fridge-repairs", "water-dispenser-fridge-repairs"],
   },
 
   {
@@ -130,7 +130,7 @@ export const brands: BrandRecord[] = [
           "Yes. The ice maker module, the water valve, the fill tube and the dispenser door are all repairable on site.",
       },
     ],
-    types: ["side-by-side-fridge-repairs", "french-door-fridge-repairs", "combi-fridge-repairs", "double-door-fridge-repairs"],
+    types: ["side-by-side-fridge-repairs", "french-door-fridge-repairs", "combi-fridge-repairs", "double-door-fridge-repairs", "water-dispenser-fridge-repairs"],
   },
 
   {
@@ -187,7 +187,7 @@ export const brands: BrandRecord[] = [
           "Yes, every week. Thermostats, relays, lid gaskets, compressors and regassing on Defy chest freezers are all done on site.",
       },
     ],
-    types: ["double-door-fridge-repairs", "chest-freezer-repairs", "combi-fridge-repairs", "side-by-side-fridge-repairs"],
+    types: ["double-door-fridge-repairs", "chest-freezer-repairs", "combi-fridge-repairs", "side-by-side-fridge-repairs", "manual-defrost-fridge-repairs"],
   },
 
   {
@@ -244,7 +244,7 @@ export const brands: BrandRecord[] = [
           "Yes. Thermostats, relays, lid gaskets, compressors and regassing on Hisense chest freezers are all done on site in Harare.",
       },
     ],
-    types: ["double-door-fridge-repairs", "combi-fridge-repairs", "chest-freezer-repairs", "side-by-side-fridge-repairs"],
+    types: ["double-door-fridge-repairs", "combi-fridge-repairs", "chest-freezer-repairs", "side-by-side-fridge-repairs", "multi-door-fridge-repairs"],
   },
 
   {
@@ -301,7 +301,7 @@ export const brands: BrandRecord[] = [
           "Yes, after finding and repairing the leak. A KIC that is simply topped up will be warm again within weeks.",
       },
     ],
-    types: ["chest-freezer-repairs", "double-door-fridge-repairs", "single-door-fridge-repairs", "upright-freezer-repairs"],
+    types: ["chest-freezer-repairs", "double-door-fridge-repairs", "single-door-fridge-repairs", "upright-freezer-repairs", "manual-defrost-fridge-repairs"],
   },
 
   {
@@ -1375,6 +1375,118 @@ export const brands: BrandRecord[] = [
     ],
     types: ["double-door-fridge-repairs", "single-door-fridge-repairs", "chest-freezer-repairs", "bar-fridge-repairs"],
   },
+
+  {
+    slug: "fisher-paykel-fridge-repairs",
+    name: "Fisher & Paykel",
+    tier: "premium",
+    origin: "New Zealand",
+    cardText: "ActiveSmart fridges, integrated column fridges and CoolDrawer models, repaired with care.",
+    title: "Fisher & Paykel Fridge Repairs Harare | ActiveSmart & Integrated",
+    description:
+      "Fisher & Paykel fridge repairs in Harare for ActiveSmart, French door, integrated column and ice and water models. Sensor, fan, board and ice faults fixed at home.",
+    lead:
+      "Fisher & Paykel fridges are less common in Harare than Samsung or Defy, so when one breaks down it can be hard to find someone who has opened one before. Harare Fridge Repairs repairs Fisher & Paykel ActiveSmart, French door and integrated fridges at your home, with the patience and care a premium fridge deserves.",
+    intro: [
+      "Many Fisher & Paykel fridges we see in Harare were bought abroad or imported privately, and some are integrated into custom kitchens. Most are ActiveSmart models, which use a variable speed compressor and several sensors so the fridge learns how it is used and adjusts its cooling, with a fan and no frost evaporator in the freezer. Larger models add ice and water, and the integrated column range sits fully behind cabinet doors.",
+      "Because the electronics run the whole fridge, the faults we meet are mostly electronic or airflow related: a sensor that reads wrongly, a fan that has stopped, a defrost heater that has failed so ice builds behind the freezer panel, or a control board or compressor driver damaged by a power surge. The compressors themselves are reliable and are condemned only after proper tests.",
+      "Imported fridges raise one practical question: parts. We check the model and serial number before we order, tell you honestly how long a part will take, and keep the fridge running on a temporary repair where that is safe.",
+    ],
+    models: [
+      "ActiveSmart bottom freezer and top freezer fridges",
+      "French door fridges, with and without ice and water",
+      "Integrated column fridges and freezers",
+      "CoolDrawer and under counter drawer fridges",
+    ],
+    faults: [
+      "Fridge running warm while the display shows the set temperature",
+      "Ice on the back panel of the freezer, fridge slowly warming",
+      "Door alarm beeping although the door is closed",
+      "Ice maker not filling or water dispenser not working",
+      "Fan noise from behind the freezer panel",
+      "Display blank or flashing after a power cut",
+      "Integrated door not closing flush with the cabinet",
+      "Water under the crisper bins",
+    ],
+    notes: [
+      "We use the fridge's diagnostic mode where the model allows it, read the sensors against their resistance tables, and run each fan and heater before we name the faulty part. Sensors, fans, defrost heaters, door switches, ice maker parts and control boards are replaced on site, and integrated models are slid out and refitted with the doors realigned.",
+      "Most current Fisher & Paykel fridges use R600a, and the charge weight on the rating plate is followed exactly if a sealed system repair is needed.",
+    ],
+    faqs: [
+      {
+        question: "Can you get parts for a Fisher & Paykel fridge in Harare?",
+        answer:
+          "Common parts such as fans, sensors and heaters can be sourced, and some need to be ordered. Send us the model and serial number from the rating plate and we will confirm before the visit.",
+      },
+      {
+        question: "Why does my Fisher & Paykel door alarm keep going off?",
+        answer:
+          "Usually the door is not quite closing because of a full shelf, a dropped hinge or a worn seal, or the door switch has failed. We check the door first, then the switch and the board.",
+      },
+      {
+        question: "Do you repair integrated Fisher & Paykel fridges?",
+        answer:
+          "Yes. We remove the fridge from its housing where needed, repair it, and refit it so the cabinet doors line up again.",
+      },
+    ],
+    types: ["combi-fridge-repairs", "french-door-fridge-repairs", "built-in-fridge-repairs", "water-dispenser-fridge-repairs"],
+  },
+
+  {
+    slug: "liebherr-fridge-repairs",
+    name: "Liebherr",
+    tier: "premium",
+    origin: "Germany",
+    cardText: "BioFresh, NoFrost and SmartFrost fridges and freezers, built in or freestanding.",
+    title: "Liebherr Fridge Repairs Harare | BioFresh, NoFrost & Built In",
+    description:
+      "Liebherr fridge repairs in Harare for BioFresh, NoFrost, SmartFrost, built in and wine models. Sensor, fan, defrost, board and seal faults repaired at your home.",
+    lead:
+      "Liebherr makes fridges and freezers built for a long working life, from built in BioFresh combis in new kitchens to freestanding freezers and wine cabinets. Harare Fridge Repairs repairs Liebherr fridges at your home in Harare, tests before it replaces, and tells you plainly when a part has to be ordered.",
+    intro: [
+      "The Liebherr fridges we attend in Harare are mostly combis and built in fridges with BioFresh drawers, which hold fresh food just above freezing in a separately controlled zone, together with NoFrost freezers that defrost themselves and SmartFrost freezers that only frost slowly and still need an occasional manual defrost. Liebherr also builds wine cabinets and some commercial drinks fridges and freezers.",
+      "Their faults follow the design. A BioFresh drawer that freezes vegetables or runs too warm points to its sensor, damper or heater. A NoFrost freezer with ice behind the panel has a defrost or fan fault. A SmartFrost freezer with thick ice is often just due a defrost, unless the door seal has hardened. Electronic controls and power supplies are the parts most at risk from Harare's power surges.",
+      "We confirm each fault with readings before replacing anything, because Liebherr parts are usually ordered in and it matters that the right one comes the first time.",
+    ],
+    models: [
+      "Combi fridge-freezers with BioFresh and NoFrost",
+      "Built in and integrated fridges and freezers",
+      "Freestanding upright freezers, NoFrost and SmartFrost",
+      "Wine cabinets and drinks fridges",
+    ],
+    faults: [
+      "BioFresh drawer too cold or too warm",
+      "Freezer icing up behind the panel or around the drawers",
+      "Temperature alarm or error showing on the display",
+      "One zone warm on a model with two cooling circuits",
+      "Controls dead after a power cut or storm",
+      "Built in door dropped or not sealing",
+      "Water collecting inside the fridge compartment",
+      "Compressor running non-stop on hot days",
+    ],
+    notes: [
+      "Liebherr sensors, fans, defrost heaters, dampers, door seals and control electronics are tested and replaced on site, and built in units are removed from their housings and refitted correctly. On models with two separate cooling circuits, each circuit is checked on its own so a healthy one is not disturbed.",
+      "If a sealed system repair is needed, we recharge with the refrigerant and weight on the rating plate. Where a part has to be ordered, we tell you the lead time honestly and keep the fridge usable in the meantime where we can.",
+    ],
+    faqs: [
+      {
+        question: "Why is my Liebherr BioFresh drawer freezing my vegetables?",
+        answer:
+          "The BioFresh zone is controlled separately from the rest of the fridge. If its sensor, damper or control has failed, it can run below zero. The setting is the first thing to check; after that it is a repair we do on site.",
+      },
+      {
+        question: "My Liebherr freezer is SmartFrost. Should it have ice?",
+        answer:
+          "SmartFrost freezers build frost slowly and still need defrosting now and then, much less often than a normal freezer. Thick ice within weeks of a defrost points to a door seal or door alignment fault.",
+      },
+      {
+        question: "Is it worth repairing a Liebherr fridge?",
+        answer:
+          "Usually, yes. They are built for a long life, and a sensor, fan, seal or board costs far less than a replacement of the same quality.",
+      },
+    ],
+    types: ["combi-fridge-repairs", "built-in-fridge-repairs", "upright-freezer-repairs", "wine-cooler-repairs"],
+  },
 ]
 
 export function getBrand(slug: string) {
@@ -1399,6 +1511,12 @@ const typeLabels: Record<string, string> = {
   "upright-freezer-repairs": "Upright freezers",
   "under-counter-fridge-repairs": "Under counter fridges",
   "display-freezer-repairs": "Display freezers",
+  "built-in-fridge-repairs": "Built-in fridges",
+  "frost-free-fridge-repairs": "Frost free fridges",
+  "inverter-fridge-repairs": "Inverter fridges",
+  "water-dispenser-fridge-repairs": "Water dispenser and ice maker fridges",
+  "manual-defrost-fridge-repairs": "Manual defrost fridges",
+  "multi-door-fridge-repairs": "Four door fridges",
 }
 
 const processVariants = [
@@ -1465,7 +1583,7 @@ export function buildBrandPage(brand: BrandRecord): ContentPage {
     {
       kind: "chips",
       heading: "Other brands we repair in Harare",
-      items: [...otherBrands, { href: "/brands", label: "All 24 brands" }],
+      items: [...otherBrands, { href: "/brands", label: `All ${brands.length} brands` }],
     },
   ]
 
