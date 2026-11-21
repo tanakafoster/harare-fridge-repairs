@@ -70,7 +70,7 @@ export const moreFridgeTypes: FridgeTypeRecord[] = [
           "The defrost drain is blocked or frozen, so melt water overflows into the fridge instead of running to the tray at the back. We clear the drain and check why it froze, often a heater clip or a drain heater that has failed.",
       },
     ],
-    related: ["combi-fridge-repairs", "double-door-fridge-repairs", "side-by-side-fridge-repairs", "inverter-fridge-repairs"],
+    related: ["combi-fridge-repairs", "double-door-fridge-repairs", "side-by-side-fridge-repairs", "inverter-fridge-repairs", "manual-defrost-fridge-repairs"],
     picture: "freezerIce",
     pictureAlt: "Ice built up on the evaporator panel of a frost free freezer before repair",
   },

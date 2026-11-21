@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { ContentPageView } from "@/components/content-page"
 import { areas, regionLink, regions } from "@/lib/content/areas"
+import { brands } from "@/lib/content/brands"
 import type { ContentPage } from "@/lib/content/model"
 import { serviceLinks } from "@/lib/content/services"
 import { pageMetadata } from "@/lib/seo"
@@ -55,7 +56,7 @@ const page: ContentPage = {
         "Beverage chillers, underbar and under-counter fridges",
         "Display fridges and freezers, multidecks and butchery cabinets",
         "Ice machines and small cold rooms",
-        `All ${24} brands sold in Zimbabwe`,
+        `All ${brands.length} brands sold in Zimbabwe`,
       ],
       columns: 2,
     },

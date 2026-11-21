@@ -627,4 +627,118 @@ export const repairServices: ServiceRecord[] = [
       serviceType: "Refrigerator maintenance",
     },
   },
+
+  {
+    slug: "fridge-start-relay-replacement",
+    shortName: "Start relay and overload replacement",
+    cardText: "Compressor start relays, overload protectors and capacitors tested and replaced, the usual fix for a humming, clicking fridge.",
+    path: "/fridge-start-relay-replacement",
+    title: "Fridge Start Relay & Overload Replacement Harare | Hum and Click",
+    description:
+      "Fridge start relay, overload and capacitor replacement in Harare. Humming, clicking, not cooling after a power cut? Tested and fixed at your home, 24/7.",
+    eyebrow: "Start relay replacement in Harare",
+    h1: "Fridge Start Relay and Overload Replacement in Harare",
+    lead:
+      "When a fridge hums, clicks and then goes quiet every few minutes without cooling, the compressor is trying to start and failing. The cause is often not the compressor at all but the small parts clipped to its side: the start relay, the overload protector and, on some models, a capacitor. Harare Fridge Repairs tests them at your address and replaces the one that has failed, usually in a single visit.",
+    points: [
+      "PTC and current relays, overloads and start capacitors",
+      "Tested with a meter before anything is replaced",
+      "Compressor windings checked at the same time",
+      "Fixed speed household fridges and freezers, and most commercial units",
+    ],
+    picture: "compressorTest",
+    pictureAlt: "Technician testing the start relay on a fridge compressor with a meter",
+    crumbs: [{ name: "Start relay and overload replacement", path: "/fridge-start-relay-replacement" }],
+    whatsappMessage: "Hi Harare Fridge Repairs, my fridge hums and clicks but does not cool. My suburb is: ___ and the fridge is: ___",
+    sections: [
+      {
+        kind: "text",
+        heading: "What the start relay and overload do",
+        paragraphs: [
+          "A standard fixed speed fridge compressor has two windings: a run winding that keeps it turning and a start winding that helps it get going. The start relay switches the start winding in for the first second or two, then out again once the motor is up to speed. The overload protector sits beside it and cuts the power if the compressor draws too much current or gets too hot, then resets itself when it cools. Some add a start capacitor for a stronger start, or a run capacitor that keeps the start winding working while the motor runs. Inverter fridges have no start relay: an electronic board starts the compressor, and those faults are covered on our inverter fridge page.",
+          "These are the parts that take the strain every time the compressor starts, and in Harare many of those starts are much harder than the designers planned for. Each time power returns after load shedding, the compressor may try to start at low voltage or against pressure that has not had time to settle. The relay and overload get hot, contacts wear, and the ceramic element inside a PTC relay can crack. When they fail, the compressor cannot start, and the overload clicks it off again and again.",
+        ],
+      },
+      {
+        kind: "list",
+        heading: "Signs of a failed start relay or overload",
+        items: [
+          "A hum from the back, then a loud click, every few minutes",
+          "The light and display work but the fridge never gets cold",
+          "On a PTC starter, a rattle when our technician takes it off and shakes it, a sign that the ceramic disc inside has cracked",
+          "The compressor is hot to the touch but not running",
+          "The fridge stopped cooling straight after a power cut or a storm",
+          "A burnt smell or blackened plastic at the compressor terminals",
+        ],
+      },
+      {
+        kind: "feature",
+        eyebrow: "Test, then replace",
+        heading: "Why we never condemn a compressor on the click alone",
+        paragraphs: [
+          "A humming and clicking fridge is one of the most often misdiagnosed faults we see. It is easy to assume the compressor has died, and some people are told to buy a new fridge. In our experience a large share of these fridges only need a relay, an overload or a capacitor, which are among the least expensive parts on the fridge.",
+          "So our technician measures before replacing: the supply voltage at the socket while the compressor tries to start, the relay and overload, the capacitor if there is one, and the resistance and insulation of the compressor windings. If the windings are sound, a matched relay and overload are fitted and the start is checked with a clamp meter. If the windings have failed, we explain the options on our compressor replacement page before you spend anything.",
+        ],
+        picture: "compressor",
+        pictureAlt: "Start relay and overload protector on the side of a fridge compressor",
+        reverse: true,
+      },
+      {
+        kind: "steps",
+        heading: "Keeping the new relay alive",
+        intro: "A replacement relay faces the same Harare power supply as the old one. These habits help it last.",
+        items: [
+          { title: "Use a voltage protector", text: "A plug-in voltage protector with a start delay holds the fridge off until the supply is steady after a power cut." },
+          { title: "Wait before switching back on", text: "If you switch the fridge off during an outage, give it a few minutes after power returns so the pressures in the system can settle." },
+          { title: "Clean the condenser", text: "A dusty condenser makes the compressor run hot, which trips the overload and wears the relay. Brush it clean twice a year." },
+          { title: "Avoid long extension leads", text: "Thin, long leads drop the voltage just when the compressor needs it most. Plug the fridge straight into a wall socket." },
+        ],
+      },
+      {
+        kind: "chips",
+        heading: "Related guides",
+        items: [
+          { href: "/problems/fridge-clicking-on-and-off", label: "Fridge clicking on and off" },
+          { href: "/problems/fridge-compressor-problems", label: "Compressor problems" },
+          { href: "/problems/fridge-not-cooling", label: "Fridge not cooling" },
+          { href: "/problems/fridge-guard-red-light", label: "Fridge guard red light" },
+          { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },
+          { href: "/protect-fridge-from-power-cuts", label: "Protecting your fridge from power cuts" },
+          { href: "/inverter-fridge-repairs", label: "Inverter fridge repairs" },
+        ],
+      },
+      { kind: "cards", heading: "Other fridge services in Harare", items: coreServiceCards, columns: 4 },
+    ],
+    faqs: [
+      {
+        question: "How do I know if it is the relay or the compressor?",
+        answer:
+          "From the outside they can look the same: a hum, a click and no cooling. The only reliable way is to test the relay, the overload and the compressor windings with a meter. That is the first thing our technician does.",
+      },
+      {
+        question: "Can I replace a fridge start relay myself?",
+        answer:
+          "It is a small part, but it sits on live terminals next to a hot compressor, and fitting the wrong type can damage the motor. A relay must match the compressor model. We recommend leaving it to a technician who can also test the windings.",
+      },
+      {
+        question: "Why did my relay fail again after a few months?",
+        answer:
+          "Something is making the compressor start hard: low voltage, frequent power cuts with instant restarts, a dirty condenser or a compressor that is starting to weaken. We look for the cause, not only the failed part.",
+      },
+      {
+        question: "Do you replace relays on chest freezers and commercial fridges?",
+        answer:
+          "Yes. Chest freezers, upright freezers, bar fridges, beverage chillers and most commercial cabinets use the same kind of start parts, and we carry the common types on the vehicle.",
+      },
+    ],
+    cta: {
+      title: "Fridge humming and clicking but not cooling?",
+      text: "Call 0782 886 252 or WhatsApp the brand and what you hear. We test and replace start relays across Harare, 24 hours a day.",
+    },
+    schema: {
+      serviceName: "Fridge start relay and overload replacement in Harare",
+      serviceDescription: "Testing and replacement of fridge and freezer compressor start relays, overload protectors and capacitors at your address in Harare, Zimbabwe.",
+      serviceType: "Refrigerator compressor start component replacement",
+    },
+  },
 ]

@@ -1,4 +1,5 @@
 import { extraAdvicePages } from "./advice-extra"
+import { gasAdvicePages } from "./advice-gas"
 import { moreAdvicePages } from "./advice-more"
 import type { ContentPage } from "./model"
 
@@ -79,6 +80,7 @@ const coreAdvicePages: AdviceRecord[] = [
         heading: "Read next",
         items: [
           { href: "/does-my-fridge-need-regassing", label: "Does my fridge need regassing?" },
+          { href: "/which-gas-does-my-fridge-use", label: "Which gas does my fridge use?" },
           { href: "/fridge-regassing", label: "Our regassing service" },
           { href: "/fridge-repair-or-replace", label: "Repair or replace?" },
           { href: "/problems/fridge-not-cooling", label: "Fridge not cooling" },
@@ -196,6 +198,7 @@ const coreAdvicePages: AdviceRecord[] = [
         items: [
           { href: "/fridge-regassing", label: "Our regassing service" },
           { href: "/fridge-regassing-cost-harare", label: "Regassing cost in Harare" },
+          { href: "/which-gas-does-my-fridge-use", label: "Which gas does my fridge use?" },
           { href: "/problems/fridge-not-cooling", label: "Fridge not cooling" },
           { href: "/problems/ice-build-up", label: "Ice build up" },
           { href: "/problems/fridge-compressor-problems", label: "Compressor problems" },
@@ -346,7 +349,7 @@ const coreAdvicePages: AdviceRecord[] = [
   },
 ]
 
-export const advicePages: AdviceRecord[] = [...coreAdvicePages, ...moreAdvicePages, ...extraAdvicePages]
+export const advicePages: AdviceRecord[] = [...coreAdvicePages, ...moreAdvicePages, ...extraAdvicePages, ...gasAdvicePages]
 
 export function getAdvice(slug: string) {
   return advicePages.find((page) => page.slug === slug)

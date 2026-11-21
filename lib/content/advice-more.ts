@@ -81,6 +81,7 @@ export const moreAdvicePages: AdviceRecord[] = [
         heading: "Read next",
         items: [
           { href: "/fridge-power-surge-repairs", label: "Power surge damage repairs" },
+          { href: "/fridge-start-relay-replacement", label: "Start relay and overload replacement" },
           { href: "/problems/fridge-clicking-on-and-off", label: "Fridge clicking on and off" },
           { href: "/problems/fridge-not-switching-on", label: "Fridge not switching on" },
           { href: "/fridge-control-board-repairs", label: "Control board repairs" },
@@ -195,6 +196,7 @@ export const moreAdvicePages: AdviceRecord[] = [
           { href: "/problems/ice-build-up", label: "Ice build up" },
           { href: "/fridge-defrost-repairs", label: "Defrost system repairs" },
           { href: "/fridge-door-seal-replacement", label: "Door seal replacement" },
+          { href: "/manual-defrost-fridge-repairs", label: "Manual defrost fridge repairs" },
           { href: "/chest-freezer-repairs", label: "Chest freezer repairs" },
           { href: "/upright-freezer-repairs", label: "Upright freezer repairs" },
           { href: "/problems/freezer-not-freezing", label: "Freezer not freezing" },
